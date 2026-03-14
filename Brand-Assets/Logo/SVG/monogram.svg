@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <style>
+      .shield { fill: #2E7D32; }
+      .shield-inner { fill: #FFFFFF; }
+    </style>
+  </defs>
+  <!-- Outer shield -->
+  <path class="shield" d="M60,6 L110,24 L110,66 C110,94 88,114 60,122 C32,114 10,94 10,66 L10,24 Z"/>
+  <!-- Inner shield cutout -->
+  <path class="shield-inner" d="M60,18 L100,33 L100,64 C100,86 82,102 60,109 C38,102 20,86 20,64 L20,33 Z"/>
+  <!-- S letterform -->
+  <text x="60" y="82" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="56" fill="#2E7D32">S</text>
+</svg>

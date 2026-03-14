@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+  <defs>
+    <style>
+      .shield { fill: #FFFFFF; }
+      .shield-inner { fill: none; stroke: #FFFFFF; stroke-width: 0; }
+      .senn-text { font-family: 'Inter', Arial, sans-serif; font-weight: 800; font-size: 52px; fill: #FFFFFF; letter-spacing: 2px; }
+      .parents-text { font-family: 'Inter', Arial, sans-serif; font-weight: 600; font-size: 52px; fill: #D4A017; letter-spacing: 2px; }
+    </style>
+  </defs>
+  <g transform="translate(10, 8)">
+    <path class="shield" d="M52,4 L98,20 L98,58 C98,82 78,100 52,108 C26,100 6,82 6,58 L6,20 Z"/>
+    <path fill="#1B5E20" d="M52,14 L88,27 L88,56 C88,75 72,90 52,97 C32,90 16,75 16,56 L16,27 Z"/>
+    <text x="52" y="72" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="48" fill="#FFFFFF">S</text>
+  </g>
+  <text x="120" y="62" class="senn-text">SENN</text>
+  <text x="262" y="62" class="parents-text">PARENTS</text>
+  <rect x="120" y="74" width="270" height="3" rx="1.5" fill="#D4A017"/>
+  <text x="120" y="98" font-family="Inter, Arial, sans-serif" font-weight="500" font-size="14" fill="rgba(255,255,255,0.7)" letter-spacing="1px">PARENT ADVISORY COUNCIL</text>
+</svg>

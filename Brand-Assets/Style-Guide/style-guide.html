@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENN PARENTS — Brand Style Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --senn-green: #1B5E20;
+            --green-mid: #2E7D32;
+            --pac-gold: #D4A017;
+            --gold-light: #FDF3D7;
+            --black: #1A1A1A;
+            --gray-600: #4B5563;
+            --gray-100: #F3F4F6;
+            --off-white: #F5F7F5;
+            --white: #FFFFFF;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; color: var(--black); background: var(--white); line-height: 1.6; }
+
+        /* Cover */
+        .cover {
+            background: var(--senn-green);
+            color: var(--white);
+            padding: 5rem 2rem;
+            text-align: center;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .cover img { max-width: 400px; width: 85%; margin-bottom: 2.5rem; border-radius: 8px; }
+        .cover h1 { font-size: 1rem; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; opacity: 0.7; }
+        .cover .version { font-size: 0.8rem; opacity: 0.4; margin-top: 1rem; }
+
+        /* Nav */
+        .toc {
+            position: sticky; top: 0; background: var(--white);
+            border-bottom: 1px solid var(--gray-100);
+            padding: 0.75rem 2rem; z-index: 100;
+            overflow-x: auto; white-space: nowrap;
+        }
+        .toc a { color: var(--gray-600); text-decoration: none; font-size: 0.8rem; font-weight: 500; margin-right: 1.5rem; }
+        .toc a:hover { color: var(--senn-green); }
+
+        /* Sections */
+        section { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; border-bottom: 1px solid var(--gray-100); }
+        section:last-child { border-bottom: none; }
+        .section-number { font-size: 0.7rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--pac-gold); margin-bottom: 0.5rem; }
+        section h2 { font-size: 1.75rem; font-weight: 800; color: var(--senn-green); margin-bottom: 1.5rem; }
+        section h3 { font-size: 1.1rem; font-weight: 700; color: var(--black); margin-top: 2rem; margin-bottom: 0.75rem; }
+        section p { color: var(--gray-600); max-width: 640px; margin-bottom: 1rem; }
+
+        /* Cards */
+        .card { background: var(--off-white); border-radius: 12px; padding: 2rem; margin-bottom: 1rem; }
+        .card.dark { background: var(--black); }
+        .card.green { background: var(--senn-green); }
+        .card-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-600); margin-bottom: 1rem; }
+        .card.dark .card-label, .card.green .card-label { color: rgba(255,255,255,0.4); }
+
+        /* Grid */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+        @media (max-width: 768px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+        /* Logo display */
+        .logo-display { display: flex; align-items: center; justify-content: center; padding: 1.5rem; }
+        .logo-display img { max-width: 100%; border-radius: 4px; }
+
+        /* Swatches */
+        .swatches { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .swatch { flex: 1; min-width: 130px; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.08); background: var(--white); }
+        .swatch-color { height: 90px; }
+        .swatch-info { padding: 0.75rem; }
+        .swatch-name { font-size: 0.8rem; font-weight: 700; margin-bottom: 0.15rem; }
+        .swatch-role { font-size: 0.7rem; color: var(--gray-600); margin-bottom: 0.25rem; }
+        .swatch-hex { font-size: 0.75rem; font-family: monospace; color: var(--gray-600); }
+
+        /* Type */
+        .type-specimen { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--gray-100); }
+        .type-specimen:last-child { border-bottom: none; }
+        .type-meta { font-size: 0.7rem; color: var(--gray-600); font-family: monospace; margin-top: 0.25rem; }
+
+        /* Usage */
+        .usage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem; }
+        .do-box, .dont-box { border-radius: 10px; padding: 1.25rem; }
+        .do-box { background: #E8F5E9; border: 2px solid var(--green-mid); }
+        .dont-box { background: #FFEBEE; border: 2px solid #C62828; }
+        .do-box h4 { color: var(--green-mid); margin-bottom: 0.5rem; }
+        .dont-box h4 { color: #C62828; margin-bottom: 0.5rem; }
+        .do-box li, .dont-box li { font-size: 0.85rem; color: var(--gray-600); margin-bottom: 0.35rem; list-style: none; padding-left: 1.25rem; position: relative; }
+        .do-box li::before { content: '+'; position: absolute; left: 0; color: var(--green-mid); font-weight: 700; }
+        .dont-box li::before { content: '\00D7'; position: absolute; left: 0; color: #C62828; font-weight: 700; }
+
+        /* Voice */
+        .voice-yes { background: var(--gold-light); border-left: 4px solid var(--pac-gold); padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-bottom: 0.75rem; font-size: 0.95rem; color: var(--black); }
+        .voice-no { background: #FFEBEE; border-left: 4px solid #C62828; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-bottom: 0.75rem; font-size: 0.95rem; color: var(--gray-600); }
+
+        /* Footer */
+        .guide-footer { background: var(--senn-green); color: rgba(255,255,255,0.6); text-align: center; padding: 3rem 2rem; font-size: 0.8rem; }
+        .guide-footer strong { color: var(--white); display: block; margin-bottom: 0.25rem; }
+
+        @media (max-width: 600px) {
+            .usage-grid { grid-template-columns: 1fr; }
+            .cover img { max-width: 280px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+    <img src="../Logo/senn-parents-final.jpg" alt="Senn Parents Logo" style="background: white; padding: 1.5rem; border-radius: 12px;">
+    <h1>Brand Style Guide</h1>
+    <div class="version">v1.0 / March 2026</div>
+</div>
+
+<!-- TOC -->
+<nav class="toc">
+    <a href="#overview">Overview</a>
+    <a href="#logo">Logo</a>
+    <a href="#colors">Colors</a>
+    <a href="#typography">Typography</a>
+    <a href="#voice">Voice</a>
+    <a href="#usage">Usage</a>
+    <a href="#applications">Applications</a>
+</nav>
+
+<!-- 01 OVERVIEW -->
+<section id="overview">
+    <div class="section-number">01</div>
+    <h2>Brand Overview</h2>
+    <p><strong>Brand Essence:</strong> Parent voice.</p>
+    <p><strong>What we are:</strong> The Parent Advisory Council at Nicholas Senn High School. A parent-led body that advises on how Title I family engagement funds are spent, co-develops school policy, and connects families with resources.</p>
+    <p><strong>Tagline:</strong> Parent-led. For our kids.</p>
+    <p><strong>Personality:</strong> Organized warmth. Institutional enough to be taken seriously. Warm enough to feel like community. We sound like parents talking to parents, not administrators issuing memos.</p>
+    <h3>The Brand Relationship</h3>
+    <p>Senn Parents uses the same italic collegiate lettering as Senn High School athletics. The S with the V-notch is unmistakably Senn. The warm gold "PARENTS" is what makes it ours. We belong to the school community. Parents lead here.</p>
+</section>
+
+<!-- 02 LOGO -->
+<section id="logo">
+    <div class="section-number">02</div>
+    <h2>Logo System</h2>
+    <p>The primary mark uses the Senn athletic italic lettering. SENN in dark green. PARENTS in warm gold. "Parent Advisory Council" as a clean subline.</p>
+
+    <h3>Primary Mark</h3>
+    <div class="grid-3">
+        <div class="card">
+            <div class="card-label">On white</div>
+            <div class="logo-display">
+                <img src="../Logo/senn-parents-final.jpg" alt="Logo on white" style="max-width: 260px;">
+            </div>
+        </div>
+        <div class="card dark">
+            <div class="card-label">On black</div>
+            <div class="logo-display">
+                <img src="../Logo/senn-parents-on-black.jpg" alt="Logo on black" style="max-width: 260px;">
+            </div>
+        </div>
+        <div class="card green">
+            <div class="card-label">On green</div>
+            <div class="logo-display">
+                <img src="../Logo/senn-parents-on-green.jpg" alt="Logo on green" style="max-width: 260px;">
+            </div>
+        </div>
+    </div>
+
+    <h3>Avatar / Monogram</h3>
+    <p>For profile pictures, favicons, and small-format use. Just the S mark, no text.</p>
+    <div class="grid-3">
+        <div class="card">
+            <div class="card-label">Square avatar</div>
+            <div class="logo-display">
+                <img src="../Logo/Social/sp-shield.jpg" alt="Avatar" style="max-width: 180px; border-radius: 8px;">
+            </div>
+        </div>
+        <div class="card" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <div class="card-label">Gmail / Social profile</div>
+            <div style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                <img src="../Logo/Social/sp-shield.jpg" alt="Circle avatar" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="font-size: 0.7rem; color: var(--gray-600); margin-top: 0.75rem;">Circle crop for Gmail, Facebook, etc.</div>
+        </div>
+        <div class="card" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <div class="card-label">Favicon sizes</div>
+            <div style="display: flex; gap: 1.25rem; align-items: flex-end;">
+                <div style="text-align: center;">
+                    <div style="width: 48px; height: 48px; border-radius: 6px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.12);">
+                        <img src="../Logo/Social/sp-shield.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="font-size: 0.6rem; color: var(--gray-600); margin-top: 0.4rem;">48px</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 32px; height: 32px; border-radius: 4px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.12);">
+                        <img src="../Logo/Social/sp-shield.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="font-size: 0.6rem; color: var(--gray-600); margin-top: 0.4rem;">32px</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 16px; height: 16px; border-radius: 2px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.12);">
+                        <img src="../Logo/Social/sp-shield.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="font-size: 0.6rem; color: var(--gray-600); margin-top: 0.4rem;">16px</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Clear Space</h3>
+    <p>Maintain minimum clear space around the logo equal to the height of the crossbar in the S. Never crowd the logo with other elements.</p>
+
+    <h3>Minimum Size</h3>
+    <p>Primary mark (full lockup): minimum 200px wide for digital, 2" for print.<br>
+    Avatar (S only): minimum 32px for digital, 0.5" for print.</p>
+</section>
+
+<!-- 03 COLORS -->
+<section id="colors">
+    <div class="section-number">03</div>
+    <h2>Color Palette</h2>
+    <p>Anchored in Senn's school green. The warm gold is what distinguishes the PAC from the school's own materials.</p>
+
+    <h3>Primary</h3>
+    <div class="swatches">
+        <div class="swatch">
+            <div class="swatch-color" style="background: #1B5E20;"></div>
+            <div class="swatch-info">
+                <div class="swatch-name">Senn Green</div>
+                <div class="swatch-role">Logo, headers, nav backgrounds</div>
+                <div class="swatch-hex">#1B5E20</div>
+            </div>
+        </div>
+        <div class="swatch">
+            <div class="swatch-color" style="background: #2E7D32;"></div>
+            <div class="swatch-info">
+                <div class="swatch-name">Green Mid</div>
+                <div class="swatch-role">Buttons, links, hover states</div>
+                <div class="swatch-hex">#2E7D32</div>
+            </div>
+        </div>
+        <div class="swatch">
+            <div class="swatch-color" style="background: #D4A017;"></div>
+            <div class="swatch-info">
+                <div class="swatch-name">PAC Gold</div>
+                <div class="swatch-role">CTAs, highlights, "PARENTS"</div>
+                <div class="swatch-hex">#D4A017</div>
+            </div>
+        </div>
+    </div>
+
+    <h3 style="margin-top: 2rem;">Supporting</h3>
+    <div class="swatches">
+        <div class="swatch">
+            <div class="swatch-color" style="background: #FDF3D7;"></div>
+            <div class="swatch-info">
+                <div class="swatch-name">Gold Light</div>
+                <div class="swatch-role">Featured sections, callout backgrounds</div>
+                <div class="swatch-hex">#FDF3D7</div>
+            </div>
+        </div>
+        <div class="swatch">
+            <div class="swatch-color" style="background: #F5F7F5;"></div>
+            <div class="swatch-info">
+                <div class="swatch-name">Off-White</div>
+                <div class="swatch-role">Page backgrounds, alternating sections</div>
+                <div class="swatch-hex">#F5F7F5</div>
+            </div>
+        </div>
+        <div class="swatch">
+            <div class="swatch-color" style="background: #1A1A1A;"></div>
+            <div class="swatch-info">
+                <div class="swatch-name">Black</div>
+                <div class="swatch-role">Body text, outlines, dark backgrounds</div>
+                <div class="swatch-hex">#1A1A1A</div>
+            </div>
+        </div>
+        <div class="swatch">
+            <div class="swatch-color" style="background: #FFFFFF; border: 1px solid #E5E7EB;"></div>
+            <div class="swatch-info">
+                <div class="swatch-name">White</div>
+                <div class="swatch-role">Cards, clean space, primary backgrounds</div>
+                <div class="swatch-hex">#FFFFFF</div>
+            </div>
+        </div>
+    </div>
+
+    <h3 style="margin-top: 2rem;">Color Ratios</h3>
+    <div style="display: flex; height: 48px; border-radius: 8px; overflow: hidden; margin-top: 0.5rem; max-width: 500px;">
+        <div style="flex: 4; background: var(--white); border: 1px solid var(--gray-100);"></div>
+        <div style="flex: 3; background: var(--senn-green);"></div>
+        <div style="flex: 1.5; background: var(--pac-gold);"></div>
+        <div style="flex: 1; background: var(--black);"></div>
+    </div>
+    <p style="font-size: 0.8rem; margin-top: 0.5rem;">White dominates. Green anchors. Gold highlights. Black for text.</p>
+</section>
+
+<!-- 04 TYPOGRAPHY -->
+<section id="typography">
+    <div class="section-number">04</div>
+    <h2>Typography</h2>
+    <p>Inter from Google Fonts. Free, highly legible, works on every screen. One font family for everything except the logo wordmark (which uses the Senn athletic italic letterforms).</p>
+
+    <div class="card" style="margin-top: 1.5rem;">
+        <div class="type-specimen">
+            <p style="font-weight: 800; font-size: 2.5rem; color: var(--senn-green); line-height: 1.1; max-width: none;">Senn Parents</p>
+            <div class="type-meta">Inter 800 (ExtraBold) / 40px / Page titles, hero headlines</div>
+        </div>
+        <div class="type-specimen">
+            <p style="font-weight: 700; font-size: 1.75rem; color: var(--senn-green); line-height: 1.2; max-width: none;">Next Meeting: March 17</p>
+            <div class="type-meta">Inter 700 (Bold) / 28px / Section titles</div>
+        </div>
+        <div class="type-specimen">
+            <p style="font-weight: 600; font-size: 1.15rem; color: var(--black); max-width: none;">Take the Parent Survey</p>
+            <div class="type-meta">Inter 600 (SemiBold) / 18px / Subheads, button labels, CTAs</div>
+        </div>
+        <div class="type-specimen">
+            <p style="font-weight: 400; font-size: 1rem; color: var(--gray-600); max-width: 520px;">The Parent Advisory Council exists to make sure parent voices shape how the school invests in family engagement. We advise on Title I funds, co-develop policy, and connect families with resources.</p>
+            <div class="type-meta">Inter 400 (Regular) / 16px / Body copy, line-height 1.6</div>
+        </div>
+        <div class="type-specimen">
+            <p style="font-weight: 500; font-size: 0.75rem; color: var(--gray-600); letter-spacing: 2px; text-transform: uppercase; max-width: none;">PARENT ADVISORY COUNCIL</p>
+            <div class="type-meta">Inter 500 (Medium) / 12px / Labels, captions, uppercase tags</div>
+        </div>
+    </div>
+
+    <h3>Font Source</h3>
+    <p style="font-family: monospace; font-size: 0.85rem; background: var(--off-white); padding: 0.75rem 1rem; border-radius: 6px; max-width: none;">
+        fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800
+    </p>
+</section>
+
+<!-- 05 VOICE -->
+<section id="voice">
+    <div class="section-number">05</div>
+    <h2>Voice and Tone</h2>
+    <p>We sound like parents talking to parents. Direct, warm, organized. Never bureaucratic. Never condescending.</p>
+
+    <h3>This is us</h3>
+    <div class="voice-yes">"All parents and guardians are welcome. You do not need to be a member to attend."</div>
+    <div class="voice-yes">"Take 2 minutes to tell us what your family needs."</div>
+    <div class="voice-yes">"The PAC is led by parents, for parents."</div>
+    <div class="voice-yes">"We just elected new officers and we are building real parent-led governance at our school."</div>
+
+    <h3>This is not us</h3>
+    <div class="voice-no">"Per CPS Policy 801.3, eligible stakeholders are invited to participate in the advisory capacity..."</div>
+    <div class="voice-no">"Don't miss this AMAZING opportunity!!!"</div>
+    <div class="voice-no">"The administration has determined that parent input is valued..."</div>
+
+    <h3 style="margin-top: 2rem;">Voice Rules</h3>
+    <ul style="list-style: none; padding: 0;">
+        <li style="padding: 0.5rem 0; color: var(--gray-600);"><strong style="color: var(--senn-green);">Direct.</strong> Say what you mean. No jargon, no bureaucracy-speak.</li>
+        <li style="padding: 0.5rem 0; color: var(--gray-600);"><strong style="color: var(--senn-green);">Warm.</strong> We are neighbors, not an institution.</li>
+        <li style="padding: 0.5rem 0; color: var(--gray-600);"><strong style="color: var(--senn-green);">Inclusive.</strong> "All parents welcome" is not a tagline. It is a rule.</li>
+        <li style="padding: 0.5rem 0; color: var(--gray-600);"><strong style="color: var(--senn-green);">Bilingual.</strong> Key materials in English and Spanish.</li>
+        <li style="padding: 0.5rem 0; color: var(--gray-600);"><strong style="color: var(--senn-green);">Action-oriented.</strong> Every communication should tell parents what to do next.</li>
+    </ul>
+</section>
+
+<!-- 06 USAGE -->
+<section id="usage">
+    <div class="section-number">06</div>
+    <h2>Usage Rules</h2>
+
+    <div class="usage-grid">
+        <div class="do-box">
+            <h4>Do</h4>
+            <ul>
+                <li>Use the full lockup (SENN / PARENTS / Parent Advisory Council)</li>
+                <li>Maintain clear space around the logo</li>
+                <li>Use on white, black, or green backgrounds</li>
+                <li>Use the S avatar for profile pictures</li>
+                <li>Keep SENN in green and PARENTS in gold</li>
+                <li>Use Inter for all non-logo text</li>
+            </ul>
+        </div>
+        <div class="dont-box">
+            <h4>Don't</h4>
+            <ul>
+                <li>Stretch, rotate, or skew the logo</li>
+                <li>Change the colors</li>
+                <li>Add drop shadows, glows, or effects</li>
+                <li>Place on busy photo backgrounds</li>
+                <li>Use the Bulldog mascot (that is Athletics)</li>
+                <li>Recreate the lettering in a different font</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Background Options</h3>
+    <div class="grid-3" style="margin-top: 1rem;">
+        <div class="card" style="text-align: center; padding: 1.5rem;">
+            <img src="../Logo/senn-parents-final.jpg" style="width: 100%; max-width: 180px; border-radius: 4px;">
+            <div style="font-size: 0.75rem; color: var(--green-mid); font-weight: 600; margin-top: 0.75rem;">On white</div>
+        </div>
+        <div class="card dark" style="text-align: center; padding: 1.5rem;">
+            <img src="../Logo/senn-parents-on-black.jpg" style="width: 100%; max-width: 180px; border-radius: 4px;">
+            <div style="font-size: 0.75rem; color: rgba(255,255,255,0.6); font-weight: 600; margin-top: 0.75rem;">On black</div>
+        </div>
+        <div class="card green" style="text-align: center; padding: 1.5rem;">
+            <img src="../Logo/senn-parents-on-green.jpg" style="width: 100%; max-width: 180px; border-radius: 4px;">
+            <div style="font-size: 0.75rem; color: rgba(255,255,255,0.6); font-weight: 600; margin-top: 0.75rem;">On green</div>
+        </div>
+    </div>
+</section>
+
+<!-- 07 APPLICATIONS -->
+<section id="applications">
+    <div class="section-number">07</div>
+    <h2>Applications</h2>
+    <p>How the brand shows up across key touchpoints.</p>
+
+    <!-- Email signature -->
+    <h3>Email Signature</h3>
+    <div class="card">
+        <div class="card-label">sennparents@gmail.com</div>
+        <div style="font-family: Inter, Arial, sans-serif; font-size: 14px; line-height: 1.5; max-width: 400px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                <img src="../Logo/Social/sp-shield.jpg" style="width: 36px; height: 36px; border-radius: 4px;">
+                <div>
+                    <div style="font-weight: 700; color: var(--senn-green);">Senn Parents</div>
+                    <div style="color: var(--gray-600); font-size: 12px;">Parent Advisory Council</div>
+                </div>
+            </div>
+            <div style="height: 2px; background: var(--pac-gold); width: 80px; margin: 8px 0;"></div>
+            <div style="font-size: 12px; color: var(--gray-600);">
+                Nicholas Senn High School<br>
+                sennparents@gmail.com<br>
+                sennparents.com
+            </div>
+        </div>
+    </div>
+
+    <!-- Meeting Flyer -->
+    <h3>Meeting Flyer</h3>
+    <div style="max-width: 380px;">
+        <div class="card green" style="padding: 0; overflow: hidden;">
+            <div style="padding: 2rem; text-align: center; color: white;">
+                <img src="../Logo/senn-parents-on-green.jpg" style="width: 200px; border-radius: 4px; margin-bottom: 1rem;">
+                <div style="height: 2px; background: var(--pac-gold); width: 40%; margin: 0 auto 1.25rem;"></div>
+                <div style="font-weight: 700; font-size: 1.4rem; color: var(--pac-gold);">PAC Meeting</div>
+                <div style="margin-top: 1rem; font-size: 1rem; line-height: 1.8;">
+                    Monday, March 17, 2026<br>
+                    6:00 PM<br>
+                    Room 115, Senn High School
+                </div>
+                <div style="margin-top: 1.25rem; font-size: 0.85rem; opacity: 0.8; line-height: 1.5;">All parents and guardians welcome.<br>You do not need to be a member to attend.</div>
+                <div style="margin-top: 1.5rem; background: var(--pac-gold); color: var(--senn-green); padding: 0.65rem 1.5rem; border-radius: 6px; display: inline-block; font-weight: 700; font-size: 0.9rem;">sennparents.com</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Facebook Post -->
+    <h3>Facebook Post Image</h3>
+    <div style="max-width: 480px;">
+        <div class="card" style="padding: 0; overflow: hidden;">
+            <div style="background: var(--senn-green); padding: 2.5rem 2rem; text-align: center; color: white;">
+                <img src="../Logo/senn-parents-on-green.jpg" style="width: 220px; margin-bottom: 1.25rem; border-radius: 4px;">
+                <div style="height: 2px; background: var(--pac-gold); width: 25%; margin: 0 auto 1rem;"></div>
+                <div style="font-weight: 700; font-size: 1.25rem; color: var(--pac-gold);">First Official PAC Meeting</div>
+                <div style="margin-top: 0.75rem; font-size: 1rem;">Monday, March 17 / 6PM / Room 115</div>
+                <div style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.7;">All parents welcome. In-person + Google Meet.</div>
+            </div>
+            <div style="padding: 0.75rem; text-align: center; font-size: 0.8rem; color: var(--gray-600); background: white;">
+                sennparents.com
+            </div>
+        </div>
+    </div>
+
+    <!-- QR Poster -->
+    <h3>QR Code Poster (Report Card Day)</h3>
+    <div style="max-width: 340px;">
+        <div class="card" style="padding: 0;">
+            <div style="border: 3px solid var(--senn-green); border-radius: 10px; padding: 1.75rem; text-align: center;">
+                <img src="../Logo/senn-parents-final.jpg" style="width: 160px; margin-bottom: 0.75rem;">
+                <div style="height: 2px; background: var(--pac-gold); width: 35%; margin: 0 auto 1rem;"></div>
+                <div style="font-weight: 700; font-size: 1rem; color: var(--black);">Take the Parent Survey</div>
+                <div style="width: 150px; height: 150px; background: var(--gray-100); margin: 1rem auto; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--gray-600); border: 1px solid #E5E7EB;">[QR Code]</div>
+                <div style="font-size: 0.85rem; color: var(--gray-600); line-height: 1.5;">2 minutes. Tell us what<br>your family needs.</div>
+                <div style="margin-top: 1rem; font-size: 0.75rem; color: var(--gray-600);">sennparents@gmail.com</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Website Nav -->
+    <h3>Website Navigation</h3>
+    <div style="max-width: 600px;">
+        <div style="background: var(--senn-green); border-radius: 8px; padding: 0.75rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <img src="../Logo/Social/sp-shield.jpg" style="width: 28px; height: 28px; border-radius: 4px;">
+                <span style="color: white; font-weight: 700; font-size: 0.95rem;">SENN <span style="color: var(--pac-gold);">PARENTS</span></span>
+            </div>
+            <div style="display: flex; gap: 1.25rem;">
+                <span style="color: rgba(255,255,255,0.8); font-size: 0.8rem;">Meeting</span>
+                <span style="color: rgba(255,255,255,0.8); font-size: 0.8rem;">Survey</span>
+                <span style="color: rgba(255,255,255,0.8); font-size: 0.8rem;">Join</span>
+                <span style="color: rgba(255,255,255,0.8); font-size: 0.8rem;">About</span>
+                <span style="color: rgba(255,255,255,0.8); font-size: 0.8rem;">Contact</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<div class="guide-footer">
+    <strong>Senn Parent Advisory Council</strong>
+    Nicholas Senn High School / 5900 N. Glenwood Ave, Chicago IL 60660<br>
+    sennparents@gmail.com / sennparents.com<br><br>
+    <span style="opacity: 0.4;">Brand Style Guide v1.0 / March 2026</span>
+</div>
+
+</body>
+</html>

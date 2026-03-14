@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senn Parents | Parent Advisory Council</title>
+    <meta name="description" content="Senn High School Parent Advisory Council. Parent-led. Building stronger connections between families and staff.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #1B5E20;
+            --green-mid: #2E7D32;
+            --gold: #D4A017;
+            --gold-light: #FDF3D7;
+            --green-light: #E8F5E9;
+            --white: #FFFFFF;
+            --off-white: #F5F7F5;
+            --gray-100: #F3F4F6;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-900: #1A1A1A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gray-900);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        /* Nav */
+        nav {
+            background: var(--green);
+            padding: 0.75rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .nav-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .nav-brand img {
+            height: 32px;
+            border-radius: 3px;
+        }
+
+        .nav-brand-text {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .nav-brand-text span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.25rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--gold); }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--green) 0%, #236B27 100%);
+            color: var(--white);
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero-logo {
+            max-width: 320px;
+            width: 80%;
+            margin: 0 auto 1.5rem;
+            border-radius: 6px;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.85rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .btn-gold { background: var(--gold); color: var(--green); }
+        .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.5); }
+        .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+        .btn-green { background: var(--green); color: var(--white); }
+
+        /* Sections */
+        section { padding: 3.5rem 1.5rem; }
+        .container { max-width: 960px; margin: 0 auto; }
+
+        .section-label {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--green);
+        }
+
+        /* Meeting */
+        .meeting-section { background: var(--gold-light); }
+
+        .meeting-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            max-width: 700px;
+        }
+
+        .meeting-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+        }
+
+        .meeting-detail .icon { font-size: 1.25rem; flex-shrink: 0; width: 28px; text-align: center; }
+        .meeting-detail strong { color: var(--green); }
+
+        .agenda-list {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--gray-100);
+        }
+
+        .agenda-list h3 { font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--green); }
+        .agenda-list ul { list-style: none; padding: 0; }
+
+        .agenda-list li {
+            padding: 0.4rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+            color: var(--gray-700);
+        }
+
+        .agenda-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.85rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
+
+        .meeting-buttons { margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+        /* Officers */
+        .officers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .officer-card {
+            background: var(--green-light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .officer-role {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--gray-600);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .officer-name { font-size: 1.15rem; font-weight: 700; color: var(--green); }
+
+        /* Survey + Join */
+        .cta-section { background: var(--off-white); }
+
+        .cta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .cta-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-top: 4px solid var(--gold);
+        }
+
+        .cta-card h3 { font-size: 1.25rem; color: var(--green); margin-bottom: 0.5rem; }
+        .cta-card p { color: var(--gray-600); margin-bottom: 1.25rem; font-size: 0.95rem; }
+
+        /* What is PAC */
+        .what-list { margin-top: 1.5rem; }
+
+        .what-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            margin-bottom: 1.25rem;
+        }
+
+        .what-icon {
+            background: var(--gold-light);
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .what-item h4 { font-size: 1rem; color: var(--green); margin-bottom: 0.15rem; }
+        .what-item p { color: var(--gray-600); font-size: 0.9rem; }
+
+        /* Involved */
+        .involved-section {
+            background: var(--green);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .involved-section h2 { color: var(--gold); }
+        .involved-section p { opacity: 0.9; max-width: 600px; margin: 0 auto 0.5rem; }
+
+        .involved-ways {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .involved-way { padding: 1rem; }
+        .involved-way .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .involved-way h4 { font-size: 1rem; margin-bottom: 0.25rem; }
+        .involved-way p { font-size: 0.85rem; opacity: 0.8; }
+
+        /* Contact */
+        .contact-section { text-align: center; }
+        .contact-email { font-size: 1.25rem; color: var(--green); font-weight: 600; text-decoration: none; }
+        .contact-email:hover { color: var(--gold); }
+
+        /* Footer */
+        footer {
+            background: var(--gray-900);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 2rem 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        footer strong { color: var(--white); display: block; margin-bottom: 0.25rem; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero-logo { max-width: 240px; }
+            .hero p { font-size: 1rem; }
+            .cta-grid { grid-template-columns: 1fr; }
+            .involved-ways { grid-template-columns: 1fr; gap: 1rem; }
+            .officers-grid { grid-template-columns: 1fr 1fr; }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--green);
+                flex-direction: column;
+                padding: 1rem 1.5rem;
+                gap: 0.75rem;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
+        }
+
+        @media (max-width: 480px) {
+            .officers-grid { grid-template-columns: 1fr; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+    <div class="nav-inner">
+        <a href="#" class="nav-brand">
+            <img src="Brand-Assets/Logo/Social/sp-shield.jpg" alt="SP">
+            <span class="nav-brand-text">SENN <span>PARENTS</span></span>
+        </a>
+        <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+        <ul class="nav-links">
+            <li><a href="#meeting">Next Meeting</a></li>
+            <li><a href="#survey">Survey</a></li>
+            <li><a href="#join">Join</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <img src="Brand-Assets/Logo/senn-parents-on-green.jpg" alt="Senn Parents - Parent Advisory Council" class="hero-logo">
+    <p>Parent-led. Building stronger connections between families, staff, and the decisions that shape our children's education.</p>
+    <div class="hero-buttons">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSciLn7-hUXt5tI19HYDVGFrombiNBmf-PRLEKVTE8ZB84L4Ow/viewform" class="btn btn-gold" target="_blank" rel="noopener">Take the Parent Survey</a>
+        <a href="#join" class="btn btn-outline">Join the PAC</a>
+    </div>
+</section>
+
+<!-- Next Meeting -->
+<section id="meeting" class="meeting-section">
+    <div class="container">
+        <p class="section-label">Up Next</p>
+        <h2>First Official PAC Meeting</h2>
+        <div class="meeting-card">
+            <div class="meeting-detail">
+                <span class="icon">&#128197;</span>
+                <div><strong>Monday, March 17, 2026</strong></div>
+            </div>
+            <div class="meeting-detail">
+                <span class="icon">&#128336;</span>
+                <div><strong>6:00 PM</strong></div>
+            </div>
+            <div class="meeting-detail">
+                <span class="icon">&#128205;</span>
+                <div><strong>Room 115</strong>, Senn High School<br>5900 N. Glenwood Ave, Chicago IL 60660</div>
+            </div>
+            <div class="meeting-detail">
+                <span class="icon">&#128187;</span>
+                <div><strong>Virtual option:</strong> <a href="https://meet.google.com/qrh-ggsj-wcr" id="meet-link" style="color: var(--green-mid);" target="_blank" rel="noopener">Join via Google Meet</a><br><span style="font-size: 0.85rem; color: var(--gray-600);">Or dial: +1 585-948-4247 PIN: 740 703 280#</span></div>
+            </div>
+
+            <div class="agenda-list">
+                <h3>Agenda Highlights</h3>
+                <ul>
+                    <li>PAC Officer Election</li>
+                    <li>FACE Meeting update</li>
+                    <li>Parent website and domain</li>
+                    <li>Parent Survey: review and finalize for Report Card Day</li>
+                    <li>Binder and recordkeeping practices</li>
+                    <li>Meeting calendar for the year</li>
+                    <li>Questions and comments</li>
+                </ul>
+            </div>
+
+            <div class="meeting-buttons">
+                <a href="#join" class="btn btn-gold">Register as a Member</a>
+            </div>
+
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--gray-600);">All parents and guardians are welcome. You do not need to be a member to attend.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Officers -->
+<section id="officers">
+    <div class="container">
+        <p class="section-label">Leadership</p>
+        <h2>Your 2025-2026 Officers</h2>
+        <p style="color: var(--gray-600); max-width: 600px;">Elected by Senn parents to represent your voice in how the school invests in family engagement.</p>
+        <div class="officers-grid">
+            <div class="officer-card">
+                <div class="officer-role">Chair</div>
+                <div class="officer-name">Jason Menard</div>
+            </div>
+            <div class="officer-card">
+                <div class="officer-role">Vice Chair</div>
+                <div class="officer-name">Katie Denny</div>
+            </div>
+            <div class="officer-card">
+                <div class="officer-role">Secretary</div>
+                <div class="officer-name">Kathryn Clark</div>
+            </div>
+            <div class="officer-card">
+                <div class="officer-role">Outreach Coordinator</div>
+                <div class="officer-name">Steve Larosiliere</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Survey + Join -->
+<section id="survey" class="cta-section">
+    <div class="container">
+        <p class="section-label">Your Voice Matters</p>
+        <h2>Help Us Represent You</h2>
+        <div class="cta-grid">
+            <div class="cta-card">
+                <h3>Take the Parent Survey</h3>
+                <p>Two minutes. Tell us what your family needs from Senn so the PAC can make informed recommendations on how Title I funds are spent.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSciLn7-hUXt5tI19HYDVGFrombiNBmf-PRLEKVTE8ZB84L4Ow/viewform" class="btn btn-gold" target="_blank" rel="noopener">Take the Survey</a>
+            </div>
+            <div class="cta-card" id="join">
+                <h3>Join the PAC</h3>
+                <p>Register as a member. Get meeting notices, agendas, and updates. All Senn parents and guardians are eligible.</p>
+                <a href="REPLACE_REGISTRATION_URL" class="btn btn-green" target="_blank" rel="noopener">Register Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What is the PAC -->
+<section id="about">
+    <div class="container">
+        <p class="section-label">About</p>
+        <h2>What Is the PAC?</h2>
+        <p style="color: var(--gray-600); max-width: 700px; margin-bottom: 1rem;">The Parent Advisory Council is a parent-led body at every Title I school. It exists to make sure parent voices shape how the school invests in family engagement.</p>
+
+        <div class="what-list">
+            <div class="what-item">
+                <div class="what-icon">&#128176;</div>
+                <div>
+                    <h4>Budget Recommendations</h4>
+                    <p>We advise on how the school's Title I parent engagement budget is spent.</p>
+                </div>
+            </div>
+            <div class="what-item">
+                <div class="what-icon">&#128221;</div>
+                <div>
+                    <h4>Parent Involvement Policy</h4>
+                    <p>We co-develop the parent involvement policy with administration.</p>
+                </div>
+            </div>
+            <div class="what-item">
+                <div class="what-icon">&#127891;</div>
+                <div>
+                    <h4>Workshops and Resources</h4>
+                    <p>We organize workshops and resources for families.</p>
+                </div>
+            </div>
+            <div class="what-item">
+                <div class="what-icon">&#129309;</div>
+                <div>
+                    <h4>School-Parent Compact</h4>
+                    <p>We create the agreement between families and the school about shared responsibilities.</p>
+                </div>
+            </div>
+            <div class="what-item">
+                <div class="what-icon">&#9878;&#65039;</div>
+                <div>
+                    <h4>Your Rights</h4>
+                    <p>We connect parents with information about their rights under federal education law.</p>
+                </div>
+            </div>
+        </div>
+
+        <p style="margin-top: 1.5rem; padding: 1rem; background: var(--gold-light); border-radius: 8px; font-weight: 500; color: var(--green);">The PAC is led by parents, for parents. We are independent of school administration.</p>
+    </div>
+</section>
+
+<!-- Get Involved -->
+<section class="involved-section">
+    <div class="container">
+        <p class="section-label" style="color: rgba(255,255,255,0.6);">Get Involved</p>
+        <h2>Three Ways to Participate</h2>
+        <div class="involved-ways">
+            <div class="involved-way">
+                <div class="icon">&#128227;</div>
+                <h4>Attend a Meeting</h4>
+                <p>All parents and guardians are welcome. No membership required.</p>
+            </div>
+            <div class="involved-way">
+                <div class="icon">&#128172;</div>
+                <h4>Share Your Voice</h4>
+                <p>Take the survey. Tell us what your family needs.</p>
+            </div>
+            <div class="involved-way">
+                <div class="icon">&#127760;</div>
+                <h4>Spread the Word</h4>
+                <p>Talk to other Senn parents. The more families involved, the stronger our voice.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact-section">
+    <div class="container">
+        <p class="section-label">Contact</p>
+        <h2>Reach the PAC</h2>
+        <p style="color: var(--gray-600); margin-bottom: 1rem;">Questions, ideas, or want to get involved? Email us.</p>
+        <a href="mailto:sennparents@gmail.com" class="contact-email">sennparents@gmail.com</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <strong>Nicholas Senn High School</strong>
+    5900 N. Glenwood Ave, Chicago IL 60660<br>
+    <span style="margin-top: 0.5rem; display: inline-block; opacity: 0.5;">&copy; 2026 Senn Parent Advisory Council</span>
+</footer>
+
+</body>
+</html>
