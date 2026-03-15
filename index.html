@@ -111,15 +111,39 @@
 
         /* Hero */
         .hero {
-            background: linear-gradient(135deg, var(--green) 0%, #236B27 100%);
+            position: relative;
             color: var(--white);
-            padding: 4rem 1.5rem;
+            padding: 5rem 1.5rem;
             text-align: center;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(27,94,32,0.8) 0%, rgba(0,0,0,0.6) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
         .hero-logo {
-            max-width: 320px;
-            width: 80%;
+            max-width: 220px;
+            width: 60%;
             margin: 0 auto 1.5rem;
             border-radius: 6px;
         }
@@ -342,7 +366,8 @@
 
         /* Mobile */
         @media (max-width: 768px) {
-            .hero-logo { max-width: 240px; }
+            .hero-logo { max-width: 180px; }
+            .hero { min-height: 50vh; padding: 3rem 1.5rem; }
             .hero p { font-size: 1rem; }
             .cta-grid { grid-template-columns: 1fr; }
             .involved-ways { grid-template-columns: 1fr; gap: 1rem; }
@@ -393,11 +418,17 @@
 
 <!-- Hero -->
 <section class="hero">
-    <img src="Brand-Assets/Logo/senn-parents-on-green.jpg" alt="Senn Parents - Parent Advisory Council" class="hero-logo">
-    <p>Parent-led. Building stronger connections between families, staff, and the decisions that shape our children's education.</p>
-    <div class="hero-buttons">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSciLn7-hUXt5tI19HYDVGFrombiNBmf-PRLEKVTE8ZB84L4Ow/viewform" class="btn btn-gold" target="_blank" rel="noopener">Take the Parent Survey</a>
-        <a href="#join" class="btn btn-outline">Join the PAC</a>
+    <video class="hero-video" autoplay muted loop playsinline>
+        <source src="https://d3id26kdqbehod.cloudfront.net/NICSHS/2025/11/18/FZj47wpVlGiXWQNp4yVTVFyh8ueE90fgdgpzn2tHVk4D5eRFByiktvlLYHCJ/Senn+Broll_Drone_Exterior-480p.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <img src="Brand-Assets/Logo/senn-parents-final.jpg" alt="Senn Parents - Parent Advisory Council" class="hero-logo">
+        <p>Parent-led. Building stronger connections between families, staff, and the decisions that shape our children's education.</p>
+        <div class="hero-buttons">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSciLn7-hUXt5tI19HYDVGFrombiNBmf-PRLEKVTE8ZB84L4Ow/viewform" class="btn btn-gold" target="_blank" rel="noopener">Take the Parent Survey</a>
+            <a href="#join" class="btn btn-outline">Join the PAC</a>
+        </div>
     </div>
 </section>
 
