@@ -664,11 +664,12 @@
             </div>
             <div style="margin-bottom:1rem;">
                 <label style="font-size:0.8rem; font-weight:600; color:var(--gray-700); display:block; margin-bottom:0.25rem;">Preferred Language</label>
-                <select name="language" style="width:100%; padding:0.6rem 0.75rem; border:1px solid #D1D5DB; border-radius:6px; font-size:0.95rem; font-family:inherit; background:white;">
+                <select name="language" onchange="document.getElementById('other-lang').style.display=this.value==='Other'?'block':'none'" style="width:100%; padding:0.6rem 0.75rem; border:1px solid #D1D5DB; border-radius:6px; font-size:0.95rem; font-family:inherit; background:white;">
                     <option value="English">English</option>
                     <option value="Spanish">Spanish</option>
                     <option value="Other">Other</option>
                 </select>
+                <input type="text" id="other-lang" name="language_other" placeholder="Please specify your language" style="display:none; width:100%; padding:0.6rem 0.75rem; border:1px solid #D1D5DB; border-radius:6px; font-size:0.95rem; font-family:inherit; margin-top:0.5rem;">
             </div>
             <div style="margin-bottom:1.25rem;">
                 <label style="font-size:0.8rem; font-weight:600; color:var(--gray-700); display:block; margin-bottom:0.5rem;">How do you want to hear from us?</label>
@@ -715,7 +716,7 @@ async function submitJoinForm(e) {
         student: data.get('student'),
         grade: data.get('grade'),
         phone: data.get('phone') || '',
-        language: data.get('language'),
+        language: data.get('language') === 'Other' ? (data.get('language_other') || 'Other') : data.get('language'),
         contact: contactPrefs.join(', '),
         timestamp: new Date().toISOString()
     };
