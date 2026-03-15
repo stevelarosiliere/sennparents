@@ -1,6 +1,10 @@
 # Facebook Posts: March 17 PAC Meeting + Survey
 
-Copy/paste each post into the corresponding group. Replace SURVEY_URL and SITE_URL with actual links before posting.
+All links are live. Copy/paste each post into the corresponding group.
+
+- Survey: https://docs.google.com/forms/d/e/1FAIpQLSciLn7-hUXt5tI19HYDVGFrombiNBmf-PRLEKVTE8ZB84L4Ow/viewform
+- Website: https://sennparents.com
+- Google Meet: https://meet.google.com/qrh-ggsj-wcr
 
 ---
 
@@ -8,13 +12,15 @@ Copy/paste each post into the corresponding group. Replace SURVEY_URL and SITE_U
 
 Senn parents, our first official PAC meeting is Monday March 17 at 6pm in Room 115. Virtual option available via Google Meet.
 
-We just elected officers and this is the real kickoff. On the agenda: officer ratification vote, adopting our operating principles, Title I budget review, and setting the monthly meeting schedule through June.
+We just elected officers and this is the real kickoff. On the agenda: officer election, parent survey, website, meeting calendar for the year.
 
 All parents and guardians are welcome. You do not need to be a member to attend.
 
-Before the meeting, take 2 minutes to fill out the parent survey so we know what your family actually needs from Senn: SURVEY_URL
+Google Meet: https://meet.google.com/qrh-ggsj-wcr
 
-Want to stay in the loop? Register as a PAC member here: REGISTRATION_URL
+Before the meeting, take 2 minutes to fill out the parent survey so we know what your family actually needs from Senn: https://docs.google.com/forms/d/e/1FAIpQLSciLn7-hUXt5tI19HYDVGFrombiNBmf-PRLEKVTE8ZB84L4Ow/viewform
+
+Want to stay in the loop? Register at https://sennparents.com
 
 See you Monday.
 
@@ -26,9 +32,9 @@ Senn High School parents just elected new PAC officers and we are building real 
 
 Our first official meeting is Monday March 17 at 6pm at Senn (Room 115, 5900 N. Glenwood). All Senn families are welcome, in person or via Google Meet.
 
-If you are a Senn parent or know one, we would love your input. Take the 2-minute parent survey: SURVEY_URL
+If you are a Senn parent or know one, we would love your input. Take the 2-minute parent survey: https://docs.google.com/forms/d/e/1FAIpQLSciLn7-hUXt5tI19HYDVGFrombiNBmf-PRLEKVTE8ZB84L4Ow/viewform
 
-More info at sennparents.com
+More info at https://sennparents.com
 
 ---
 
@@ -40,9 +46,9 @@ The PAC advises on how Title I family engagement funds are spent, develops paren
 
 First official meeting: Monday March 17, 6pm, Senn Room 115 (virtual option available).
 
-Parent survey (open to all current and incoming Senn families): SURVEY_URL
+Parent survey (open to all current and incoming Senn families): https://docs.google.com/forms/d/e/1FAIpQLSciLn7-hUXt5tI19HYDVGFrombiNBmf-PRLEKVTE8ZB84L4Ow/viewform
 
-More info: sennparents.com
+More info: https://sennparents.com
 
 ---
 
@@ -52,6 +58,6 @@ Senn High School's Parent Advisory Council just elected its first officer slate 
 
 The PAC is a parent-led body that advises on Title I family engagement spending, co-develops school policy, and organizes resources for families. All Senn parents and community members are welcome.
 
-If you are a Senn parent or guardian, take the 2-minute survey to share what your family needs: SURVEY_URL
+If you are a Senn parent or guardian, take the 2-minute survey to share what your family needs: https://docs.google.com/forms/d/e/1FAIpQLSciLn7-hUXt5tI19HYDVGFrombiNBmf-PRLEKVTE8ZB84L4Ow/viewform
 
-Details: sennparents.com
+Details: https://sennparents.com
