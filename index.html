@@ -4,7 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Senn Parents | Parent Advisory Council</title>
-    <meta name="description" content="Senn High School Parent Advisory Council. Parent-led. Building stronger connections between families and staff.">
+    <meta name="description" content="Senn High School Parent Advisory Council. Parent-led governance for families at Nicholas Senn High School in Chicago. Join the PAC, take the parent survey, attend our next meeting.">
+    <meta name="keywords" content="Senn High School, Parent Advisory Council, PAC, Title I, Chicago, Rogers Park, Edgewater, parent engagement, CPS, Nicholas Senn">
+    <meta property="og:title" content="Senn Parents | Parent Advisory Council">
+    <meta property="og:description" content="Parent-led governance at Senn High School. Join the PAC, take the parent survey, and help shape how Title I family engagement funds are spent.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sennparents.com">
+    <meta property="og:image" content="https://sennparents.com/Brand-Assets/Logo/senn-parents-final.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Senn Parents | Parent Advisory Council">
+    <meta name="twitter:description" content="Parent-led governance at Senn High School. Join the PAC and help shape how Title I funds are spent.">
+    <meta name="twitter:image" content="https://sennparents.com/Brand-Assets/Logo/senn-parents-final.jpg">
+    <link rel="icon" type="image/jpeg" href="Brand-Assets/Logo/Social/sp-shield.jpg">
+    <link rel="apple-touch-icon" href="Brand-Assets/Logo/Social/sp-shield.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -475,7 +487,7 @@
             <div class="cta-card" id="join">
                 <h3>Join the PAC</h3>
                 <p>Register as a member. Get meeting notices, agendas, and updates. All Senn parents and guardians are eligible.</p>
-                <a href="REPLACE_REGISTRATION_URL" class="btn btn-green" target="_blank" rel="noopener">Register Now</a>
+                <button class="btn btn-green" onclick="document.getElementById('join-modal').style.display='flex'" style="border: none; cursor: pointer;">Register Now</button>
             </div>
         </div>
     </div>
@@ -571,6 +583,134 @@
     5900 N. Glenwood Ave, Chicago IL 60660<br>
     <span style="margin-top: 0.5rem; display: inline-block; opacity: 0.5;">&copy; 2026 Senn Parent Advisory Council</span>
 </footer>
+
+<!-- Join Modal -->
+<div id="join-modal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.6); z-index:200; align-items:center; justify-content:center; padding:1rem;">
+    <div style="background:white; border-radius:12px; padding:2rem; max-width:480px; width:100%; max-height:90vh; overflow-y:auto; position:relative;">
+        <button onclick="document.getElementById('join-modal').style.display='none'" style="position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--gray-600);">&times;</button>
+        <h3 style="font-size:1.25rem; color:var(--green); margin-bottom:0.25rem;">Join the PAC</h3>
+        <p style="font-size:0.85rem; color:var(--gray-600); margin-bottom:1.25rem;">All Senn parents and guardians are eligible. Takes 30 seconds.</p>
+        <form id="join-form" onsubmit="submitJoinForm(event)">
+            <div style="margin-bottom:1rem;">
+                <label style="font-size:0.8rem; font-weight:600; color:var(--gray-700); display:block; margin-bottom:0.25rem;">Full Name *</label>
+                <input type="text" name="name" required style="width:100%; padding:0.6rem 0.75rem; border:1px solid #D1D5DB; border-radius:6px; font-size:0.95rem; font-family:inherit;">
+            </div>
+            <div style="margin-bottom:1rem;">
+                <label style="font-size:0.8rem; font-weight:600; color:var(--gray-700); display:block; margin-bottom:0.25rem;">Email *</label>
+                <input type="email" name="email" required style="width:100%; padding:0.6rem 0.75rem; border:1px solid #D1D5DB; border-radius:6px; font-size:0.95rem; font-family:inherit;">
+            </div>
+            <div style="margin-bottom:1rem;">
+                <label style="font-size:0.8rem; font-weight:600; color:var(--gray-700); display:block; margin-bottom:0.25rem;">Student Name(s) *</label>
+                <input type="text" name="student" required style="width:100%; padding:0.6rem 0.75rem; border:1px solid #D1D5DB; border-radius:6px; font-size:0.95rem; font-family:inherit;">
+            </div>
+            <div style="margin-bottom:1rem;">
+                <label style="font-size:0.8rem; font-weight:600; color:var(--gray-700); display:block; margin-bottom:0.25rem;">Student Grade(s) *</label>
+                <select name="grade" required style="width:100%; padding:0.6rem 0.75rem; border:1px solid #D1D5DB; border-radius:6px; font-size:0.95rem; font-family:inherit; background:white;">
+                    <option value="">Select grade</option>
+                    <option value="9">9th Grade</option>
+                    <option value="10">10th Grade</option>
+                    <option value="11">11th Grade</option>
+                    <option value="12">12th Grade</option>
+                    <option value="multiple">Multiple grades</option>
+                </select>
+            </div>
+            <div style="margin-bottom:1rem;">
+                <label style="font-size:0.8rem; font-weight:600; color:var(--gray-700); display:block; margin-bottom:0.25rem;">Phone <span style="font-weight:400; color:var(--gray-600);">(optional)</span></label>
+                <input type="tel" name="phone" style="width:100%; padding:0.6rem 0.75rem; border:1px solid #D1D5DB; border-radius:6px; font-size:0.95rem; font-family:inherit;">
+            </div>
+            <div style="margin-bottom:1rem;">
+                <label style="font-size:0.8rem; font-weight:600; color:var(--gray-700); display:block; margin-bottom:0.25rem;">Preferred Language</label>
+                <select name="language" style="width:100%; padding:0.6rem 0.75rem; border:1px solid #D1D5DB; border-radius:6px; font-size:0.95rem; font-family:inherit; background:white;">
+                    <option value="English">English</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div style="margin-bottom:1.25rem;">
+                <label style="font-size:0.8rem; font-weight:600; color:var(--gray-700); display:block; margin-bottom:0.5rem;">How do you want to hear from us?</label>
+                <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+                    <label style="font-size:0.85rem; color:var(--gray-700); display:flex; align-items:center; gap:0.35rem;"><input type="checkbox" name="contact_email" value="Email" checked> Email</label>
+                    <label style="font-size:0.85rem; color:var(--gray-700); display:flex; align-items:center; gap:0.35rem;"><input type="checkbox" name="contact_text" value="Text"> Text</label>
+                    <label style="font-size:0.85rem; color:var(--gray-700); display:flex; align-items:center; gap:0.35rem;"><input type="checkbox" name="contact_whatsapp" value="WhatsApp"> WhatsApp</label>
+                </div>
+            </div>
+            <button type="submit" id="join-submit" class="btn btn-gold" style="width:100%; border:none; cursor:pointer; text-align:center;">Register</button>
+        </form>
+        <div id="join-success" style="display:none; text-align:center; padding:2rem 0;">
+            <div style="font-size:2.5rem; margin-bottom:0.75rem;">&#9989;</div>
+            <h3 style="color:var(--green); margin-bottom:0.5rem;">You're registered!</h3>
+            <p style="color:var(--gray-600); font-size:0.9rem;">Welcome to the Senn Parent Advisory Council. We'll be in touch with meeting info and updates.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+// Close modal on background click
+document.getElementById('join-modal').addEventListener('click', function(e) {
+    if (e.target === this) this.style.display = 'none';
+});
+
+async function submitJoinForm(e) {
+    e.preventDefault();
+    var btn = document.getElementById('join-submit');
+    btn.textContent = 'Submitting...';
+    btn.disabled = true;
+
+    var form = document.getElementById('join-form');
+    var data = new FormData(form);
+
+    // Collect contact preferences
+    var contactPrefs = [];
+    if (data.get('contact_email')) contactPrefs.push('Email');
+    if (data.get('contact_text')) contactPrefs.push('Text');
+    if (data.get('contact_whatsapp')) contactPrefs.push('WhatsApp');
+
+    var payload = {
+        name: data.get('name'),
+        email: data.get('email'),
+        student: data.get('student'),
+        grade: data.get('grade'),
+        phone: data.get('phone') || '',
+        language: data.get('language'),
+        contact: contactPrefs.join(', '),
+        timestamp: new Date().toISOString()
+    };
+
+    try {
+        // Google Apps Script Web App URL - replace with your deployed script URL
+        var SCRIPT_URL = 'REPLACE_WITH_GOOGLE_SCRIPT_URL';
+
+        if (SCRIPT_URL.indexOf('REPLACE') === -1) {
+            await fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+        }
+
+        // Also send via email as backup
+        var mailto = 'mailto:sennparents@gmail.com?subject=PAC Registration: ' +
+            encodeURIComponent(payload.name) +
+            '&body=' + encodeURIComponent(
+                'Name: ' + payload.name + '\n' +
+                'Email: ' + payload.email + '\n' +
+                'Student: ' + payload.student + '\n' +
+                'Grade: ' + payload.grade + '\n' +
+                'Phone: ' + payload.phone + '\n' +
+                'Language: ' + payload.language + '\n' +
+                'Contact Preference: ' + payload.contact
+            );
+
+        form.style.display = 'none';
+        document.getElementById('join-success').style.display = 'block';
+    } catch (err) {
+        btn.textContent = 'Register';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again or email sennparents@gmail.com.');
+    }
+}
+</script>
 
 </body>
 </html>
