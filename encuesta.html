@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta para Padres | Senn Parents</title>
+    <meta name="description" content="Encuesta para padres de Senn High School. Díganos qué necesita su familia.">
+    <link rel="icon" type="image/jpeg" href="Brand-Assets/Logo/Social/sp-shield.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #1B5E20;
+            --green-mid: #2E7D32;
+            --gold: #D4A017;
+            --gold-light: #FDF3D7;
+            --white: #FFFFFF;
+            --off-white: #F5F7F5;
+            --gray-100: #F3F4F6;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-900: #1A1A1A;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; color: var(--gray-900); background: var(--off-white); line-height: 1.6; }
+
+        .header {
+            background: var(--green);
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .header img { height: 40px; border-radius: 4px; margin-bottom: 0.5rem; }
+        .header h1 { color: var(--white); font-size: 1.25rem; font-weight: 700; }
+        .header p { color: rgba(255,255,255,0.8); font-size: 0.85rem; margin-top: 0.25rem; }
+        .header a { color: var(--gold); font-size: 0.8rem; text-decoration: none; }
+
+        .container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .intro {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-top: 4px solid var(--gold);
+        }
+        .intro h2 { color: var(--green); font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .intro p { color: var(--gray-600); font-size: 0.9rem; }
+
+        .question {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .question label.q-label {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--gray-900);
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        .question .required { color: #C62828; }
+
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .radio-group label, .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--gray-700);
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .radio-group label:hover, .checkbox-group label:hover {
+            background: var(--off-white);
+        }
+
+        .radio-group input, .checkbox-group input {
+            accent-color: var(--green);
+            width: 18px;
+            height: 18px;
+        }
+
+        select {
+            width: 100%;
+            padding: 0.6rem 0.75rem;
+            border: 1px solid #D1D5DB;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            background: white;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 0.6rem 0.75rem;
+            border: 1px solid #D1D5DB;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--gold);
+            color: var(--green);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: inherit;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 0.5rem;
+            transition: transform 0.2s;
+        }
+        .submit-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+
+        .success {
+            display: none;
+            text-align: center;
+            padding: 3rem 1.5rem;
+            background: var(--white);
+            border-radius: 12px;
+        }
+        .success .icon { font-size: 3rem; margin-bottom: 1rem; }
+        .success h2 { color: var(--green); margin-bottom: 0.5rem; }
+        .success p { color: var(--gray-600); font-size: 0.95rem; }
+
+        .footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.8rem;
+            color: var(--gray-600);
+        }
+        .footer a { color: var(--green); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="Brand-Assets/Logo/Social/sp-shield.jpg" alt="SP">
+    <h1>Encuesta para Padres de Senn</h1>
+    <p>2 minutos. Su voz importa.</p>
+    <a href="es.html">&larr; Volver al sitio</a>
+</div>
+
+<div class="container">
+    <div class="intro">
+        <h2>Consejo Asesor de Padres (CAP)</h2>
+        <p>Esta encuesta nos ayuda a entender lo que las familias de Senn realmente necesitan. Sus respuestas guiarán las recomendaciones del CAP sobre cómo se gastan los fondos de Título I para la participación familiar.</p>
+    </div>
+
+    <form id="survey-form">
+        <!-- Q1 -->
+        <div class="question">
+            <label class="q-label">1. ¿Cuántos años lleva su hijo/a en Senn? <span class="required">*</span></label>
+            <div class="radio-group">
+                <label><input type="radio" name="q1" value="Primer año" required> Primer año</label>
+                <label><input type="radio" name="q1" value="2-3 años"> 2-3 años</label>
+                <label><input type="radio" name="q1" value="4 años"> 4 años</label>
+            </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question">
+            <label class="q-label">2. ¿Ha asistido antes a una reunión del CAP o de gobierno escolar? <span class="required">*</span></label>
+            <div class="radio-group">
+                <label><input type="radio" name="q2" value="Sí" required> Sí</label>
+                <label><input type="radio" name="q2" value="No"> No</label>
+            </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="question">
+            <label class="q-label">3. ¿Cuál es la mejor manera de comunicarnos con usted? <span class="required">*</span></label>
+            <div class="radio-group">
+                <label><input type="radio" name="q3" value="Correo electrónico" required> Correo electrónico</label>
+                <label><input type="radio" name="q3" value="Mensaje de texto"> Mensaje de texto</label>
+                <label><input type="radio" name="q3" value="WhatsApp"> WhatsApp</label>
+                <label><input type="radio" name="q3" value="Llamada telefónica"> Llamada telefónica</label>
+                <label><input type="radio" name="q3" value="Volante de la escuela"> Volante de la escuela</label>
+            </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="question">
+            <label class="q-label">4. ¿En qué idioma prefiere recibir las comunicaciones de la escuela? <span class="required">*</span></label>
+            <div class="radio-group">
+                <label><input type="radio" name="q4" value="Inglés" required> Inglés</label>
+                <label><input type="radio" name="q4" value="Español"> Español</label>
+                <label><input type="radio" name="q4" value="Otro"> Otro</label>
+            </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="question">
+            <label class="q-label">5. ¿Cuáles son las 3 cosas más importantes que su familia necesita de Senn? <span class="required">*</span></label>
+            <p style="font-size: 0.8rem; color: var(--gray-600); margin-bottom: 0.75rem;">Seleccione hasta 3</p>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="q5" value="Servicios de traducción/interpretación"> Servicios de traducción/interpretación</label>
+                <label><input type="checkbox" name="q5" value="Programas después de la escuela"> Programas después de la escuela</label>
+                <label><input type="checkbox" name="q5" value="Orientación universitaria y profesional"> Orientación universitaria y profesional</label>
+                <label><input type="checkbox" name="q5" value="Salud mental y consejería"> Salud mental y consejería</label>
+                <label><input type="checkbox" name="q5" value="Tutorías y apoyo académico"> Tutorías y apoyo académico</label>
+                <label><input type="checkbox" name="q5" value="Talleres para padres"> Talleres para padres (educación financiera, herramientas digitales, etc.)</label>
+                <label><input type="checkbox" name="q5" value="Mejor comunicación por parte de la escuela"> Mejor comunicación por parte de la escuela</label>
+                <label><input type="checkbox" name="q5" value="Seguridad"> Seguridad</label>
+                <label><input type="checkbox" name="q5" value="Apoyo de educación especial"> Apoyo de educación especial</label>
+                <label><input type="checkbox" name="q5" value="Otro"> Otro</label>
+            </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="question">
+            <label class="q-label">6. ¿Había escuchado sobre el Consejo Asesor de Padres de Título I antes de hoy? <span class="required">*</span></label>
+            <div class="radio-group">
+                <label><input type="radio" name="q6" value="Sí" required> Sí</label>
+                <label><input type="radio" name="q6" value="No"> No</label>
+            </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="question">
+            <label class="q-label">7. ¿Asistiría a una reunión del CAP si se realizara en un horario conveniente para usted? <span class="required">*</span></label>
+            <div class="radio-group">
+                <label><input type="radio" name="q7" value="Sí" required> Sí</label>
+                <label><input type="radio" name="q7" value="Tal vez"> Tal vez</label>
+                <label><input type="radio" name="q7" value="No"> No</label>
+            </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="question">
+            <label class="q-label">8. ¿Qué horario le conviene más para las reuniones? <span class="required">*</span></label>
+            <div class="radio-group">
+                <label><input type="radio" name="q8" value="Mañana" required> Mañana</label>
+                <label><input type="radio" name="q8" value="Tarde"> Tarde</label>
+                <label><input type="radio" name="q8" value="Noche"> Noche</label>
+                <label><input type="radio" name="q8" value="Fin de semana"> Fin de semana</label>
+            </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="question">
+            <label class="q-label">9. ¿Hay algo más que quiera que el CAP sepa?</label>
+            <textarea name="q9" placeholder="Escriba su respuesta aquí..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">Enviar Encuesta</button>
+    </form>
+
+    <div class="success" id="success">
+        <div class="icon">&#9989;</div>
+        <h2>¡Gracias!</h2>
+        <p>Su respuesta ha sido registrada. Gracias por compartir lo que su familia necesita. El CAP usará esta información para hacer recomendaciones informadas.</p>
+        <p style="margin-top: 1rem;"><a href="es.html" style="color: var(--green); font-weight: 600;">Volver al sitio</a></p>
+    </div>
+</div>
+
+<div class="footer">
+    Senn Parent Advisory Council<br>
+    <a href="mailto:sennparents@gmail.com">sennparents@gmail.com</a>
+</div>
+
+<script>
+document.getElementById('survey-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // Validate max 3 checkboxes for Q5
+    var checked = document.querySelectorAll('input[name="q5"]:checked');
+    if (checked.length === 0) {
+        alert('Por favor seleccione al menos una opción para la pregunta 5.');
+        return;
+    }
+    if (checked.length > 3) {
+        alert('Por favor seleccione un máximo de 3 opciones para la pregunta 5.');
+        return;
+    }
+
+    var btn = document.getElementById('submit-btn');
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+
+    var q5values = [];
+    checked.forEach(function(cb) { q5values.push(cb.value); });
+
+    var payload = {
+        type: 'survey',
+        timestamp: new Date().toISOString(),
+        language: 'es',
+        q1: document.querySelector('input[name="q1"]:checked').value,
+        q2: document.querySelector('input[name="q2"]:checked').value,
+        q3: document.querySelector('input[name="q3"]:checked').value,
+        q4: document.querySelector('input[name="q4"]:checked').value,
+        q5: q5values.join(', '),
+        q6: document.querySelector('input[name="q6"]:checked').value,
+        q7: document.querySelector('input[name="q7"]:checked').value,
+        q8: document.querySelector('input[name="q8"]:checked').value,
+        q9: document.querySelector('textarea[name="q9"]').value || ''
+    };
+
+    try {
+        await fetch('https://script.google.com/macros/s/AKfycbxoARfseF_T4vG7df09vjoeN5BSBcdZjd3ZQjimNZLP0vM-fepHndSbDbAwgkk2iLUj/exec', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+
+        document.getElementById('survey-form').style.display = 'none';
+        document.getElementById('success').style.display = 'block';
+    } catch (err) {
+        btn.textContent = 'Enviar Encuesta';
+        btn.disabled = false;
+        alert('Algo salió mal. Por favor intente de nuevo o envíe un correo a sennparents@gmail.com.');
+    }
+});
+</script>
+
+</body>
+</html>

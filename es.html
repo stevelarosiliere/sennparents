@@ -438,7 +438,7 @@
         <img src="Brand-Assets/Logo/senn-parents-final.jpg" alt="Senn Parents - Consejo Asesor de Padres" class="hero-logo">
         <p>Liderado por padres. Construyendo conexiones más fuertes entre familias, personal y las decisiones que dan forma a la educación de nuestros hijos.</p>
         <div class="hero-buttons">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSciLn7-hUXt5tI19HYDVGFrombiNBmf-PRLEKVTE8ZB84L4Ow/viewform" class="btn btn-gold" target="_blank" rel="noopener">Tome la Encuesta de Padres</a>
+            <a href="encuesta.html" class="btn btn-gold">Tome la Encuesta de Padres</a>
             <a href="#join" class="btn btn-outline">Únase al CAP</a>
         </div>
     </div>
@@ -526,7 +526,7 @@
             <div class="cta-card">
                 <h3>Tome la Encuesta de Padres</h3>
                 <p>Dos minutos. Díganos lo que su familia necesita de Senn para que el CAP pueda hacer recomendaciones informadas sobre cómo se gastan los fondos del Título I.</p>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSciLn7-hUXt5tI19HYDVGFrombiNBmf-PRLEKVTE8ZB84L4Ow/viewform" class="btn btn-gold" target="_blank" rel="noopener">Tome la Encuesta</a>
+                <a href="encuesta.html" class="btn btn-gold">Tome la Encuesta</a>
             </div>
             <div class="cta-card" id="join">
                 <h3>Únase al CAP</h3>
@@ -722,7 +722,7 @@ async function submitJoinForm(e) {
 
     try {
         // Google Apps Script Web App URL - replace with your deployed script URL
-        var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxJhZS5u_RYy0YLFqYfkGnnfMUktNl92Lld_0UDbRuNm5Ez0gNwzFZ_9bgiw_DWAJ1S/exec';
+        var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxoARfseF_T4vG7df09vjoeN5BSBcdZjd3ZQjimNZLP0vM-fepHndSbDbAwgkk2iLUj/exec';
 
         if (SCRIPT_URL.indexOf('REPLACE') === -1) {
             await fetch(SCRIPT_URL, {
