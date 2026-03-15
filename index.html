@@ -366,12 +366,16 @@
 
         /* Mobile */
         @media (max-width: 768px) {
-            .hero-logo { max-width: 180px; }
             .hero { min-height: 50vh; padding: 3rem 1.5rem; }
-            .hero p { font-size: 1rem; }
+            .hero-logo { max-width: 160px; width: 50%; }
+            .hero p { font-size: 0.95rem; margin-bottom: 1.5rem; }
             .cta-grid { grid-template-columns: 1fr; }
             .involved-ways { grid-template-columns: 1fr; gap: 1rem; }
             .officers-grid { grid-template-columns: 1fr 1fr; }
+            section { padding: 2.5rem 1.25rem; }
+            h2 { font-size: 1.5rem; }
+            .meeting-card { padding: 1.5rem; }
+            .cta-card { padding: 1.5rem; }
 
             .nav-links {
                 display: none;
@@ -391,8 +395,15 @@
         }
 
         @media (max-width: 480px) {
+            .hero { min-height: 45vh; padding: 2.5rem 1rem; }
+            .hero-logo { max-width: 140px; }
+            .hero p { font-size: 0.9rem; }
+            .hero-buttons { flex-direction: column; align-items: center; width: 100%; }
+            .hero-buttons .btn { width: 100%; text-align: center; }
             .officers-grid { grid-template-columns: 1fr; }
-            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn { padding: 0.75rem 1.5rem; font-size: 0.95rem; }
+            .meeting-detail { font-size: 0.95rem; }
+            .nav-brand-text { font-size: 0.95rem; }
         }
     </style>
 </head>
