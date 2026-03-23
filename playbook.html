@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAC Playbook | Senn Parents</title>
+    <meta name="description" content="Learn how Title I works at Senn High School, what the PAC does, and how to become a member. A 7-step walkthrough for parents.">
+    <meta property="og:title" content="PAC Playbook | Senn Parents">
+    <meta property="og:description" content="Learn how Title I works at Senn High School, what the PAC does, and how to become a member.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sennparents.com/playbook">
+    <meta property="og:image" content="https://sennparents.com/Brand-Assets/Logo/senn-parents-final.jpg">
+    <link rel="icon" type="image/jpeg" href="Brand-Assets/Logo/Social/sp-shield.jpg">
+    <link rel="apple-touch-icon" href="Brand-Assets/Logo/Social/sp-shield.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #1B5E20;
+            --green-mid: #2E7D32;
+            --gold: #D4A017;
+            --gold-light: #FDF3D7;
+            --green-light: #E8F5E9;
+            --white: #FFFFFF;
+            --off-white: #F5F7F5;
+            --gray-100: #F3F4F6;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-900: #1A1A1A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gray-900);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        /* Nav */
+        nav {
+            background: var(--green);
+            padding: 0.75rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .nav-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .nav-brand img { height: 32px; border-radius: 3px; }
+
+        .nav-brand-text {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .nav-brand-text span { color: var(--gold); }
+
+        .nav-links {
+            display: flex;
+            gap: 1.25rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--gold); }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            background: var(--off-white);
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .progress-inner {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+        }
+
+        .progress-step {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .progress-dot {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--gray-100);
+            border: 2px solid var(--gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--gray-600);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .progress-dot.completed {
+            background: var(--green);
+            border-color: var(--green);
+            color: var(--white);
+        }
+
+        .progress-dot.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--green);
+            box-shadow: 0 0 0 4px var(--gold-light);
+        }
+
+        .progress-line {
+            width: 32px;
+            height: 3px;
+            background: var(--gray-100);
+            transition: background 0.3s ease;
+        }
+
+        .progress-line.completed {
+            background: var(--green);
+        }
+
+        .progress-label {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--gray-600);
+            margin-top: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Screens */
+        .screen {
+            display: none;
+            min-height: calc(100vh - 200px);
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        .screen-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 2rem;
+        }
+
+        .screen-label {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .screen-content h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--green);
+            margin-bottom: 1.25rem;
+        }
+
+        .screen-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--green);
+            margin-bottom: 1.25rem;
+        }
+
+        .content-block {
+            margin-bottom: 1.25rem;
+        }
+
+        .content-block p {
+            font-size: 1.05rem;
+            color: var(--gray-700);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .content-block ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-block ul li {
+            padding: 0.75rem 0;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+            color: var(--gray-700);
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .content-block ul li:last-child {
+            border-bottom: none;
+        }
+
+        .content-block ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 1.1rem;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        .highlight-box {
+            background: var(--gold-light);
+            border-radius: 10px;
+            padding: 1.25rem;
+            margin-top: 1.5rem;
+            font-weight: 500;
+            color: var(--green);
+            font-size: 0.95rem;
+        }
+
+        /* Cards grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-card {
+            background: var(--green-light);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .info-card .card-icon {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card h4 {
+            font-size: 1rem;
+            color: var(--green);
+            margin-bottom: 0.35rem;
+            font-weight: 700;
+        }
+
+        .info-card p {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+
+        /* Priority cards */
+        .priority-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .priority-card {
+            background: var(--green-light);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .priority-badge {
+            display: inline-block;
+            background: var(--gold-light);
+            color: var(--green);
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            margin-bottom: 0.5rem;
+        }
+
+        .priority-card .card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .priority-card h4 {
+            font-size: 1rem;
+            color: var(--green);
+            margin-bottom: 0.25rem;
+        }
+
+        .priority-card .pct {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--green);
+        }
+
+        /* Stats inline */
+        .stat-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-box {
+            background: var(--off-white);
+            border-radius: 10px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .stat-box .stat-number {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--green);
+        }
+
+        .stat-box .stat-label {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            margin-top: 0.15rem;
+        }
+
+        /* Officers */
+        .officers-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+
+        .officer-card {
+            background: var(--green-light);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+        }
+
+        .officer-role {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .officer-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--green);
+        }
+
+        /* What's Next items */
+        .next-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .next-item:last-child {
+            border-bottom: none;
+        }
+
+        .next-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .next-item p {
+            font-size: 0.95rem;
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        .next-item a {
+            color: var(--green-mid);
+            font-weight: 600;
+        }
+
+        /* Form */
+        .form-section {
+            background: var(--off-white);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            margin-top: 1rem;
+        }
+
+        .form-section h2 {
+            text-align: center;
+        }
+
+        .form-section .form-sub {
+            text-align: center;
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .form-group label .optional {
+            font-weight: 400;
+            color: var(--gray-600);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select {
+            width: 100%;
+            padding: 0.6rem 0.75rem;
+            border: 1px solid #D1D5DB;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--green-mid);
+            box-shadow: 0 0 0 3px rgba(46,125,50,0.1);
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-group label {
+            font-size: 0.85rem;
+            color: var(--gray-700);
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-weight: 400;
+        }
+
+        .consent-label {
+            display: flex !important;
+            align-items: flex-start !important;
+            gap: 0.5rem !important;
+            font-size: 0.85rem !important;
+            color: var(--gray-700) !important;
+            font-weight: 400 !important;
+            line-height: 1.4 !important;
+            cursor: pointer;
+        }
+
+        .consent-label input {
+            margin-top: 0.15rem;
+            flex-shrink: 0;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.85rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .btn-gold { background: var(--gold); color: var(--green); }
+        .btn-green { background: var(--green); color: var(--white); }
+        .btn-outline { background: transparent; color: var(--green); border: 2px solid var(--green); }
+
+        .screen-nav {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-back {
+            background: transparent;
+            color: var(--gray-600);
+            border: 2px solid var(--gray-100);
+            padding: 0.75rem 1.5rem;
+        }
+
+        .btn-back:hover {
+            border-color: var(--gray-600);
+            box-shadow: none;
+            transform: none;
+        }
+
+        /* Success */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 3rem 1.5rem;
+        }
+
+        .success-message .checkmark {
+            width: 80px;
+            height: 80px;
+            background: var(--green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .success-message h2 {
+            color: var(--green);
+            margin-bottom: 0.5rem;
+        }
+
+        .success-message p {
+            color: var(--gray-600);
+            font-size: 1rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gray-900);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 2rem 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        footer strong { color: var(--white); display: block; margin-bottom: 0.25rem; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--green);
+                flex-direction: column;
+                padding: 1rem 1.5rem;
+                gap: 0.75rem;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
+
+            .screen-content { padding: 2rem 1.25rem 1.5rem; }
+            .screen-content h1 { font-size: 1.6rem; }
+            .screen-content h2 { font-size: 1.4rem; }
+
+            .cards-grid { grid-template-columns: 1fr; }
+            .priority-cards { grid-template-columns: 1fr; }
+            .officers-grid { grid-template-columns: 1fr; }
+            .stat-row { grid-template-columns: 1fr; }
+
+            .progress-line { width: 16px; }
+            .progress-dot { width: 26px; height: 26px; font-size: 0.65rem; }
+
+            .form-section { padding: 1.5rem 1.25rem; }
+
+            .screen-nav { padding: 1rem 1.25rem 2.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            .nav-brand-text { font-size: 0.95rem; }
+            .screen-content h1 { font-size: 1.4rem; }
+            .progress-line { width: 10px; }
+            .progress-dot { width: 24px; height: 24px; font-size: 0.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" class="nav-brand">
+            <img src="Brand-Assets/Logo/Social/sp-shield.jpg" alt="SP">
+            <span class="nav-brand-text">SENN <span>PARENTS</span></span>
+        </a>
+        <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#meeting">Next Meeting</a></li>
+            <li><a href="vote.html">Vote</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="guia.html" style="color: var(--gold);">Espa&#241;ol</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Progress Bar -->
+<div class="progress-bar">
+    <div class="progress-inner" id="progress">
+        <div class="progress-dot active" data-step="1">1</div>
+        <div class="progress-line" data-line="1"></div>
+        <div class="progress-dot" data-step="2">2</div>
+        <div class="progress-line" data-line="2"></div>
+        <div class="progress-dot" data-step="3">3</div>
+        <div class="progress-line" data-line="3"></div>
+        <div class="progress-dot" data-step="4">4</div>
+        <div class="progress-line" data-line="4"></div>
+        <div class="progress-dot" data-step="5">5</div>
+        <div class="progress-line" data-line="5"></div>
+        <div class="progress-dot" data-step="6">6</div>
+        <div class="progress-line" data-line="6"></div>
+        <div class="progress-dot" data-step="7">7</div>
+    </div>
+    <div class="progress-label" id="progress-label">Step 1 of 7</div>
+</div>
+
+<!-- Screen 1: What is Title I? -->
+<div class="screen active" data-screen="1">
+    <div class="screen-content">
+        <p class="screen-label">The Basics</p>
+        <h1>What is Title I?</h1>
+        <div class="content-block">
+            <p>Title I provides federal funds to ensure all children have equal opportunity to a quality education.</p>
+            <p>The law has existed since 1965. The current version is called ESSA (Every Student Succeeds Act).</p>
+            <p>Any school receiving Title I funds must set aside 1% of their allocation for Parent and Family Engagement.</p>
+        </div>
+        <div class="highlight-box">
+            Senn High School is a Title I school. That means there are funds specifically for parent programming.
+        </div>
+    </div>
+    <div class="screen-nav">
+        <div></div>
+        <button class="btn btn-gold" onclick="goToScreen(2)">Get Started</button>
+    </div>
+</div>
+
+<!-- Screen 2: Why Does Parent Engagement Matter? -->
+<div class="screen" data-screen="2">
+    <div class="screen-content">
+        <p class="screen-label">Why It Matters</p>
+        <h1>Why Does Parent Engagement Matter?</h1>
+        <div class="content-block">
+            <p>Studies show that when parents are involved in their child's school, students perform better socially and academically.</p>
+            <ul>
+                <li>Parents have the opportunity to advise the principal about parent needs.</li>
+                <li>Parents learn about their student's academic needs.</li>
+                <li>Parents drive spending for trainings that develop their skills to help their children academically.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="screen-nav">
+        <button class="btn btn-back" onclick="goToScreen(1)">Back</button>
+        <button class="btn btn-gold" onclick="goToScreen(3)">Next</button>
+    </div>
+</div>
+
+<!-- Screen 3: What Can PAC Funds Be Spent On? -->
+<div class="screen" data-screen="3">
+    <div class="screen-content">
+        <p class="screen-label">The Budget</p>
+        <h1>What Can PAC Funds Be Spent On?</h1>
+        <div class="content-block">
+            <p>Title I parent engagement funds have specific rules about how they can be used.</p>
+        </div>
+        <div class="cards-grid">
+            <div class="info-card">
+                <div class="card-icon">&#127891;</div>
+                <h4>Workshops &amp; Trainings</h4>
+                <p>For parent skills building to support your child academically</p>
+            </div>
+            <div class="info-card">
+                <div class="card-icon">&#9749;</div>
+                <h4>Refreshments</h4>
+                <p>Up to 25% of PAC funds can be spent on light refreshments for events</p>
+            </div>
+            <div class="info-card">
+                <div class="card-icon">&#128186;</div>
+                <h4>Furniture &amp; Equipment</h4>
+                <p>Must be for parents only. Cannot be used by staff or students.</p>
+            </div>
+            <div class="info-card">
+                <div class="card-icon">&#128203;</div>
+                <h4>Office Supplies</h4>
+                <p>Can only be used for PAC business</p>
+            </div>
+        </div>
+    </div>
+    <div class="screen-nav">
+        <button class="btn btn-back" onclick="goToScreen(2)">Back</button>
+        <button class="btn btn-gold" onclick="goToScreen(4)">Next</button>
+    </div>
+</div>
+
+<!-- Screen 4: What is the PAC? -->
+<div class="screen" data-screen="4">
+    <div class="screen-content">
+        <p class="screen-label">Your Council</p>
+        <h1>What is the PAC?</h1>
+        <div class="content-block">
+            <p>The Parent Advisory Council is a parent-led body at every Title I school. It exists to make sure parent voices shape how the school invests in family engagement.</p>
+            <p>The PAC is independent of school administration.</p>
+            <ul>
+                <li>We recommend how Title I parent engagement funds are spent.</li>
+                <li>We co-develop the parent involvement policy with administration.</li>
+                <li>We connect parents with information about their rights under federal education law.</li>
+            </ul>
+        </div>
+
+        <p style="font-size: 0.9rem; color: var(--gray-600); margin-top: 1.5rem; margin-bottom: 0.75rem; font-weight: 600;">Current Officers</p>
+        <div class="officers-grid">
+            <div class="officer-card">
+                <div class="officer-role">Chair</div>
+                <div class="officer-name">Jason Menard</div>
+            </div>
+            <div class="officer-card">
+                <div class="officer-role">Vice Chair</div>
+                <div class="officer-name">Katie Denny</div>
+            </div>
+            <div class="officer-card">
+                <div class="officer-role">Secretary</div>
+                <div class="officer-name">Kathryn Clark</div>
+            </div>
+            <div class="officer-card">
+                <div class="officer-role">Outreach Coordinator</div>
+                <div class="officer-name">Steve Larosiliere</div>
+            </div>
+        </div>
+    </div>
+    <div class="screen-nav">
+        <button class="btn btn-back" onclick="goToScreen(3)">Back</button>
+        <button class="btn btn-gold" onclick="goToScreen(5)">Next</button>
+    </div>
+</div>
+
+<!-- Screen 5: What Did Senn Parents Tell Us? -->
+<div class="screen" data-screen="5">
+    <div class="screen-content">
+        <p class="screen-label">Survey Results</p>
+        <h1>What Did Senn Parents Tell Us?</h1>
+        <div class="content-block">
+            <p>At Report Card Pick-Up on March 18, over 100 families responded to our survey.</p>
+        </div>
+
+        <p style="font-size: 0.9rem; color: var(--gray-600); font-weight: 600; margin-bottom: 0.5rem;">Top 3 Priorities</p>
+        <div class="priority-cards">
+            <div class="priority-card">
+                <span class="priority-badge">#1</span>
+                <div class="card-icon">&#127891;</div>
+                <h4>College &amp; Career Planning</h4>
+                <div class="pct">75%</div>
+            </div>
+            <div class="priority-card">
+                <span class="priority-badge">#2</span>
+                <div class="card-icon">&#128154;</div>
+                <h4>Mental Health &amp; Well-Being</h4>
+                <div class="pct">65%</div>
+            </div>
+            <div class="priority-card">
+                <span class="priority-badge">#3</span>
+                <div class="card-icon">&#9878;&#65039;</div>
+                <h4>Know Your Rights</h4>
+                <div class="pct">40%</div>
+            </div>
+        </div>
+
+        <div class="stat-row">
+            <div class="stat-box">
+                <div class="stat-number">85%</div>
+                <div class="stat-label">Want to stay connected with the PAC</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">45%</div>
+                <div class="stat-label">Had never heard of the PAC before that day</div>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            Languages represented: English, Spanish, Kinyarwanda, Swahili, and more.
+        </div>
+    </div>
+    <div class="screen-nav">
+        <button class="btn btn-back" onclick="goToScreen(4)">Back</button>
+        <button class="btn btn-gold" onclick="goToScreen(6)">Next</button>
+    </div>
+</div>
+
+<!-- Screen 6: What's Next? -->
+<div class="screen" data-screen="6">
+    <div class="screen-content">
+        <p class="screen-label">Next Steps</p>
+        <h1>What's Next?</h1>
+        <div class="content-block">
+            <div class="next-item">
+                <div class="next-icon">&#128499;</div>
+                <div>
+                    <p><strong>Vote on the first workshop</strong> the PAC should organize.<br><a href="vote.html">Cast your vote here.</a></p>
+                </div>
+            </div>
+            <div class="next-item">
+                <div class="next-icon">&#128197;</div>
+                <div>
+                    <p><strong>Next PAC meeting:</strong> Monday, April 21, 2026 at 7:00 PM on Zoom.<br><a href="https://us06web.zoom.us/j/8611443771" target="_blank" rel="noopener">Join the Zoom meeting.</a></p>
+                </div>
+            </div>
+            <div class="next-item">
+                <div class="next-icon">&#128176;</div>
+                <div>
+                    <p>Title I PAC funds (Grant #430329, Fund 332) are not subject to the April 8 general spending deadline, but activities should be scheduled in April and May before the last day of school on June 4.</p>
+                </div>
+            </div>
+            <div class="next-item">
+                <div class="next-icon">&#127919;</div>
+                <div>
+                    <p>The PAC will select a CPS approved vendor and schedule the winning workshop in May.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="screen-nav">
+        <button class="btn btn-back" onclick="goToScreen(5)">Back</button>
+        <button class="btn btn-gold" onclick="goToScreen(7)">Almost Done</button>
+    </div>
+</div>
+
+<!-- Screen 7: Become a PAC Member -->
+<div class="screen" data-screen="7">
+    <div class="screen-content">
+        <div class="form-section" id="registration-form-section">
+            <p class="screen-label" style="text-align: center;">Step 7 of 7</p>
+            <h2>You're almost there. Register as a PAC member.</h2>
+            <p class="form-sub">By registering, you're joining a group of Senn parents working to make sure Title I funds serve our families.</p>
+
+            <form id="playbook-form" onsubmit="submitPlaybookForm(event)">
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Student Name(s) *</label>
+                    <input type="text" name="student" required>
+                </div>
+                <div class="form-group">
+                    <label>Student Grade(s) *</label>
+                    <select name="grade" required>
+                        <option value="">Select grade</option>
+                        <option value="9">9th Grade</option>
+                        <option value="10">10th Grade</option>
+                        <option value="11">11th Grade</option>
+                        <option value="12">12th Grade</option>
+                        <option value="multiple">Multiple</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Phone <span class="optional">(optional, for text/WhatsApp updates)</span></label>
+                    <input type="tel" name="phone">
+                </div>
+                <div class="form-group">
+                    <label>Preferred Language</label>
+                    <select name="language" onchange="document.getElementById('other-lang').style.display=this.value==='Other'?'block':'none'">
+                        <option value="English">English</option>
+                        <option value="Spanish">Spanish</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="text" id="other-lang" name="language_other" placeholder="Please specify your language" style="display:none; margin-top:0.5rem;">
+                </div>
+                <div class="form-group">
+                    <label>How do you want to hear from us?</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="contact_email" value="Email" checked> Email</label>
+                        <label><input type="checkbox" name="contact_text" value="Text"> Text</label>
+                        <label><input type="checkbox" name="contact_whatsapp" value="WhatsApp"> WhatsApp</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="consent-label">
+                        <input type="checkbox" name="consent" required>
+                        <span>I have reviewed the PAC Playbook and understand how Title I parent engagement works at Senn.</span>
+                    </label>
+                </div>
+                <button type="submit" id="playbook-submit" class="btn btn-gold" style="width:100%; text-align:center; margin-top:0.5rem;">Register as a Member</button>
+            </form>
+        </div>
+
+        <div class="success-message" id="playbook-success">
+            <div class="checkmark">&#10003;</div>
+            <h2>Welcome to the Senn PAC!</h2>
+            <p>You're officially registered. We'll be in touch with meeting info, workshop updates, and everything you need to stay connected.</p>
+            <a href="index.html" class="btn btn-green" style="margin-top: 1.5rem;">Back to Home</a>
+        </div>
+    </div>
+    <div class="screen-nav" id="screen-7-nav">
+        <button class="btn btn-back" onclick="goToScreen(6)">Back</button>
+        <div></div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <strong>Nicholas Senn High School</strong>
+    5900 N. Glenwood Ave, Chicago IL 60660<br>
+    <span style="margin-top: 0.5rem; display: inline-block; opacity: 0.5;">&copy; 2026 Senn Parent Advisory Council</span>
+</footer>
+
+<script>
+var currentScreen = 1;
+var totalScreens = 7;
+
+function goToScreen(n) {
+    if (n < 1 || n > totalScreens) return;
+
+    // Hide current screen
+    document.querySelector('.screen.active').classList.remove('active');
+
+    // Show target screen
+    document.querySelector('[data-screen="' + n + '"]').classList.add('active');
+
+    currentScreen = n;
+    updateProgress();
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateProgress() {
+    var dots = document.querySelectorAll('.progress-dot');
+    var lines = document.querySelectorAll('.progress-line');
+
+    dots.forEach(function(dot) {
+        var step = parseInt(dot.getAttribute('data-step'));
+        dot.classList.remove('active', 'completed');
+        if (step < currentScreen) {
+            dot.classList.add('completed');
+            dot.innerHTML = '&#10003;';
+        } else if (step === currentScreen) {
+            dot.classList.add('active');
+            dot.textContent = step;
+        } else {
+            dot.textContent = step;
+        }
+    });
+
+    lines.forEach(function(line) {
+        var lineNum = parseInt(line.getAttribute('data-line'));
+        line.classList.remove('completed');
+        if (lineNum < currentScreen) {
+            line.classList.add('completed');
+        }
+    });
+
+    document.getElementById('progress-label').textContent = 'Step ' + currentScreen + ' of ' + totalScreens;
+}
+
+async function submitPlaybookForm(e) {
+    e.preventDefault();
+    var btn = document.getElementById('playbook-submit');
+    btn.textContent = 'Submitting...';
+    btn.disabled = true;
+
+    var form = document.getElementById('playbook-form');
+    var data = new FormData(form);
+
+    // Collect contact preferences
+    var contactPrefs = [];
+    if (data.get('contact_email')) contactPrefs.push('Email');
+    if (data.get('contact_text')) contactPrefs.push('Text');
+    if (data.get('contact_whatsapp')) contactPrefs.push('WhatsApp');
+
+    var payload = {
+        name: data.get('name'),
+        email: data.get('email'),
+        student: data.get('student'),
+        grade: data.get('grade'),
+        phone: data.get('phone') || '',
+        language: data.get('language') === 'Other' ? (data.get('language_other') || 'Other') : data.get('language'),
+        contact: contactPrefs.join(', '),
+        timestamp: new Date().toISOString()
+    };
+
+    try {
+        var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxoARfseF_T4vG7df09vjoeN5BSBcdZjd3ZQjimNZLP0vM-fepHndSbDbAwgkk2iLUj/exec';
+
+        await fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+
+        document.getElementById('registration-form-section').style.display = 'none';
+        document.getElementById('screen-7-nav').style.display = 'none';
+        document.getElementById('playbook-success').style.display = 'block';
+    } catch (err) {
+        btn.textContent = 'Register as a Member';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again or email sennparents@gmail.com.');
+    }
+}
+</script>
+
+</body>
+</html>

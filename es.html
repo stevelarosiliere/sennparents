@@ -282,13 +282,6 @@
         /* Survey + Join */
         .cta-section { background: var(--off-white); }
 
-        .cta-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
         .cta-card {
             background: var(--white);
             border-radius: 12px;
@@ -325,29 +318,6 @@
         .what-item h4 { font-size: 1rem; color: var(--green); margin-bottom: 0.15rem; }
         .what-item p { color: var(--gray-600); font-size: 0.9rem; }
 
-        /* Involved */
-        .involved-section {
-            background: var(--green);
-            color: var(--white);
-            text-align: center;
-        }
-
-        .involved-section h2 { color: var(--gold); }
-        .involved-section p { opacity: 0.9; max-width: 600px; margin: 0 auto 0.5rem; }
-
-        .involved-ways {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        .involved-way { padding: 1rem; }
-        .involved-way .icon { font-size: 2rem; margin-bottom: 0.5rem; }
-        .involved-way h4 { font-size: 1rem; margin-bottom: 0.25rem; }
-        .involved-way p { font-size: 0.85rem; opacity: 0.8; }
-
         /* Contact */
         .contact-section { text-align: center; }
         .contact-email { font-size: 1.25rem; color: var(--green); font-weight: 600; text-decoration: none; }
@@ -369,8 +339,6 @@
             .hero { min-height: 50vh; padding: 3rem 1.5rem; }
             .hero-logo { max-width: 160px; width: 50%; }
             .hero p { font-size: 0.95rem; margin-bottom: 1.5rem; }
-            .cta-grid { grid-template-columns: 1fr; }
-            .involved-ways { grid-template-columns: 1fr; gap: 1rem; }
             .officers-grid { grid-template-columns: 1fr 1fr; }
             section { padding: 2.5rem 1.25rem; }
             h2 { font-size: 1.5rem; }
@@ -420,8 +388,7 @@
         <ul class="nav-links">
             <li><a href="#meeting">Próxima Reunión</a></li>
             <li><a href="vota.html" style="color: var(--gold);">Vote</a></li>
-            <li><a href="#survey">Encuesta</a></li>
-            <li><a href="#join">Únase</a></li>
+            <li><a href="guia.html">Guía</a></li>
             <li><a href="#about">Acerca de</a></li>
             <li><a href="#contact">Contacto</a></li>
             <li><a href="index.html">English</a></li>
@@ -439,107 +406,31 @@
         <img src="Brand-Assets/Logo/senn-parents-final.jpg" alt="Senn Parents - Consejo Asesor de Padres" class="hero-logo">
         <p>Liderado por padres. Construyendo conexiones más fuertes entre familias, personal y las decisiones que dan forma a la educación de nuestros hijos.</p>
         <div class="hero-buttons">
-            <a href="vota.html" class="btn btn-gold">Vote por Nuestro Primer Taller</a>
-            <a href="#join" class="btn btn-outline">Únase al CAP</a>
+            <a href="guia.html" class="btn btn-gold">Conviértase en Miembro</a>
+            <a href="vota.html" class="btn btn-outline">Vote por Nuestro Primer Taller</a>
         </div>
     </div>
 </section>
 
-<!-- Survey Results Banner -->
-<section style="background: var(--gold-light); padding: 2rem 1.5rem; text-align: center;">
+<!-- Momentum Bar -->
+<section style="background: var(--green); padding: 1.25rem 1.5rem;">
     <div class="container">
-        <p style="font-size: 1.5rem; font-weight: 800; color: var(--green); margin-bottom: 0.5rem;">100+ Familias Respondieron en la Entrega de Calificaciones</p>
-        <p style="color: var(--gray-600); max-width: 600px; margin: 0 auto 1rem;">Preguntamos qué es lo más importante. Ahora es hora de votar por el primer taller que el CAP organizará con fondos del Título I.</p>
-        <a href="vota.html" class="btn btn-green" style="border: none; cursor: pointer;">Ver Resultados y Votar</a>
-    </div>
-</section>
-
-<!-- Next Meeting -->
-<section id="meeting" class="meeting-section">
-    <div class="container">
-        <p class="section-label">Próximamente</p>
-        <h2>Próxima Reunión del CAP</h2>
-        <div class="meeting-card">
-            <div class="meeting-detail">
-                <span class="icon">&#128197;</span>
-                <div><strong>Lunes, 21 de abril de 2026</strong></div>
+        <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; text-align: center; color: white;">
+            <div>
+                <div style="font-size: 1.5rem; font-weight: 800; color: var(--gold);">100+</div>
+                <div style="font-size: 0.75rem; opacity: 0.85;">Familias Encuestadas</div>
             </div>
-            <div class="meeting-detail">
-                <span class="icon">&#128336;</span>
-                <div><strong>7:00 PM</strong></div>
+            <div>
+                <div style="font-size: 1.5rem; font-weight: 800; color: var(--gold);">85+</div>
+                <div style="font-size: 0.75rem; opacity: 0.85;">Padres Conectados</div>
             </div>
-            <div class="meeting-detail">
-                <span class="icon">&#128205;</span>
-                <div><strong>Senn High School</strong><br>5900 N. Glenwood Ave, Chicago IL 60660</div>
+            <div>
+                <div style="font-size: 1.5rem; font-weight: 800; color: var(--gold);">5+</div>
+                <div style="font-size: 0.75rem; opacity: 0.85;">Idiomas Representados</div>
             </div>
-            <div class="meeting-detail">
-                <span class="icon">&#128187;</span>
-                <div><strong>Opción virtual:</strong> <a href="https://us06web.zoom.us/j/8611443771" id="meet-link" style="color: var(--green-mid);" target="_blank" rel="noopener">Únase por Zoom</a><br><span style="font-size: 0.85rem; color: var(--gray-600);">Esta reunión será grabada.</span></div>
-            </div>
-
-            <div class="agenda-list">
-                <h3>Puntos Destacados de la Agenda</h3>
-                <ul>
-                    <li>Resultados de la votación del taller y próximos pasos</li>
-                    <li>Plan de gastos de fondos del Título I para abril y mayo</li>
-                    <li>Selección de proveedores y programación del taller</li>
-                    <li>Revisión de resultados de la encuesta (100+ respuestas de familias)</li>
-                    <li>Preguntas y comentarios</li>
-                </ul>
-            </div>
-
-            <div class="meeting-buttons">
-                <a href="#join" class="btn btn-gold">Regístrese como Miembro</a>
-                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Senn+PAC+Meeting&dates=20260422T000000Z/20260422T013000Z&details=Parent+Advisory+Council+Meeting%0ASenn+High+School%0A%0AZoom%3A+https%3A%2F%2Fus06web.zoom.us%2Fj%2F8611443771%0A%0AAgenda%3A+Workshop+Vote+Results%2C+Title+I+Fund+Planning&location=Nicholas+Senn+High+School%2C+5900+N.+Glenwood+Ave%2C+Chicago+IL+60660" class="btn btn-outline" target="_blank" rel="noopener" style="border-color: var(--green-mid); color: var(--green-mid);">Agregar al Calendario</a>
-            </div>
-
-            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--gray-600);">Todos los padres y tutores son bienvenidos. No necesita ser miembro para asistir.</p>
-        </div>
-    </div>
-</section>
-
-<!-- Officers -->
-<section id="officers">
-    <div class="container">
-        <p class="section-label">Liderazgo</p>
-        <h2>Sus Oficiales 2025-2026</h2>
-        <p style="color: var(--gray-600); max-width: 600px;">Elegidos por los padres de Senn para representar su voz en cómo la escuela invierte en la participación familiar.</p>
-        <div class="officers-grid">
-            <div class="officer-card">
-                <div class="officer-role">Presidente</div>
-                <div class="officer-name">Jason Menard</div>
-            </div>
-            <div class="officer-card">
-                <div class="officer-role">Vicepresidente</div>
-                <div class="officer-name">Katie Denny</div>
-            </div>
-            <div class="officer-card">
-                <div class="officer-role">Secretaria</div>
-                <div class="officer-name">Kathryn Clark</div>
-            </div>
-            <div class="officer-card">
-                <div class="officer-role">Coordinador de Alcance</div>
-                <div class="officer-name">Steve Larosiliere</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Survey Results + Join -->
-<section id="survey" class="cta-section">
-    <div class="container">
-        <p class="section-label">Su Voz Importa</p>
-        <h2>Lo Que las Familias Nos Dijeron</h2>
-        <div class="cta-grid">
-            <div class="cta-card">
-                <h3>Resultados de la Encuesta 2026</h3>
-                <p>Más de 100 familias respondieron en la Entrega de Calificaciones. Las principales prioridades: planificación universitaria, salud mental y Conozca Sus Derechos. Ahora es hora de votar por el primer taller.</p>
-                <a href="vota.html" class="btn btn-gold">Ver Resultados y Votar</a>
-            </div>
-            <div class="cta-card" id="join">
-                <h3>Únase al CAP</h3>
-                <p>Regístrese como miembro. Reciba avisos de reuniones, agendas y actualizaciones. Todos los padres y tutores de Senn son elegibles.</p>
-                <button class="btn btn-green" onclick="document.getElementById('join-modal').style.display='flex'" style="border: none; cursor: pointer;">Regístrese Ahora</button>
+            <div>
+                <div style="font-size: 1.5rem; font-weight: 800; color: var(--gold);">4</div>
+                <div style="font-size: 0.75rem; opacity: 0.85;">Oficiales Electos</div>
             </div>
         </div>
     </div>
@@ -594,26 +485,97 @@
     </div>
 </section>
 
-<!-- Get Involved -->
-<section class="involved-section">
+<!-- Become a Member -->
+<section style="background: var(--gold-light);">
+    <div class="container" style="text-align: center;">
+        <p class="section-label">Comience Aquí</p>
+        <h2>Conviértase en Miembro del CAP</h2>
+        <p style="color: var(--gray-600); max-width: 600px; margin: 0 auto 1.5rem;">Aprenda cómo funciona el Título I, entienda su rol como padre y regístrese como miembro. Toma aproximadamente 5 minutos.</p>
+        <a href="guia.html" class="btn btn-green" style="border: none; cursor: pointer;">Comenzar la Guía del CAP</a>
+    </div>
+</section>
+
+<!-- Next Meeting -->
+<section id="meeting" class="meeting-section">
     <div class="container">
-        <p class="section-label" style="color: rgba(255,255,255,0.6);">Participe</p>
-        <h2>Tres Formas de Participar</h2>
-        <div class="involved-ways">
-            <div class="involved-way">
-                <div class="icon">&#128227;</div>
-                <h4>Asista a una Reunión</h4>
-                <p>Todos los padres y tutores son bienvenidos. No se requiere membresía.</p>
+        <p class="section-label">Próximamente</p>
+        <h2>Próxima Reunión del CAP</h2>
+        <div class="meeting-card">
+            <div class="meeting-detail">
+                <span class="icon">&#128197;</span>
+                <div><strong>Lunes, 21 de abril de 2026</strong></div>
             </div>
-            <div class="involved-way">
-                <div class="icon">&#128172;</div>
-                <h4>Comparta Su Voz</h4>
-                <p>Tome la encuesta. Díganos lo que su familia necesita.</p>
+            <div class="meeting-detail">
+                <span class="icon">&#128336;</span>
+                <div><strong>7:00 PM</strong></div>
             </div>
-            <div class="involved-way">
-                <div class="icon">&#127760;</div>
-                <h4>Corra la Voz</h4>
-                <p>Hable con otros padres de Senn. Cuantas más familias participen, más fuerte será nuestra voz.</p>
+            <div class="meeting-detail">
+                <span class="icon">&#128205;</span>
+                <div><strong>Senn High School</strong><br>5900 N. Glenwood Ave, Chicago IL 60660</div>
+            </div>
+            <div class="meeting-detail">
+                <span class="icon">&#128187;</span>
+                <div><strong>Opción virtual:</strong> <a href="https://us06web.zoom.us/j/8611443771" id="meet-link" style="color: var(--green-mid);" target="_blank" rel="noopener">Únase por Zoom</a><br><span style="font-size: 0.85rem; color: var(--gray-600);">Esta reunión será grabada.</span></div>
+            </div>
+
+            <div class="agenda-list">
+                <h3>Puntos Destacados de la Agenda</h3>
+                <ul>
+                    <li>Resultados de la votación del taller y próximos pasos</li>
+                    <li>Plan de gastos de fondos del Título I para abril y mayo</li>
+                    <li>Selección de proveedores y programación del taller</li>
+                    <li>Revisión de resultados de la encuesta (100+ respuestas de familias)</li>
+                    <li>Preguntas y comentarios</li>
+                </ul>
+            </div>
+
+            <div class="meeting-buttons">
+                <a href="guia.html" class="btn btn-gold">Conviértase en Miembro</a>
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Senn+PAC+Meeting&dates=20260422T000000Z/20260422T013000Z&details=Parent+Advisory+Council+Meeting%0ASenn+High+School%0A%0AZoom%3A+https%3A%2F%2Fus06web.zoom.us%2Fj%2F8611443771%0A%0AAgenda%3A+Workshop+Vote+Results%2C+Title+I+Fund+Planning&location=Nicholas+Senn+High+School%2C+5900+N.+Glenwood+Ave%2C+Chicago+IL+60660" class="btn btn-outline" target="_blank" rel="noopener" style="border-color: var(--green-mid); color: var(--green-mid);">Agregar al Calendario</a>
+            </div>
+
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--gray-600);">Todos los padres y tutores son bienvenidos. No necesita ser miembro para asistir.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Officers -->
+<section id="officers">
+    <div class="container">
+        <p class="section-label">Liderazgo</p>
+        <h2>Sus Oficiales 2025-2026</h2>
+        <p style="color: var(--gray-600); max-width: 600px;">Elegidos por los padres de Senn para representar su voz en cómo la escuela invierte en la participación familiar.</p>
+        <div class="officers-grid">
+            <div class="officer-card">
+                <div class="officer-role">Presidente</div>
+                <div class="officer-name">Jason Menard</div>
+            </div>
+            <div class="officer-card">
+                <div class="officer-role">Vicepresidente</div>
+                <div class="officer-name">Katie Denny</div>
+            </div>
+            <div class="officer-card">
+                <div class="officer-role">Secretaria</div>
+                <div class="officer-name">Kathryn Clark</div>
+            </div>
+            <div class="officer-card">
+                <div class="officer-role">Coordinador de Alcance</div>
+                <div class="officer-name">Steve Larosiliere</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Survey Results -->
+<section id="survey" class="cta-section">
+    <div class="container">
+        <p class="section-label">Su Voz Importa</p>
+        <h2>Lo Que las Familias Nos Dijeron</h2>
+        <div style="max-width: 700px;">
+            <div class="cta-card">
+                <h3>Los Resultados de la Encuesta 2026 Están Aquí</h3>
+                <p>Más de 100 familias nos dijeron qué es lo más importante. Las principales prioridades: planificación universitaria, salud mental y Conozca Sus Derechos. Ahora ayúdenos a decidir qué taller sucede primero.</p>
+                <a href="vota.html" class="btn btn-gold">Ver Resultados y Votar</a>
             </div>
         </div>
     </div>
@@ -635,134 +597,6 @@
     5900 N. Glenwood Ave, Chicago IL 60660<br>
     <span style="margin-top: 0.5rem; display: inline-block; opacity: 0.5;">&copy; 2026 Senn Consejo Asesor de Padres</span>
 </footer>
-
-<!-- Join Modal -->
-<div id="join-modal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.6); z-index:200; align-items:center; justify-content:center; padding:1rem;">
-    <div style="background:white; border-radius:12px; padding:2rem; max-width:480px; width:100%; max-height:90vh; overflow-y:auto; position:relative;">
-        <button onclick="document.getElementById('join-modal').style.display='none'" style="position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--gray-600);">&times;</button>
-        <h3 style="font-size:1.25rem; color:var(--green); margin-bottom:0.25rem;">Únase al CAP</h3>
-        <p style="font-size:0.85rem; color:var(--gray-600); margin-bottom:1.25rem;">Todos los padres y tutores de Senn son elegibles. Toma 30 segundos.</p>
-        <form id="join-form" onsubmit="submitJoinForm(event)">
-            <div style="margin-bottom:1rem;">
-                <label style="font-size:0.8rem; font-weight:600; color:var(--gray-700); display:block; margin-bottom:0.25rem;">Nombre Completo *</label>
-                <input type="text" name="name" required style="width:100%; padding:0.6rem 0.75rem; border:1px solid #D1D5DB; border-radius:6px; font-size:0.95rem; font-family:inherit;">
-            </div>
-            <div style="margin-bottom:1rem;">
-                <label style="font-size:0.8rem; font-weight:600; color:var(--gray-700); display:block; margin-bottom:0.25rem;">Correo Electrónico *</label>
-                <input type="email" name="email" required style="width:100%; padding:0.6rem 0.75rem; border:1px solid #D1D5DB; border-radius:6px; font-size:0.95rem; font-family:inherit;">
-            </div>
-            <div style="margin-bottom:1rem;">
-                <label style="font-size:0.8rem; font-weight:600; color:var(--gray-700); display:block; margin-bottom:0.25rem;">Nombre(s) del Estudiante *</label>
-                <input type="text" name="student" required style="width:100%; padding:0.6rem 0.75rem; border:1px solid #D1D5DB; border-radius:6px; font-size:0.95rem; font-family:inherit;">
-            </div>
-            <div style="margin-bottom:1rem;">
-                <label style="font-size:0.8rem; font-weight:600; color:var(--gray-700); display:block; margin-bottom:0.25rem;">Grado(s) del Estudiante *</label>
-                <select name="grade" required style="width:100%; padding:0.6rem 0.75rem; border:1px solid #D1D5DB; border-radius:6px; font-size:0.95rem; font-family:inherit; background:white;">
-                    <option value="">Seleccione el grado</option>
-                    <option value="9">9.° Grado</option>
-                    <option value="10">10.° Grado</option>
-                    <option value="11">11.° Grado</option>
-                    <option value="12">12.° Grado</option>
-                    <option value="multiple">Múltiples grados</option>
-                </select>
-            </div>
-            <div style="margin-bottom:1rem;">
-                <label style="font-size:0.8rem; font-weight:600; color:var(--gray-700); display:block; margin-bottom:0.25rem;">Teléfono <span style="font-weight:400; color:var(--gray-600);">(opcional)</span></label>
-                <input type="tel" name="phone" style="width:100%; padding:0.6rem 0.75rem; border:1px solid #D1D5DB; border-radius:6px; font-size:0.95rem; font-family:inherit;">
-            </div>
-            <div style="margin-bottom:1rem;">
-                <label style="font-size:0.8rem; font-weight:600; color:var(--gray-700); display:block; margin-bottom:0.25rem;">Idioma Preferido</label>
-                <select name="language" style="width:100%; padding:0.6rem 0.75rem; border:1px solid #D1D5DB; border-radius:6px; font-size:0.95rem; font-family:inherit; background:white;">
-                    <option value="English">English</option>
-                    <option value="Spanish" selected>Español</option>
-                    <option value="Other">Otro</option>
-                </select>
-            </div>
-            <div style="margin-bottom:1.25rem;">
-                <label style="font-size:0.8rem; font-weight:600; color:var(--gray-700); display:block; margin-bottom:0.5rem;">¿Cómo desea recibir noticias nuestras?</label>
-                <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-                    <label style="font-size:0.85rem; color:var(--gray-700); display:flex; align-items:center; gap:0.35rem;"><input type="checkbox" name="contact_email" value="Email" checked> Correo</label>
-                    <label style="font-size:0.85rem; color:var(--gray-700); display:flex; align-items:center; gap:0.35rem;"><input type="checkbox" name="contact_text" value="Text"> Texto</label>
-                    <label style="font-size:0.85rem; color:var(--gray-700); display:flex; align-items:center; gap:0.35rem;"><input type="checkbox" name="contact_whatsapp" value="WhatsApp"> WhatsApp</label>
-                </div>
-            </div>
-            <button type="submit" id="join-submit" class="btn btn-gold" style="width:100%; border:none; cursor:pointer; text-align:center;">Regístrese</button>
-        </form>
-        <div id="join-success" style="display:none; text-align:center; padding:2rem 0;">
-            <div style="font-size:2.5rem; margin-bottom:0.75rem;">&#9989;</div>
-            <h3 style="color:var(--green); margin-bottom:0.5rem;">¡Está registrado!</h3>
-            <p style="color:var(--gray-600); font-size:0.9rem;">Bienvenido al Consejo Asesor de Padres de Senn. Nos comunicaremos con información sobre reuniones y actualizaciones.</p>
-        </div>
-    </div>
-</div>
-
-<script>
-// Close modal on background click
-document.getElementById('join-modal').addEventListener('click', function(e) {
-    if (e.target === this) this.style.display = 'none';
-});
-
-async function submitJoinForm(e) {
-    e.preventDefault();
-    var btn = document.getElementById('join-submit');
-    btn.textContent = 'Enviando...';
-    btn.disabled = true;
-
-    var form = document.getElementById('join-form');
-    var data = new FormData(form);
-
-    // Collect contact preferences
-    var contactPrefs = [];
-    if (data.get('contact_email')) contactPrefs.push('Email');
-    if (data.get('contact_text')) contactPrefs.push('Text');
-    if (data.get('contact_whatsapp')) contactPrefs.push('WhatsApp');
-
-    var payload = {
-        name: data.get('name'),
-        email: data.get('email'),
-        student: data.get('student'),
-        grade: data.get('grade'),
-        phone: data.get('phone') || '',
-        language: data.get('language'),
-        contact: contactPrefs.join(', '),
-        timestamp: new Date().toISOString()
-    };
-
-    try {
-        // Google Apps Script Web App URL - replace with your deployed script URL
-        var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxoARfseF_T4vG7df09vjoeN5BSBcdZjd3ZQjimNZLP0vM-fepHndSbDbAwgkk2iLUj/exec';
-
-        if (SCRIPT_URL.indexOf('REPLACE') === -1) {
-            await fetch(SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-        }
-
-        // Also send via email as backup
-        var mailto = 'mailto:sennparents@gmail.com?subject=PAC Registration: ' +
-            encodeURIComponent(payload.name) +
-            '&body=' + encodeURIComponent(
-                'Name: ' + payload.name + '\n' +
-                'Email: ' + payload.email + '\n' +
-                'Student: ' + payload.student + '\n' +
-                'Grade: ' + payload.grade + '\n' +
-                'Phone: ' + payload.phone + '\n' +
-                'Language: ' + payload.language + '\n' +
-                'Contact Preference: ' + payload.contact
-            );
-
-        form.style.display = 'none';
-        document.getElementById('join-success').style.display = 'block';
-    } catch (err) {
-        btn.textContent = 'Regístrese';
-        btn.disabled = false;
-        alert('Algo salió mal. Intente de nuevo o envíe un correo a sennparents@gmail.com.');
-    }
-}
-</script>
 
 </body>
 </html>
