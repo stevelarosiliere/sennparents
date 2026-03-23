@@ -22,9 +22,14 @@
 
         .page {
             width: 8.5in;
-            padding: 0.75in;
+            height: 11in;
+            padding: 0.6in 0.75in;
             position: relative;
+            overflow: hidden;
+            page-break-after: always;
         }
+
+        .page:last-child { page-break-after: auto; }
 
         /* Header */
         .report-header {
@@ -328,13 +333,16 @@
 
         /* Footer */
         .page-footer {
+            position: absolute;
+            bottom: 0.4in;
+            left: 0.75in;
+            right: 0.75in;
             display: flex;
             justify-content: space-between;
             font-size: 0.6rem;
             color: #9CA3AF;
             border-top: 1px solid #E5E7EB;
-            padding-top: 0.5rem;
-            margin-top: 1.5rem;
+            padding-top: 0.35rem;
         }
 
         /* Recommendations List */
@@ -344,10 +352,10 @@
         }
 
         .rec-list li {
-            padding: 0.6rem 0;
-            padding-left: 1.5rem;
+            padding: 0.35rem 0;
+            padding-left: 1.25rem;
             position: relative;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             color: #374151;
             border-bottom: 1px solid #F3F4F6;
         }
@@ -356,9 +364,9 @@
             content: '';
             position: absolute;
             left: 0;
-            top: 1rem;
-            width: 8px;
-            height: 8px;
+            top: 0.7rem;
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
             background: #D4A017;
         }
@@ -393,87 +401,107 @@
     </div>
 
     <!-- Title -->
-    <div class="title-block">
-        <h2>Family Interest <span>Survey Results</span></h2>
-        <p>What Senn families told us matters most for parent engagement programming</p>
+    <div class="title-block" style="padding: 1.25rem;">
+        <h2 style="font-size: 1.3rem;">Family Interest <span>Survey Results</span></h2>
+        <p style="font-size: 0.8rem;">What Senn families told us matters most for parent engagement programming</p>
         <div class="date">Collected March 12-19, 2026 | Report Card Pick-Up Activation</div>
     </div>
 
     <!-- At a Glance -->
-    <div class="stats-row">
-        <div class="stat-card">
-            <div class="number">100+</div>
+    <div class="stats-row" style="margin-bottom: 0.5rem;">
+        <div class="stat-card" style="padding: 0.75rem;">
+            <div class="number" style="font-size: 1.75rem;">100+</div>
             <div class="label">Total Responses</div>
         </div>
-        <div class="stat-card">
-            <div class="number">7x</div>
-            <div class="label">Increase vs Last Year</div>
+        <div class="stat-card" style="padding: 0.75rem;">
+            <div class="number" style="font-size: 1.75rem;">7x</div>
+            <div class="label">vs Last Year</div>
         </div>
-        <div class="stat-card">
-            <div class="number">5+</div>
-            <div class="label">Languages Spoken</div>
+        <div class="stat-card" style="padding: 0.75rem;">
+            <div class="number" style="font-size: 1.75rem;">5+</div>
+            <div class="label">Languages</div>
         </div>
-        <div class="stat-card">
-            <div class="number">85%</div>
+        <div class="stat-card" style="padding: 0.75rem;">
+            <div class="number" style="font-size: 1.75rem;">85%</div>
             <div class="label">Want to Stay Connected</div>
         </div>
     </div>
 
-    <div class="stats-row" style="margin-top: 0;">
-        <div class="stat-card" style="background: #E8F5E9;">
-            <div class="number" style="font-size: 1.5rem;">85+</div>
-            <div class="label">Email Addresses Collected</div>
+    <div class="stats-row" style="margin-top: 0; margin-bottom: 0.75rem;">
+        <div class="stat-card" style="background: #E8F5E9; padding: 0.6rem;">
+            <div class="number" style="font-size: 1.25rem;">85+</div>
+            <div class="label">Emails Collected</div>
         </div>
-        <div class="stat-card" style="background: #E8F5E9;">
-            <div class="number" style="font-size: 1.5rem;">85+</div>
-            <div class="label">Phone Numbers Collected</div>
+        <div class="stat-card" style="background: #E8F5E9; padding: 0.6rem;">
+            <div class="number" style="font-size: 1.25rem;">85+</div>
+            <div class="label">Phone #s Collected</div>
         </div>
-        <div class="stat-card" style="background: #E8F5E9;">
-            <div class="number" style="font-size: 1.5rem;">~45</div>
+        <div class="stat-card" style="background: #E8F5E9; padding: 0.6rem;">
+            <div class="number" style="font-size: 1.25rem;">~45</div>
             <div class="label">Want to Get Involved</div>
         </div>
-        <div class="stat-card" style="background: #E8F5E9;">
-            <div class="number" style="font-size: 1.5rem;">~40</div>
+        <div class="stat-card" style="background: #E8F5E9; padding: 0.6rem;">
+            <div class="number" style="font-size: 1.25rem;">~40</div>
             <div class="label">Want to Be Informed</div>
         </div>
     </div>
 
-    <div class="callout">
-        <h4>Context</h4>
-        <p>Last year, the PAC collected approximately 14 survey responses. This year, at the March 18 Report Card Pick-Up, we collected over 100 in a single afternoon. Languages represented include English, Spanish, Kinyarwanda, and Swahili. Nearly every respondent provided their email and phone number, giving the PAC a real contact list for outreach.</p>
-        <h4 style="margin-top: 0.75rem;">What Drove the Results</h4>
-        <p>The single biggest driver was coordinating with teachers and administrators stationed behind the report card tables. By briefing them ahead of time and asking them to direct parents to the PAC table, we turned every report card interaction into a touchpoint. Having the survey available on the website (sennparents.com) so parents could scan and complete it on their own phones also made a significant impact. A laptop was available at the table as a backup, but most parents preferred using their own devices. The lesson: peer coordination with staff beats any single tactic.</p>
+    <div class="callout" style="padding: 0.75rem; margin-bottom: 0.75rem;">
+        <h4 style="font-size: 0.75rem;">Context</h4>
+        <p style="font-size: 0.7rem;">Last year: 14 responses. This year: 100+ in a single afternoon at Report Card Pick-Up (March 18). Languages: English, Spanish, Kinyarwanda, Swahili. Nearly every respondent provided email and phone, giving the PAC a real contact list.</p>
+        <h4 style="margin-top: 0.5rem; font-size: 0.75rem;">What Drove the Results</h4>
+        <p style="font-size: 0.7rem;">The biggest driver was coordinating with teachers and admins behind the report card tables, briefing them to direct parents to the PAC table. Having the survey on sennparents.com so parents could scan and complete on their phones also made a significant impact. A laptop was available as backup, but most parents preferred their own devices. The lesson: staff coordination beats any single tactic.</p>
     </div>
 
     <!-- Top 3 Priorities -->
-    <div class="section-header">
+    <div class="section-header" style="margin-top: 0.5rem;">
         <span class="tag">Key Finding</span>
         <h3>Top 3 Parent Priorities</h3>
     </div>
-    <p style="font-size: 0.75rem; color: #4B5563; margin-bottom: 0.75rem;">Parents were asked to pick their top 3 topics the PAC should focus on. These results directly inform how Title I parent engagement funds should be allocated.</p>
+    <p style="font-size: 0.65rem; color: #4B5563; margin-bottom: 0.5rem;">Parents picked their top 3 topics. These results directly inform how Title I parent engagement funds should be allocated.</p>
 
-    <div class="ranking">
-        <div class="rank-card top">
+    <div class="ranking" style="margin: 0.5rem 0;">
+        <div class="rank-card top" style="padding: 0.75rem;">
             <span class="rank-badge">#1</span>
-            <div class="icon">&#127891;</div>
-            <h4>College & Career Planning</h4>
-            <p>College apps, FAFSA, financial aid, career pathways</p>
+            <div class="icon" style="font-size: 1.25rem; margin-bottom: 0.2rem;">&#127891;</div>
+            <h4 style="font-size: 0.75rem;">College & Career Planning</h4>
+            <p style="font-size: 0.6rem;">College apps, FAFSA, financial aid, career pathways</p>
         </div>
-        <div class="rank-card">
+        <div class="rank-card" style="padding: 0.75rem;">
             <span class="rank-badge">#2</span>
-            <div class="icon">&#128154;</div>
-            <h4>Mental Health & Well-Being</h4>
-            <p>Student emotional health, warning signs, resources</p>
+            <div class="icon" style="font-size: 1.25rem; margin-bottom: 0.2rem;">&#128154;</div>
+            <h4 style="font-size: 0.75rem;">Mental Health & Well-Being</h4>
+            <p style="font-size: 0.6rem;">Student emotional health, warning signs, resources</p>
         </div>
-        <div class="rank-card">
+        <div class="rank-card" style="padding: 0.75rem;">
             <span class="rank-badge">#3</span>
-            <div class="icon">&#9878;&#65039;</div>
-            <h4>Know Your Rights</h4>
-            <p>Immigration, housing, special education rights</p>
+            <div class="icon" style="font-size: 1.25rem; margin-bottom: 0.2rem;">&#9878;&#65039;</div>
+            <h4 style="font-size: 0.75rem;">Know Your Rights</h4>
+            <p style="font-size: 0.6rem;">Immigration, housing, special education rights</p>
         </div>
     </div>
 
-    <hr style="border: none; border-top: 2px solid #E5E7EB; margin: 1.5rem 0;">
+    <div class="page-footer">
+        <span>Senn Parent Advisory Council | sennparents.com</span>
+        <span>Page 1 of 3</span>
+    </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+    <div class="report-header" style="margin-bottom: 1rem;">
+        <div class="header-left">
+            <img src="Brand-Assets/Logo/senn-parents-final.jpg" class="header-logo" alt="Senn Parents PAC">
+            <div class="header-text">
+                <h1>SENN <span>PARENTS</span></h1>
+                <p>Parent Advisory Council</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <h2>Detailed Results</h2>
+            <p>Page 2 of 3</p>
+        </div>
+    </div>
 
     <!-- Full Topic Breakdown -->
     <div class="section-header" style="margin-top: 0.5rem;">
@@ -604,9 +632,29 @@
         </div>
     </div>
 
-    <hr style="border: none; border-top: 2px solid #E5E7EB; margin: 1.5rem 0;">
+    <div class="page-footer">
+        <span>Senn Parent Advisory Council | sennparents.com</span>
+        <span>Page 2 of 3</span>
+    </div>
+</div>
 
-    <div class="section-header">
+<!-- PAGE 3 -->
+<div class="page">
+    <div class="report-header" style="margin-bottom: 1rem;">
+        <div class="header-left">
+            <img src="Brand-Assets/Logo/senn-parents-final.jpg" class="header-logo" alt="Senn Parents PAC">
+            <div class="header-text">
+                <h1>SENN <span>PARENTS</span></h1>
+                <p>Parent Advisory Council</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <h2>Recommendations & Next Steps</h2>
+            <p>Page 3 of 3</p>
+        </div>
+    </div>
+
+    <div class="section-header" style="margin-top: 0;">
         <span class="tag">Communication</span>
         <h3>How Parents Want to Hear From Us</h3>
     </div>
@@ -693,19 +741,16 @@
         </tr>
     </table>
 
-    <div class="callout-gold callout" style="margin-top: 1.25rem; text-align: center;">
-        <h4 style="font-size: 1rem;">Vote on Our First Workshop</h4>
-        <p style="margin-bottom: 0.5rem;">Parents can now vote on which workshop the PAC should organize first using Title I funds. Share this link with families and encourage them to participate before the April 21 meeting.</p>
-        <p style="font-size: 1.1rem; font-weight: 800; color: #1B5E20;">sennparents.com/vote</p>
-        <p style="font-size: 0.65rem; color: #6B7280; margin-top: 0.25rem;">Spanish version available at sennparents.com/vota</p>
+    <div class="callout-gold callout" style="margin-top: 0.75rem; text-align: center; padding: 0.75rem;">
+        <h4 style="font-size: 0.85rem;">Vote on Our First Workshop</h4>
+        <p style="font-size: 0.7rem;">Share this link with families. Voting closes before the April 21 meeting.</p>
+        <p style="font-size: 1rem; font-weight: 800; color: #1B5E20; margin-top: 0.25rem;">sennparents.com/vote</p>
+        <p style="font-size: 0.6rem; color: #6B7280;">Spanish: sennparents.com/vota</p>
     </div>
 
-    <div class="callout" style="margin-top: 1rem;">
-        <h4>Prepared By</h4>
-        <p>Steve Larosiliere, Outreach Coordinator<br>
-        Senn Parent Advisory Council<br>
-        sennparents@gmail.com | sennparents.com<br>
-        March 23, 2026</p>
+    <div class="callout" style="margin-top: 0.5rem; padding: 0.6rem;">
+        <h4 style="font-size: 0.7rem;">Prepared By</h4>
+        <p style="font-size: 0.65rem;">Steve Larosiliere, Outreach Coordinator | Senn Parent Advisory Council | sennparents@gmail.com | March 23, 2026</p>
     </div>
 
     <div class="page-footer">
