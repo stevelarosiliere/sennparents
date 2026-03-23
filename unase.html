@@ -834,102 +834,12 @@
     </div>
 </div>
 
-<!-- Screen 5: ¿Qué Nos Dijeron los Padres de Senn? -->
+<!-- Screen 5: Conviértase en Miembro del CAP -->
 <div class="screen" data-screen="5">
     <div class="screen-content">
-        <p class="screen-label">Resultados de la Encuesta</p>
-        <h1>¿Qué Nos Dijeron los Padres de Senn?</h1>
-        <div class="content-block">
-            <p>En la Entrega de Boletas de Calificaciones del 18 de marzo, más de 100 familias respondieron a nuestra encuesta.</p>
-        </div>
-
-        <p style="font-size: 0.9rem; color: var(--gray-600); font-weight: 600; margin-bottom: 0.5rem;">Las 3 Prioridades Principales</p>
-        <div class="priority-cards">
-            <div class="priority-card">
-                <span class="priority-badge">#1</span>
-                <div class="card-icon">&#127891;</div>
-                <h4>Planificación Universitaria y Profesional</h4>
-                <div class="pct">75%</div>
-            </div>
-            <div class="priority-card">
-                <span class="priority-badge">#2</span>
-                <div class="card-icon">&#128154;</div>
-                <h4>Salud Mental y Bienestar</h4>
-                <div class="pct">65%</div>
-            </div>
-            <div class="priority-card">
-                <span class="priority-badge">#3</span>
-                <div class="card-icon">&#9878;&#65039;</div>
-                <h4>Conozca Sus Derechos</h4>
-                <div class="pct">40%</div>
-            </div>
-        </div>
-
-        <div class="stat-row">
-            <div class="stat-box">
-                <div class="stat-number">85%</div>
-                <div class="stat-label">Quieren mantenerse conectados con el CAP</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">45%</div>
-                <div class="stat-label">Nunca habían oído hablar del CAP antes de ese día</div>
-            </div>
-        </div>
-
-        <div class="highlight-box">
-            Idiomas representados: inglés, español, kinyarwanda, swahili, y más.
-        </div>
-    </div>
-    <div class="screen-nav">
-        <button class="btn btn-back" onclick="goToScreen(4)">Atrás</button>
-        <button class="btn btn-gold" onclick="goToScreen(6)">Siguiente</button>
-    </div>
-</div>
-
-<!-- Screen 6: ¿Qué Sigue? -->
-<div class="screen" data-screen="6">
-    <div class="screen-content">
-        <p class="screen-label">Próximos Pasos</p>
-        <h1>¿Qué Sigue?</h1>
-        <div class="content-block">
-            <div class="next-item">
-                <div class="next-icon">&#128499;</div>
-                <div>
-                    <p><strong>Vote por el primer taller</strong> que el CAP debería organizar.<br><a href="vota.html">Emita su voto aquí.</a></p>
-                </div>
-            </div>
-            <div class="next-item">
-                <div class="next-icon">&#128197;</div>
-                <div>
-                    <p><strong>Próxima reunión del CAP:</strong> lunes 21 de abril de 2026 a las 7:00 PM por Zoom.<br><a href="https://us06web.zoom.us/j/8611443771" target="_blank" rel="noopener">Únase a la reunión de Zoom.</a></p>
-                </div>
-            </div>
-            <div class="next-item">
-                <div class="next-icon">&#128176;</div>
-                <div>
-                    <p>Los fondos del CAP del Título I (Subvención #430329, Fondo 332) no están sujetos a la fecha límite de gastos generales del 8 de abril, pero las actividades deben programarse en abril y mayo antes del último día de clases el 4 de junio.</p>
-                </div>
-            </div>
-            <div class="next-item">
-                <div class="next-icon">&#127919;</div>
-                <div>
-                    <p>El CAP seleccionará un proveedor aprobado por CPS y programará el taller ganador en mayo.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="screen-nav">
-        <button class="btn btn-back" onclick="goToScreen(5)">Atrás</button>
-        <button class="btn btn-gold" onclick="goToScreen(7)">Casi Listo</button>
-    </div>
-</div>
-
-<!-- Screen 7: Conviértase en Miembro del CAP -->
-<div class="screen" data-screen="7">
-    <div class="screen-content">
         <div class="form-section" id="registration-form-section">
-            <p class="screen-label" style="text-align: center;">Paso 7 de 7</p>
-            <h2>Ya casi termina. Regístrese como miembro del CAP.</h2>
+            <p class="screen-label" style="text-align: center;">Únase</p>
+            <h2>Ahora que conoce el CAP, conviértase en miembro.</h2>
             <p class="form-sub">Al registrarse, se une a un grupo de padres de Senn que trabajan para asegurar que los fondos del Título I sirvan a nuestras familias.</p>
 
             <form id="playbook-form" onsubmit="submitPlaybookForm(event)">
@@ -990,13 +900,103 @@
         <div class="success-message" id="playbook-success">
             <div class="checkmark">&#10003;</div>
             <h2>¡Bienvenido al CAP de Senn!</h2>
-            <p>Está oficialmente registrado. Nos pondremos en contacto con información sobre reuniones, actualizaciones de talleres, y todo lo que necesita para mantenerse conectado.</p>
-            <a href="es.html" class="btn btn-green" style="margin-top: 1.5rem;">Volver al Inicio</a>
+            <p>Está oficialmente registrado. Ahora vea lo que dicen las familias y vote por nuestro primer taller.</p>
+            <button class="btn btn-green" style="margin-top: 1.5rem;" onclick="goToScreen(6)">Ver Resultados de la Encuesta</button>
         </div>
     </div>
-    <div class="screen-nav" id="screen-7-nav">
-        <button class="btn btn-back" onclick="goToScreen(6)">Atrás</button>
+    <div class="screen-nav" id="screen-5-nav">
+        <button class="btn btn-back" onclick="goToScreen(4)">Atrás</button>
         <div></div>
+    </div>
+</div>
+
+<!-- Screen 6: ¿Qué Nos Dijeron los Padres de Senn? -->
+<div class="screen" data-screen="6">
+    <div class="screen-content">
+        <p class="screen-label">Resultados de la Encuesta</p>
+        <h1>¿Qué Nos Dijeron los Padres de Senn?</h1>
+        <div class="content-block">
+            <p>En la Entrega de Boletas de Calificaciones del 18 de marzo, más de 100 familias respondieron a nuestra encuesta.</p>
+        </div>
+
+        <p style="font-size: 0.9rem; color: var(--gray-600); font-weight: 600; margin-bottom: 0.5rem;">Las 3 Prioridades Principales</p>
+        <div class="priority-cards">
+            <div class="priority-card">
+                <span class="priority-badge">#1</span>
+                <div class="card-icon">&#127891;</div>
+                <h4>Planificación Universitaria y Profesional</h4>
+                <div class="pct">75%</div>
+            </div>
+            <div class="priority-card">
+                <span class="priority-badge">#2</span>
+                <div class="card-icon">&#128154;</div>
+                <h4>Salud Mental y Bienestar</h4>
+                <div class="pct">65%</div>
+            </div>
+            <div class="priority-card">
+                <span class="priority-badge">#3</span>
+                <div class="card-icon">&#9878;&#65039;</div>
+                <h4>Conozca Sus Derechos</h4>
+                <div class="pct">40%</div>
+            </div>
+        </div>
+
+        <div class="stat-row">
+            <div class="stat-box">
+                <div class="stat-number">85%</div>
+                <div class="stat-label">Quieren mantenerse conectados con el CAP</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">45%</div>
+                <div class="stat-label">Nunca habían oído hablar del CAP antes de ese día</div>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            Idiomas representados: inglés, español, kinyarwanda, swahili, y más.
+        </div>
+    </div>
+    <div class="screen-nav">
+        <button class="btn btn-back" onclick="goToScreen(5)">Atrás</button>
+        <button class="btn btn-gold" onclick="goToScreen(7)">Siguiente</button>
+    </div>
+</div>
+
+<!-- Screen 7: ¿Qué Sigue? -->
+<div class="screen" data-screen="7">
+    <div class="screen-content">
+        <p class="screen-label">Tome Acción</p>
+        <h1>¿Qué Sigue?</h1>
+        <div class="content-block">
+            <div class="next-item">
+                <div class="next-icon">&#128499;</div>
+                <div>
+                    <p><strong>Vote por el primer taller</strong> que el CAP debería organizar.<br><a href="vota.html">Emita su voto aquí.</a></p>
+                </div>
+            </div>
+            <div class="next-item">
+                <div class="next-icon">&#128197;</div>
+                <div>
+                    <p><strong>Próxima reunión del CAP:</strong> lunes 21 de abril de 2026 a las 7:00 PM por Zoom.<br><a href="https://us06web.zoom.us/j/8611443771" target="_blank" rel="noopener">Únase a la reunión de Zoom.</a></p>
+                </div>
+            </div>
+            <div class="next-item">
+                <div class="next-icon">&#128176;</div>
+                <div>
+                    <p>Los fondos del CAP del Título I (Subvención #430329, Fondo 332) no están sujetos a la fecha límite de gastos generales del 8 de abril, pero las actividades deben programarse en abril y mayo antes del último día de clases el 4 de junio.</p>
+                </div>
+            </div>
+            <div class="next-item">
+                <div class="next-icon">&#127919;</div>
+                <div>
+                    <p>El CAP seleccionará un proveedor aprobado por CPS y programará el taller ganador en mayo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="screen-nav">
+        <button class="btn btn-back" onclick="goToScreen(6)">Atrás</button>
+        <a href="vota.html" class="btn btn-gold">Votar Ahora</a>
     </div>
 </div>
 

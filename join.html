@@ -834,102 +834,12 @@
     </div>
 </div>
 
-<!-- Screen 5: What Did Senn Parents Tell Us? -->
+<!-- Screen 5: Become a PAC Member -->
 <div class="screen" data-screen="5">
     <div class="screen-content">
-        <p class="screen-label">Survey Results</p>
-        <h1>What Did Senn Parents Tell Us?</h1>
-        <div class="content-block">
-            <p>At Report Card Pick-Up on March 18, over 100 families responded to our survey.</p>
-        </div>
-
-        <p style="font-size: 0.9rem; color: var(--gray-600); font-weight: 600; margin-bottom: 0.5rem;">Top 3 Priorities</p>
-        <div class="priority-cards">
-            <div class="priority-card">
-                <span class="priority-badge">#1</span>
-                <div class="card-icon">&#127891;</div>
-                <h4>College &amp; Career Planning</h4>
-                <div class="pct">75%</div>
-            </div>
-            <div class="priority-card">
-                <span class="priority-badge">#2</span>
-                <div class="card-icon">&#128154;</div>
-                <h4>Mental Health &amp; Well-Being</h4>
-                <div class="pct">65%</div>
-            </div>
-            <div class="priority-card">
-                <span class="priority-badge">#3</span>
-                <div class="card-icon">&#9878;&#65039;</div>
-                <h4>Know Your Rights</h4>
-                <div class="pct">40%</div>
-            </div>
-        </div>
-
-        <div class="stat-row">
-            <div class="stat-box">
-                <div class="stat-number">85%</div>
-                <div class="stat-label">Want to stay connected with the PAC</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">45%</div>
-                <div class="stat-label">Had never heard of the PAC before that day</div>
-            </div>
-        </div>
-
-        <div class="highlight-box">
-            Languages represented: English, Spanish, Kinyarwanda, Swahili, and more.
-        </div>
-    </div>
-    <div class="screen-nav">
-        <button class="btn btn-back" onclick="goToScreen(4)">Back</button>
-        <button class="btn btn-gold" onclick="goToScreen(6)">Next</button>
-    </div>
-</div>
-
-<!-- Screen 6: What's Next? -->
-<div class="screen" data-screen="6">
-    <div class="screen-content">
-        <p class="screen-label">Next Steps</p>
-        <h1>What's Next?</h1>
-        <div class="content-block">
-            <div class="next-item">
-                <div class="next-icon">&#128499;</div>
-                <div>
-                    <p><strong>Vote on the first workshop</strong> the PAC should organize.<br><a href="vote.html">Cast your vote here.</a></p>
-                </div>
-            </div>
-            <div class="next-item">
-                <div class="next-icon">&#128197;</div>
-                <div>
-                    <p><strong>Next PAC meeting:</strong> Monday, April 21, 2026 at 7:00 PM on Zoom.<br><a href="https://us06web.zoom.us/j/8611443771" target="_blank" rel="noopener">Join the Zoom meeting.</a></p>
-                </div>
-            </div>
-            <div class="next-item">
-                <div class="next-icon">&#128176;</div>
-                <div>
-                    <p>Title I PAC funds (Grant #430329, Fund 332) are not subject to the April 8 general spending deadline, but activities should be scheduled in April and May before the last day of school on June 4.</p>
-                </div>
-            </div>
-            <div class="next-item">
-                <div class="next-icon">&#127919;</div>
-                <div>
-                    <p>The PAC will select a CPS approved vendor and schedule the winning workshop in May.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="screen-nav">
-        <button class="btn btn-back" onclick="goToScreen(5)">Back</button>
-        <button class="btn btn-gold" onclick="goToScreen(7)">Almost Done</button>
-    </div>
-</div>
-
-<!-- Screen 7: Become a PAC Member -->
-<div class="screen" data-screen="7">
-    <div class="screen-content">
         <div class="form-section" id="registration-form-section">
-            <p class="screen-label" style="text-align: center;">Step 7 of 7</p>
-            <h2>You're almost there. Register as a PAC member.</h2>
+            <p class="screen-label" style="text-align: center;">Join Us</p>
+            <h2>Now that you know the PAC, become a member.</h2>
             <p class="form-sub">By registering, you're joining a group of Senn parents working to make sure Title I funds serve our families.</p>
 
             <form id="playbook-form" onsubmit="submitPlaybookForm(event)">
@@ -990,13 +900,103 @@
         <div class="success-message" id="playbook-success">
             <div class="checkmark">&#10003;</div>
             <h2>Welcome to the Senn PAC!</h2>
-            <p>You're officially registered. We'll be in touch with meeting info, workshop updates, and everything you need to stay connected.</p>
-            <a href="index.html" class="btn btn-green" style="margin-top: 1.5rem;">Back to Home</a>
+            <p>You're officially registered. Now see what families are saying and vote on our first workshop.</p>
+            <button class="btn btn-green" style="margin-top: 1.5rem;" onclick="goToScreen(6)">See Survey Results</button>
         </div>
     </div>
-    <div class="screen-nav" id="screen-7-nav">
-        <button class="btn btn-back" onclick="goToScreen(6)">Back</button>
+    <div class="screen-nav" id="screen-5-nav">
+        <button class="btn btn-back" onclick="goToScreen(4)">Back</button>
         <div></div>
+    </div>
+</div>
+
+<!-- Screen 6: What Did Senn Parents Tell Us? -->
+<div class="screen" data-screen="6">
+    <div class="screen-content">
+        <p class="screen-label">Survey Results</p>
+        <h1>What Did Senn Parents Tell Us?</h1>
+        <div class="content-block">
+            <p>At Report Card Pick-Up on March 18, over 100 families responded to our survey.</p>
+        </div>
+
+        <p style="font-size: 0.9rem; color: var(--gray-600); font-weight: 600; margin-bottom: 0.5rem;">Top 3 Priorities</p>
+        <div class="priority-cards">
+            <div class="priority-card">
+                <span class="priority-badge">#1</span>
+                <div class="card-icon">&#127891;</div>
+                <h4>College &amp; Career Planning</h4>
+                <div class="pct">75%</div>
+            </div>
+            <div class="priority-card">
+                <span class="priority-badge">#2</span>
+                <div class="card-icon">&#128154;</div>
+                <h4>Mental Health &amp; Well-Being</h4>
+                <div class="pct">65%</div>
+            </div>
+            <div class="priority-card">
+                <span class="priority-badge">#3</span>
+                <div class="card-icon">&#9878;&#65039;</div>
+                <h4>Know Your Rights</h4>
+                <div class="pct">40%</div>
+            </div>
+        </div>
+
+        <div class="stat-row">
+            <div class="stat-box">
+                <div class="stat-number">85%</div>
+                <div class="stat-label">Want to stay connected with the PAC</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">45%</div>
+                <div class="stat-label">Had never heard of the PAC before that day</div>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            Languages represented: English, Spanish, Kinyarwanda, Swahili, and more.
+        </div>
+    </div>
+    <div class="screen-nav">
+        <button class="btn btn-back" onclick="goToScreen(5)">Back</button>
+        <button class="btn btn-gold" onclick="goToScreen(7)">Next</button>
+    </div>
+</div>
+
+<!-- Screen 7: What's Next? -->
+<div class="screen" data-screen="7">
+    <div class="screen-content">
+        <p class="screen-label">Take Action</p>
+        <h1>What's Next?</h1>
+        <div class="content-block">
+            <div class="next-item">
+                <div class="next-icon">&#128499;</div>
+                <div>
+                    <p><strong>Vote on the first workshop</strong> the PAC should organize.<br><a href="vote.html">Cast your vote here.</a></p>
+                </div>
+            </div>
+            <div class="next-item">
+                <div class="next-icon">&#128197;</div>
+                <div>
+                    <p><strong>Next PAC meeting:</strong> Monday, April 21, 2026 at 7:00 PM on Zoom.<br><a href="https://us06web.zoom.us/j/8611443771" target="_blank" rel="noopener">Join the Zoom meeting.</a></p>
+                </div>
+            </div>
+            <div class="next-item">
+                <div class="next-icon">&#128176;</div>
+                <div>
+                    <p>Title I PAC funds (Grant #430329, Fund 332) are not subject to the April 8 general spending deadline, but activities should be scheduled in April and May before the last day of school on June 4.</p>
+                </div>
+            </div>
+            <div class="next-item">
+                <div class="next-icon">&#127919;</div>
+                <div>
+                    <p>The PAC will select a CPS approved vendor and schedule the winning workshop in May.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="screen-nav">
+        <button class="btn btn-back" onclick="goToScreen(6)">Back</button>
+        <a href="vote.html" class="btn btn-gold">Vote Now</a>
     </div>
 </div>
 
