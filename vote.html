@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote | Senn Parents PAC</title>
+    <meta name="description" content="100+ Senn families told us what matters most. Now vote on the first workshop the PAC should organize with Title I funds.">
+    <meta property="og:title" content="Vote for Our First Workshop | Senn Parents PAC">
+    <meta property="og:description" content="100+ families responded. Now help us decide what to do first with Title I funds.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sennparents.com/vote">
+    <meta property="og:image" content="https://sennparents.com/Brand-Assets/Logo/senn-parents-final.jpg">
+    <link rel="icon" type="image/jpeg" href="Brand-Assets/Logo/Social/sp-shield.jpg">
+    <link rel="apple-touch-icon" href="Brand-Assets/Logo/Social/sp-shield.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #1B5E20;
+            --green-mid: #2E7D32;
+            --gold: #D4A017;
+            --gold-light: #FDF3D7;
+            --green-light: #E8F5E9;
+            --white: #FFFFFF;
+            --off-white: #F5F7F5;
+            --gray-100: #F3F4F6;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-900: #1A1A1A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gray-900);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        /* Nav */
+        nav {
+            background: var(--green);
+            padding: 0.75rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .nav-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .nav-brand img { height: 32px; border-radius: 3px; }
+
+        .nav-brand-text {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .nav-brand-text span { color: var(--gold); }
+
+        .nav-links {
+            display: flex;
+            gap: 1.25rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--gold); }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .vote-hero {
+            background: linear-gradient(135deg, var(--green) 0%, #0D3B12 100%);
+            color: var(--white);
+            padding: 4rem 1.5rem 3rem;
+            text-align: center;
+        }
+
+        .vote-hero h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+        }
+
+        .vote-hero h1 span { color: var(--gold); }
+
+        .vote-hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .stat-banner {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 0.25rem;
+        }
+
+        /* Results Section */
+        section { padding: 3.5rem 1.5rem; }
+        .container { max-width: 960px; margin: 0 auto; }
+
+        .section-label {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--green);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .result-card {
+            background: var(--green-light);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .result-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+
+        .result-card h4 {
+            font-size: 1rem;
+            color: var(--green);
+            margin-bottom: 0.35rem;
+        }
+
+        .result-card p {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+        }
+
+        .result-badge {
+            display: inline-block;
+            background: var(--gold-light);
+            color: var(--green);
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Vote Section */
+        .vote-section {
+            background: var(--gold-light);
+        }
+
+        .vote-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .vote-option {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .vote-option:hover { border-color: var(--gold); }
+
+        .vote-option-icon { font-size: 1.75rem; margin-bottom: 0.5rem; }
+
+        .vote-option h4 {
+            font-size: 1.05rem;
+            color: var(--green);
+            margin-bottom: 0.35rem;
+        }
+
+        .vote-option p {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+        }
+
+        .vote-option .vendor-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            background: var(--green-light);
+            color: var(--green);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        .vote-cta {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.85rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .btn-gold { background: var(--gold); color: var(--green); }
+        .btn-green { background: var(--green); color: var(--white); }
+        .btn-outline { background: transparent; color: var(--green); border: 2px solid var(--green); }
+
+        .btn-large {
+            padding: 1rem 2.5rem;
+            font-size: 1.15rem;
+        }
+
+        /* How it works */
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 2rem;
+            position: relative;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .timeline-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+        }
+
+        .timeline-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--green);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin: 0 auto 0.5rem;
+        }
+
+        .timeline-dot.done {
+            background: var(--gold);
+            color: var(--green);
+        }
+
+        .timeline-dot.active {
+            background: var(--green);
+            box-shadow: 0 0 0 4px var(--gold-light), 0 0 0 6px var(--gold);
+        }
+
+        .timeline-step p {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            max-width: 120px;
+            margin: 0 auto;
+        }
+
+        .timeline-step strong {
+            font-size: 0.85rem;
+            color: var(--green);
+        }
+
+        /* Meeting reminder */
+        .meeting-reminder {
+            background: var(--green);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 1.5rem;
+        }
+
+        .meeting-reminder h2 { color: var(--gold); }
+        .meeting-reminder p { opacity: 0.9; max-width: 500px; margin: 0 auto 1.5rem; }
+
+        .meeting-details-inline {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .meeting-details-inline div {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gray-900);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 2rem 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        footer strong { color: var(--white); display: block; margin-bottom: 0.25rem; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .vote-hero { padding: 3rem 1.5rem 2rem; }
+            .vote-hero h1 { font-size: 1.75rem; }
+            .results-grid { grid-template-columns: 1fr; }
+            .vote-options { grid-template-columns: 1fr; }
+            .stat-banner { gap: 1.5rem; }
+            section { padding: 2.5rem 1.25rem; }
+            h2 { font-size: 1.5rem; }
+            .timeline { flex-direction: column; gap: 1.25rem; align-items: flex-start; }
+            .timeline::before { display: none; }
+            .timeline-step { display: flex; align-items: center; gap: 0.75rem; text-align: left; }
+            .timeline-step p { max-width: none; }
+            .timeline-dot { margin: 0; flex-shrink: 0; }
+            .meeting-details-inline { flex-direction: column; align-items: center; gap: 0.75rem; }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--green);
+                flex-direction: column;
+                padding: 1rem 1.5rem;
+                gap: 0.75rem;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
+        }
+
+        @media (max-width: 480px) {
+            .vote-hero h1 { font-size: 1.5rem; }
+            .vote-hero p { font-size: 0.95rem; }
+            .stat-number { font-size: 2rem; }
+            .nav-brand-text { font-size: 0.95rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" class="nav-brand">
+            <img src="Brand-Assets/Logo/Social/sp-shield.jpg" alt="SP">
+            <span class="nav-brand-text">SENN <span>PARENTS</span></span>
+        </a>
+        <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#meeting">Next Meeting</a></li>
+            <li><a href="index.html#join">Join</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="vota.html" style="color: var(--gold);">Espa&#241;ol</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="vote-hero">
+    <h1>You Spoke. <span>We Listened.</span></h1>
+    <p>At Report Card Pick-Up, we asked Senn families what matters most. The response was incredible.</p>
+    <div class="stat-banner">
+        <div class="stat">
+            <div class="stat-number">100+</div>
+            <div class="stat-label">Families responded</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Grade levels represented</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">Languages spoken</div>
+        </div>
+    </div>
+</section>
+
+<!-- What Parents Said -->
+<section>
+    <div class="container">
+        <p class="section-label">Survey Results</p>
+        <h2>What Families Said Matters Most</h2>
+        <p style="color: var(--gray-600); max-width: 700px;">These were the top priorities Senn parents chose when asked what the PAC should focus on this year.</p>
+
+        <div class="results-grid">
+            <div class="result-card">
+                <span class="result-badge">#1 Priority</span>
+                <div class="result-icon">&#127891;</div>
+                <h4>College & Career Planning</h4>
+                <p>Help with college applications, FAFSA, financial aid, and career pathways</p>
+            </div>
+            <div class="result-card">
+                <span class="result-badge">#2 Priority</span>
+                <div class="result-icon">&#128154;</div>
+                <h4>Mental Health & Well-Being</h4>
+                <p>Supporting students' emotional health and learning how to recognize warning signs</p>
+            </div>
+            <div class="result-card">
+                <span class="result-badge">#3 Priority</span>
+                <div class="result-icon">&#9878;&#65039;</div>
+                <h4>Know Your Rights</h4>
+                <p>Immigration, housing, and special education rights workshops for families</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vote -->
+<section class="vote-section" id="vote">
+    <div class="container">
+        <p class="section-label">Your Vote</p>
+        <h2>Help Us Decide What Happens First</h2>
+        <p style="color: var(--gray-600); max-width: 700px;">The PAC has Title I funds to invest in parent workshops before the school year ends on June 4. Based on what you told us, here are four options. Pick the one you want most.</p>
+
+        <div class="vote-options">
+            <div class="vote-option">
+                <div class="vote-option-icon">&#127891;</div>
+                <h4>College & FAFSA Planning Night</h4>
+                <p>Help your student prepare for college applications, financial aid, and career paths. A trained facilitator walks parents through the process step by step.</p>
+                <span class="vendor-tag">CPS-approved vendor delivered</span>
+            </div>
+            <div class="vote-option">
+                <div class="vote-option-icon">&#128154;</div>
+                <h4>Mental Health & Wellness Workshop</h4>
+                <p>Learn how to support your student's emotional well-being, recognize warning signs, and connect with resources. Led by a licensed wellness provider.</p>
+                <span class="vendor-tag">CPS-approved vendor delivered</span>
+            </div>
+            <div class="vote-option">
+                <div class="vote-option-icon">&#9878;&#65039;</div>
+                <h4>Know Your Rights Session</h4>
+                <p>Immigration rights, housing protections, and special education advocacy. Know what your family is entitled to. Bilingual facilitation available.</p>
+                <span class="vendor-tag">CPS-approved vendor delivered</span>
+            </div>
+            <div class="vote-option">
+                <div class="vote-option-icon">&#127917;</div>
+                <h4>Family Community Celebration</h4>
+                <p>An evening of food, art, music, and connection for Senn families. A chance to meet other parents and build community together.</p>
+                <span class="vendor-tag">CPS-approved vendor delivered</span>
+            </div>
+        </div>
+
+        <div class="vote-cta">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdMUxPGi3rqb4BDfZ0vrk2LpfOVjYcP-e_xwZhJRMCsJk44xA/viewform" class="btn btn-gold btn-large" target="_blank" rel="noopener">Cast Your Vote</a>
+            <p style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--gray-600);">Takes 10 seconds. One vote per family.</p>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section>
+    <div class="container">
+        <p class="section-label">The Process</p>
+        <h2>How Your Vote Becomes Action</h2>
+
+        <div class="timeline">
+            <div class="timeline-step">
+                <div class="timeline-dot done">&#10003;</div>
+                <div>
+                    <strong>Survey</strong>
+                    <p>100+ families shared priorities</p>
+                </div>
+            </div>
+            <div class="timeline-step">
+                <div class="timeline-dot done">&#10003;</div>
+                <div>
+                    <strong>Results</strong>
+                    <p>Top themes identified</p>
+                </div>
+            </div>
+            <div class="timeline-step">
+                <div class="timeline-dot active">3</div>
+                <div>
+                    <strong>Vote Now</strong>
+                    <p>You pick the first workshop</p>
+                </div>
+            </div>
+            <div class="timeline-step">
+                <div class="timeline-dot">4</div>
+                <div>
+                    <strong>April 21</strong>
+                    <p>Results shared at PAC meeting</p>
+                </div>
+            </div>
+            <div class="timeline-step">
+                <div class="timeline-dot">5</div>
+                <div>
+                    <strong>May</strong>
+                    <p>Workshop happens at Senn</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Meeting Reminder -->
+<section class="meeting-reminder">
+    <h2>Next PAC Meeting</h2>
+    <p>Join us to hear the vote results and help plan the workshop.</p>
+    <div class="meeting-details-inline">
+        <div>&#128197; <strong>Monday, April 21, 2026</strong></div>
+        <div>&#128336; <strong>7:00 PM</strong></div>
+    </div>
+    <div class="meeting-details-inline">
+        <div>&#128187; <a href="https://us06web.zoom.us/j/8611443771" style="color: var(--gold);" target="_blank" rel="noopener">Join via Zoom</a></div>
+        <div>&#128205; Senn High School</div>
+    </div>
+    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Senn+PAC+Meeting&dates=20260422T000000Z/20260422T013000Z&details=Parent+Advisory+Council+Meeting%0ASenn+High+School%0A%0AZoom%3A+https%3A%2F%2Fus06web.zoom.us%2Fj%2F8611443771%0A%0AAgenda%3A+Workshop+Vote+Results%2C+Title+I+Fund+Planning&location=Nicholas+Senn+High+School%2C+5900+N.+Glenwood+Ave%2C+Chicago+IL+60660" class="btn btn-outline" style="border-color: var(--gold); color: var(--gold); margin-top: 0.5rem;" target="_blank" rel="noopener">Add to Calendar</a>
+</section>
+
+<!-- Footer -->
+<footer>
+    <strong>Nicholas Senn High School</strong>
+    5900 N. Glenwood Ave, Chicago IL 60660<br>
+    <span style="margin-top: 0.5rem; display: inline-block; opacity: 0.5;">&copy; 2026 Senn Parent Advisory Council</span>
+</footer>
+
+</body>
+</html>
