@@ -659,6 +659,42 @@
     </div>
 </nav>
 
+<!-- Intro Landing -->
+<div id="playbook-intro">
+    <section style="background: linear-gradient(135deg, var(--green) 0%, #0D3B12 100%); color: white; padding: 4rem 1.5rem 3rem; text-align: center; min-height: 70vh; display: flex; align-items: center; justify-content: center;">
+        <div style="max-width: 640px;">
+            <img src="Brand-Assets/Logo/senn-parents-final.jpg" alt="Senn Parents" style="max-width: 180px; border-radius: 6px; margin-bottom: 1.5rem;">
+            <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 0.75rem;">Before You Join,<br><span style="color: var(--gold);">Get to Know the PAC</span></h1>
+            <p style="font-size: 1.05rem; opacity: 0.9; margin-bottom: 2rem;">This quick walkthrough covers how Title I funding works, what the PAC does, and what Senn parents are telling us. Takes about 5 minutes. At the end, you can register as a member.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: left; margin-bottom: 2rem;">
+                <div style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 1rem;">
+                    <div style="font-size: 1.25rem; margin-bottom: 0.25rem;">&#128176;</div>
+                    <div style="font-size: 0.85rem; font-weight: 600;">How Title I funds work at Senn</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 1rem;">
+                    <div style="font-size: 1.25rem; margin-bottom: 0.25rem;">&#128221;</div>
+                    <div style="font-size: 0.85rem; font-weight: 600;">What the PAC can spend money on</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 1rem;">
+                    <div style="font-size: 1.25rem; margin-bottom: 0.25rem;">&#128172;</div>
+                    <div style="font-size: 0.85rem; font-weight: 600;">What 100+ families said matters most</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 1rem;">
+                    <div style="font-size: 1.25rem; margin-bottom: 0.25rem;">&#129309;</div>
+                    <div style="font-size: 0.85rem; font-weight: 600;">How to have a voice in your child's education</div>
+                </div>
+            </div>
+
+            <button class="btn btn-gold" style="border: none; cursor: pointer; padding: 1rem 2.5rem; font-size: 1.1rem;" onclick="document.getElementById('playbook-intro').style.display='none'; document.getElementById('playbook-content').style.display='block';">Let's Go</button>
+            <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 0.75rem;">7 short screens. No account needed.</p>
+        </div>
+    </section>
+</div>
+
+<!-- Playbook Content (hidden until intro CTA clicked) -->
+<div id="playbook-content" style="display: none;">
+
 <!-- Progress Bar -->
 <div class="progress-bar">
     <div class="progress-inner" id="progress">
@@ -961,6 +997,9 @@
         <button class="btn btn-back" onclick="goToScreen(6)">Back</button>
         <div></div>
     </div>
+</div>
+
+<!-- End playbook content wrapper -->
 </div>
 
 <!-- Footer -->

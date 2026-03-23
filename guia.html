@@ -659,6 +659,42 @@
     </div>
 </nav>
 
+<!-- Intro Landing -->
+<div id="playbook-intro">
+    <section style="background: linear-gradient(135deg, var(--green) 0%, #0D3B12 100%); color: white; padding: 4rem 1.5rem 3rem; text-align: center; min-height: 70vh; display: flex; align-items: center; justify-content: center;">
+        <div style="max-width: 640px;">
+            <img src="Brand-Assets/Logo/senn-parents-final.jpg" alt="Senn Parents" style="max-width: 180px; border-radius: 6px; margin-bottom: 1.5rem;">
+            <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 0.75rem;">Antes de Unirse,<br><span style="color: var(--gold);">Conozca el CAP</span></h1>
+            <p style="font-size: 1.05rem; opacity: 0.9; margin-bottom: 2rem;">Esta guía rápida cubre cómo funcionan los fondos del Título I, qué hace el CAP y qué nos dicen los padres de Senn. Toma aproximadamente 5 minutos. Al final, puede registrarse como miembro.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: left; margin-bottom: 2rem;">
+                <div style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 1rem;">
+                    <div style="font-size: 1.25rem; margin-bottom: 0.25rem;">&#128176;</div>
+                    <div style="font-size: 0.85rem; font-weight: 600;">Cómo funcionan los fondos del Título I en Senn</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 1rem;">
+                    <div style="font-size: 1.25rem; margin-bottom: 0.25rem;">&#128221;</div>
+                    <div style="font-size: 0.85rem; font-weight: 600;">En qué puede gastar dinero el CAP</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 1rem;">
+                    <div style="font-size: 1.25rem; margin-bottom: 0.25rem;">&#128172;</div>
+                    <div style="font-size: 0.85rem; font-weight: 600;">Lo que más de 100 familias dijeron que importa</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 1rem;">
+                    <div style="font-size: 1.25rem; margin-bottom: 0.25rem;">&#129309;</div>
+                    <div style="font-size: 0.85rem; font-weight: 600;">Cómo tener voz en la educación de su hijo</div>
+                </div>
+            </div>
+
+            <button class="btn btn-gold" style="border: none; cursor: pointer; padding: 1rem 2.5rem; font-size: 1.1rem;" onclick="document.getElementById('playbook-intro').style.display='none'; document.getElementById('playbook-content').style.display='block';">Comencemos</button>
+            <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 0.75rem;">7 pantallas cortas. No se necesita cuenta.</p>
+        </div>
+    </section>
+</div>
+
+<!-- Playbook Content (hidden until intro CTA clicked) -->
+<div id="playbook-content" style="display: none;">
+
 <!-- Progress Bar -->
 <div class="progress-bar">
     <div class="progress-inner" id="progress">
@@ -961,6 +997,9 @@
         <button class="btn btn-back" onclick="goToScreen(6)">Atrás</button>
         <div></div>
     </div>
+</div>
+
+<!-- End playbook content wrapper -->
 </div>
 
 <!-- Footer -->
