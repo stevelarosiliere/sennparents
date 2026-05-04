@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            width: 1200px;
+            height: 1200px;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(160deg, #1B5E20 0%, #0D3B12 100%);
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bg-accent {
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212,160,23,0.18) 0%, transparent 65%);
+        }
+
+        .bg-accent-2 {
+            position: absolute;
+            bottom: -250px;
+            left: -150px;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212,160,23,0.1) 0%, transparent 65%);
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            padding: 70px 80px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-row img {
+            width: 64px;
+            height: 64px;
+            border-radius: 6px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+        }
+
+        .logo-text span { color: #D4A017; }
+
+        .label {
+            display: inline-block;
+            background: #D4A017;
+            color: #0D3B12;
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            padding: 10px 20px;
+            border-radius: 6px;
+            margin-top: 60px;
+        }
+
+        .headline {
+            font-size: 98px;
+            font-weight: 900;
+            line-height: 0.98;
+            margin-top: 28px;
+            letter-spacing: -0.02em;
+        }
+
+        .headline span { color: #D4A017; }
+
+        .subhead {
+            font-size: 26px;
+            font-weight: 500;
+            line-height: 1.45;
+            margin-top: 24px;
+            max-width: 880px;
+            opacity: 0.92;
+        }
+
+        .details {
+            margin-top: auto;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 20px;
+            padding: 36px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px 40px;
+        }
+
+        .detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+        }
+
+        .detail-icon {
+            font-size: 36px;
+            flex-shrink: 0;
+            line-height: 1;
+            width: 44px;
+        }
+
+        .detail-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #D4A017;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .detail-value {
+            font-size: 26px;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        .detail-sub {
+            font-size: 18px;
+            font-weight: 500;
+            opacity: 0.85;
+            line-height: 1.35;
+            margin-top: 2px;
+        }
+
+        .footer-row {
+            margin-top: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .cta {
+            background: #D4A017;
+            color: #0D3B12;
+            font-size: 22px;
+            font-weight: 800;
+            padding: 18px 32px;
+            border-radius: 10px;
+            letter-spacing: 0.01em;
+        }
+
+        .welcome {
+            font-size: 18px;
+            opacity: 0.8;
+            max-width: 480px;
+            line-height: 1.4;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-accent"></div>
+<div class="bg-accent-2"></div>
+
+<div class="container">
+    <div class="logo-row">
+        <img src="Brand-Assets/Logo/Social/sp-shield.jpg" alt="SP">
+        <div class="logo-text">SENN <span>PARENTS</span></div>
+    </div>
+
+    <div class="label">Next PAC Meeting</div>
+
+    <h1 class="headline">Come Meet<br>Your <span>PAC.</span></h1>
+
+    <p class="subhead">Parent-led governance for Senn families. Hear the workshop vote results, Title&nbsp;I fund plans, and how to get involved. All parents and guardians welcome.</p>
+
+    <div class="details">
+        <div class="detail">
+            <div class="detail-icon">&#128197;</div>
+            <div>
+                <div class="detail-label">Date</div>
+                <div class="detail-value">Tuesday, April 21</div>
+                <div class="detail-sub">2026</div>
+            </div>
+        </div>
+        <div class="detail">
+            <div class="detail-icon">&#128336;</div>
+            <div>
+                <div class="detail-label">Time</div>
+                <div class="detail-value">7:00&ndash;8:30 PM</div>
+                <div class="detail-sub">Central Time</div>
+            </div>
+        </div>
+        <div class="detail">
+            <div class="detail-icon">&#128205;</div>
+            <div>
+                <div class="detail-label">Location</div>
+                <div class="detail-value">Little Red Nest</div>
+                <div class="detail-sub">5456 N. Ashland Ave<br>Chicago, IL 60640</div>
+            </div>
+        </div>
+        <div class="detail">
+            <div class="detail-icon">&#128187;</div>
+            <div>
+                <div class="detail-label">Virtual Option</div>
+                <div class="detail-value">Join via Zoom</div>
+                <div class="detail-sub">Link at sennparents.com</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-row">
+        <div class="cta">sennparents.com</div>
+        <div class="welcome">English &amp; Spanish welcome.<br>You do not need to be a member to attend.</div>
+    </div>
+</div>
+
+</body>
+</html>
