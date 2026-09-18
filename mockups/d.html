@@ -496,6 +496,36 @@ footer a { color: rgba(255,255,255,0.7); }
     --tier-gap: 3.5rem;
 }
 
+/* ---------- Hero video ----------
+   Same drone plate the current sennparents.com runs. The green stays as the
+   .hero background, so the panel reads green before the file loads and if it
+   never loads at all. The veil is what keeps white type legible over moving
+   footage: without it the sky blows out the headline. */
+.hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+.hero-veil {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(135deg,
+        rgba(27,94,32,0.88) 0%,
+        rgba(18,64,26,0.80) 45%,
+        rgba(0,0,0,0.64) 100%);
+}
+.hero-grid { position: relative; z-index: 2; }
+
+/* Anyone who has asked their machine to stop moving things gets the flat
+   green panel instead. */
+@media (prefers-reduced-motion: reduce) {
+    .hero-video { display: none; }
+}
+
 /* ---------- Blunt header tagline (Diana) ---------- */
 .tagline {
     font-size: clamp(1.05rem, 2.4vw, 1.3rem);
@@ -824,6 +854,10 @@ footer a { color: rgba(255,255,255,0.7); }
 
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1">
+        <source src="https://d3id26kdqbehod.cloudfront.net/NICSHS/2025/11/18/FZj47wpVlGiXWQNp4yVTVFyh8ueE90fgdgpzn2tHVk4D5eRFByiktvlLYHCJ/Senn+Broll_Drone_Exterior-480p.mp4" type="video/mp4">
+    </video>
+    <div class="hero-veil"></div>
     <div class="wrap hero-grid">
         <div class="hero-inner">
             <svg class="hero-shield" viewBox="0 0 120 120" aria-hidden="true">
