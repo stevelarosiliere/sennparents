@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Senn Parents / The Merge</title>
+<meta name="description" content="Every parent group at Nicholas Senn High School, one place to find them, one form to join any of them.">
+<link rel="icon" type="image/jpeg" href="assets/sp-shield.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   THE WAYFINDER
+   Banger method, Senn expression.
+   Thesis: Chicago civic signage meets the Senn building.
+   Groups are color coded destinations. The page points.
+   Arch motif taken from the building's windows.
+   LOCKED: Senn green, gold, shield, flat IA, parents not admin voice
+   FREE:   type, form language, motion, layout
+   ============================================================ */
+
+:root {
+    --green:      #1B5E20;
+    --green-mid:  #2E7D32;
+    --green-deep: #12401A;
+    --green-soft: #E9F1E9;
+    --gold:       #D4A017;
+    --gold-soft:  #FDF3D7;
+
+    --white: #FFFFFF;
+    --bone:  #FAF9F5;
+    --ink:   #16211A;
+    --ink-60: rgba(22,33,26,0.60);
+    --ink-40: rgba(22,33,26,0.40);
+    --line:   rgba(22,33,26,0.10);
+
+    --pac:       #2E7D32;
+    /* Darker than the brand gold on purpose: this color carries white text on
+       panels and small bold text on white, so it has to clear 4.5:1 both ways.
+       Brand gold stays gold, used for accents and highlights only. */
+    --fos:       #96690B;
+    --bac:       #0E7490;
+    --arts:      #6D28D9;
+    --athletics: #B03A0B;
+    --icewatch:  #2C4257;
+
+    --r:    22px;
+    --r-lg: 30px;
+    --arch: 999px 999px var(--r) var(--r);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bone);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+img, svg { display: block; max-width: 100%; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 1.75rem; }
+
+h1, h2, h3 { font-weight: 800; letter-spacing: -0.025em; line-height: 1.08; }
+h2 { font-size: clamp(1.9rem, 4vw, 2.9rem); }
+h3 { font-size: 1.2rem; letter-spacing: -0.015em; }
+
+.eyebrow {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+}
+.lede { color: var(--ink-60); font-size: 1.05rem; max-width: 46ch; }
+
+/* ---------- Nav: a floating pill, civic and light ---------- */
+nav { position: sticky; top: 0; z-index: 200; padding: 0.85rem 0; background: var(--bone); }
+.nav-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0.5rem 0.6rem 0.5rem 1.1rem;
+    background: var(--white);
+    border-radius: 999px;
+    box-shadow: 0 2px 20px rgba(22,33,26,0.09);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: calc(100% - 3.5rem);
+}
+.nav-mark { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; color: var(--ink); }
+.nav-mark svg { width: 26px; height: 26px; flex-shrink: 0; }
+.nav-mark span { font-weight: 900; font-size: 1rem; letter-spacing: -0.02em; }
+.nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+.nav-links a { font-size: 0.92rem; font-weight: 600; color: var(--ink-60); text-decoration: none; transition: color 0.15s; }
+.nav-links a:hover { color: var(--green); }
+.nav-links a.pill {
+    background: var(--green);
+    color: var(--white);
+    padding: 0.6rem 1.3rem;
+    border-radius: 999px;
+    transition: background 0.15s;
+}
+.nav-links a.pill:hover { background: var(--gold); color: var(--ink); }
+.nav-toggle {
+    display: none;
+    background: var(--green-soft);
+    border: none;
+    width: 40px; height: 40px;
+    border-radius: 999px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    color: var(--green);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.95rem 1.6rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(22,33,26,0.16); }
+.btn-gold  { background: var(--gold); color: var(--ink); }
+.btn-white { background: var(--white); color: var(--green); }
+.btn-green { background: var(--green); color: var(--white); }
+.btn-line  { background: transparent; color: var(--white); box-shadow: inset 0 0 0 2px rgba(255,255,255,0.45); }
+.btn-line:hover { box-shadow: inset 0 0 0 2px var(--gold); color: var(--gold); }
+.btn-quiet {
+    background: var(--white);
+    color: var(--green);
+    box-shadow: inset 0 0 0 1.5px var(--line);
+    padding: 0.6rem 1.1rem;
+    font-size: 0.9rem;
+}
+.arrow { transition: transform 0.18s; }
+.btn:hover .arrow { transform: translateX(3px); }
+
+/* ---------- Hero: solid green field, arch behind ---------- */
+.hero {
+    background: var(--green);
+    color: var(--white);
+    border-radius: 0 0 var(--r-lg) var(--r-lg);
+    padding: 4.5rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+}
+/* The arch, lifted from the building's window heads */
+.hero-grid { display: grid; grid-template-columns: 1fr 330px; gap: 3.5rem; align-items: start; }
+.hero-inner { position: relative; z-index: 2; }
+
+/* The arch is a real object, not wallpaper: it holds the next thing happening. */
+.next-up {
+    background: var(--green-deep);
+    border-radius: 999px 999px var(--r) var(--r);
+    padding: 3rem 1.75rem 1.75rem;
+    text-align: center;
+    box-shadow: inset 0 0 0 1.5px rgba(212,160,23,0.35);
+}
+.next-up .kicker { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+.next-up .day { font-size: 3.4rem; font-weight: 900; line-height: 1; color: var(--white); margin: 0.5rem 0 0.1rem; }
+.next-up .mon { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+.next-up h3 { color: var(--white); font-size: 1.15rem; margin: 1rem 0 0.35rem; }
+.next-up .where { font-size: 0.9rem; color: rgba(255,255,255,0.72); }
+.next-up .src { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.9rem; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); }
+.next-up .src .dot { width: 9px; height: 9px; border-radius: 50%; }
+.next-up .btn { margin-top: 1.25rem; width: 100%; justify-content: center; }
+.hero h1 { font-size: clamp(2.5rem, 6.4vw, 4.6rem); font-weight: 900; margin-bottom: 1.1rem; }
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero p { font-size: 1.2rem; color: rgba(255,255,255,0.85); max-width: 42ch; margin-bottom: 2rem; }
+.hero-actions { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+.hero-shield { width: 54px; margin-bottom: 1.75rem; }
+
+/* Signal strip: what the site does, in three counts */
+.signal {
+    position: relative;
+    z-index: 2;
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.18);
+    display: flex;
+    gap: 3.5rem;
+    flex-wrap: wrap;
+}
+.signal div strong { display: block; font-size: 1.9rem; font-weight: 900; color: var(--gold); line-height: 1.1; }
+.signal div span { font-size: 0.9rem; color: rgba(255,255,255,0.72); }
+
+/* ---------- Sections ---------- */
+section { padding: 5rem 0; scroll-margin-top: 80px; }
+.sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+
+/* ---------- Wayfinder: arch topped destination panels ---------- */
+.ways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.way {
+    background: var(--dest);
+    color: var(--white);
+    border-radius: var(--arch);
+    padding: 2.5rem 1.6rem 1.5rem;
+    min-height: 330px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.way:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(22,33,26,0.22); }
+/* Inner arch outline, the window within the window */
+.way::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 14px;
+    width: calc(100% - 28px);
+    height: calc(100% - 28px);
+    border-radius: 999px 999px 12px 12px;
+    box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.22);
+    pointer-events: none;
+}
+.way-tag { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.72; text-align: center; }
+.way h3 { font-size: 1.5rem; text-align: center; margin: 0.5rem 0 0.7rem; }
+.way p { font-size: 0.94rem; color: rgba(255,255,255,0.82); text-align: center; }
+.way-who {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.95);
+    background: rgba(0,0,0,0.16);
+    border-radius: 14px;
+    padding: 0.65rem 0.85rem;
+    text-align: center;
+}
+.way-foot { margin-top: auto; padding-top: 1.2rem; display: flex; align-items: center; gap: 0.6rem; }
+.way-go {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 800;
+    font-size: 0.92rem;
+    color: var(--white);
+}
+.way:hover .way-go .arrow { transform: translateX(4px); }
+.way-add {
+    margin-left: auto;
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--white);
+    background: rgba(255,255,255,0.16);
+    border: none;
+    border-radius: 999px;
+    padding: 0.5rem 0.95rem;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.way-add:hover { background: rgba(255,255,255,0.3); }
+.way-add[aria-pressed="true"] { background: var(--white); color: var(--dest); }
+
+/* ---------- Notices ---------- */
+.notices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.notice {
+    background: var(--white);
+    border-radius: var(--r);
+    padding: 1.6rem 1.5rem;
+    box-shadow: 0 2px 14px rgba(22,33,26,0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    transition: transform 0.18s, box-shadow 0.18s;
+}
+.notice:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(22,33,26,0.12); }
+.notice .who {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--src);
+}
+.notice .who .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--src); }
+.notice .when { font-size: 0.84rem; color: var(--ink-40); }
+.notice p { font-size: 0.93rem; color: var(--ink-60); }
+
+/* ---------- Calendar ---------- */
+.cal { background: var(--white); border-radius: var(--r-lg); padding: 0.5rem 1.6rem; box-shadow: 0 2px 14px rgba(22,33,26,0.07); }
+.cal-row {
+    display: grid;
+    grid-template-columns: 86px 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--line);
+}
+.cal-row:last-child { border-bottom: none; }
+.cal-when {
+    background: var(--green-soft);
+    border-radius: 16px;
+    text-align: center;
+    padding: 0.6rem 0.4rem;
+    color: var(--green);
+}
+.cal-when b { display: block; font-size: 1.5rem; font-weight: 900; line-height: 1; }
+.cal-when span { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.cal-what h3 { font-size: 1.08rem; margin-bottom: 0.15rem; }
+.cal-meta { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; font-size: 0.88rem; color: var(--ink-60); }
+.cal-meta .src { display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 700; color: var(--src); }
+.cal-meta .src .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--src); }
+.cal-acts { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end; }
+
+/* ---------- Volunteer band ---------- */
+.needs { background: var(--gold-soft); border-radius: var(--r-lg); padding: 3rem 2.5rem; }
+.need-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; }
+.need {
+    background: var(--white);
+    border-radius: var(--r);
+    padding: 1.4rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    border-left: 6px solid var(--src);
+}
+.need-main { flex: 1; min-width: 0; }
+.need-main .who { font-size: 0.73rem; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase; color: var(--src); }
+.need-main h3 { font-size: 1.05rem; margin: 0.1rem 0 0.15rem; }
+.need-main p { font-size: 0.88rem; color: var(--ink-60); }
+.need-by { text-align: right; }
+.need-by span { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-40); }
+.need-by b { font-size: 1rem; font-weight: 800; color: var(--ink); white-space: nowrap; }
+
+/* ---------- Join ---------- */
+.join { background: var(--green); color: var(--white); border-radius: var(--r-lg); padding: 3.5rem 3rem; position: relative; overflow: hidden; }
+.join::before {
+    content: '';
+    position: absolute;
+    left: -60px; bottom: -190px;
+    width: 320px; height: 420px;
+    border-radius: 999px 999px 0 0;
+    background: var(--green-deep);
+    opacity: 0.7;
+}
+.join-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1.05fr; gap: 3rem; align-items: start; }
+.join h2 { color: var(--white); }
+.join .eyebrow { color: var(--gold); }
+.join-copy p { color: rgba(255,255,255,0.82); margin-top: 1rem; max-width: 38ch; }
+.join-card { background: var(--white); color: var(--ink); border-radius: var(--r); padding: 1.9rem; }
+.picked {
+    background: var(--green-soft);
+    color: var(--green);
+    border-radius: 14px;
+    padding: 0.75rem 0.95rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+}
+.lbl { display: block; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-60); margin-bottom: 0.55rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.4rem; }
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    border-radius: 999px;
+    padding: 0.5rem 0.95rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: var(--bone);
+    box-shadow: inset 0 0 0 1.5px var(--line);
+    transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+.chip input { accent-color: var(--green); margin: 0; }
+.chip:has(input:checked) { background: var(--green); color: var(--white); box-shadow: none; }
+.f { margin-bottom: 1rem; }
+.f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.f input, .f select {
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.97rem;
+    padding: 0.8rem 0.95rem;
+    border: none;
+    border-radius: 14px;
+    background: var(--bone);
+    box-shadow: inset 0 0 0 1.5px var(--line);
+    color: var(--ink);
+}
+.f input:focus, .f select:focus { outline: none; box-shadow: inset 0 0 0 2px var(--green-mid); }
+
+/* ---------- About + footer ---------- */
+.about-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 3.5rem; align-items: start; }
+.dir-list { list-style: none; }
+.dir-list li { border-bottom: 1px solid var(--line); }
+.dir-list a {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.8rem 0;
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 600;
+    transition: padding-left 0.15s, color 0.15s;
+}
+.dir-list a:hover { padding-left: 0.4rem; color: var(--green); }
+.dir-list .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.dir-list .go { margin-left: auto; color: var(--ink-40); }
+
+footer { background: var(--ink); color: rgba(255,255,255,0.6); padding: 3rem 0 2.5rem; border-radius: var(--r-lg) var(--r-lg) 0 0; margin-top: 3rem; }
+.foot-top { display: flex; justify-content: space-between; gap: 2rem; flex-wrap: wrap; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.12); }
+.foot-top strong { color: var(--white); display: block; font-size: 1.05rem; margin-bottom: 0.3rem; }
+.foot-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.foot-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-weight: 600; font-size: 0.92rem; }
+.foot-links a:hover { color: var(--gold); }
+.foot-bot { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding-top: 1.5rem; font-size: 0.85rem; }
+footer a { color: rgba(255,255,255,0.7); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+    .ways, .notices { grid-template-columns: repeat(2, 1fr); }
+    .about-grid, .join-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+@media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .next-up { max-width: 420px; }
+}
+@media (max-width: 780px) {
+    section { padding: 3.5rem 0; }
+    .hero { padding: 3rem 0 3.5rem; }
+    .signal { gap: 2rem; margin-top: 2.5rem; }
+    .need-grid { grid-template-columns: 1fr; }
+    .needs, .join { padding: 2rem 1.5rem; }
+    .cal-row { grid-template-columns: 72px 1fr; row-gap: 0.75rem; }
+    .cal-acts { grid-column: 2; justify-content: flex-start; }
+
+    .nav-inner { width: calc(100% - 2.3rem); position: relative; }
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        left: 0; right: 0;
+        background: var(--white);
+        border-radius: var(--r);
+        box-shadow: 0 8px 26px rgba(22,33,26,0.14);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.1rem 1.3rem;
+        gap: 1rem;
+    }
+    .nav-links.open { display: flex; }
+    .nav-toggle { display: block; }
+}
+@media (max-width: 620px) {
+    .wrap { padding: 0 1.15rem; }
+    .ways, .notices, .f-row { grid-template-columns: 1fr; }
+    /* A 999px radius on a full width panel becomes a dome the copy spills out of.
+       Cap the arch so it stays a window head, not a half circle. */
+    .way { min-height: 0; border-radius: 120px 120px var(--r) var(--r); padding-top: 2.1rem; }
+    .way::before { border-radius: 108px 108px 12px 12px; }
+    .btn { width: 100%; justify-content: center; }
+    .btn-quiet { width: auto; }
+    .hero-actions { flex-direction: column; }
+    .cal { padding: 0.5rem 1.1rem; }
+    .need { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    .need-by { text-align: left; }
+}
+</style>
+<style>
+/* ============================================================
+   THE MERGE — direction D
+   C's shell, B's bones. Everything below this line is either a
+   change the parents asked for on Aug 17 / Sep 9, or the plumbing
+   those changes needed. C's stylesheet is above, untouched, so
+   the two can be diffed.
+   ============================================================ */
+
+:root {
+    /* Sz: the mustard has to go. Berry clears 7.2:1 on white, so it
+       carries small bold text and white text on a panel. */
+    --fos: #A8184E;
+    /* New: LSC, governance tier. 9.7:1. */
+    --lsc: #1D3F8F;
+
+    --tier-gap: 3.5rem;
+}
+
+/* ---------- Blunt header tagline (Diana) ---------- */
+.tagline {
+    font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+    font-weight: 600;
+    color: var(--ink);
+    margin-top: 0.5rem;
+    letter-spacing: -0.01em;
+}
+.hero-inner h1 { margin-bottom: 0.25rem; }
+.hero-sub { margin-top: 1rem; }
+
+/* ---------- Thin group rail (B's praised nav, mobile first) ---------- */
+.rail {
+    position: sticky;
+    top: 62px;
+    z-index: 40;
+    background: rgba(250,249,245,0.94);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    padding: 0.55rem 0;
+}
+.rail-scroll {
+    display: flex;
+    gap: 0.4rem;
+    overflow-x: auto;
+    padding: 0 1.25rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+.rail-scroll::-webkit-scrollbar { display: none; }
+.rail a {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.42rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--white);
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    white-space: nowrap;
+}
+.rail a .dot { width: 8px; height: 8px; border-radius: 50%; flex: 0 0 auto; }
+@media (min-width: 981px) { .rail { display: none; } }
+
+/* ---------- Next Up carousel (Sz + Diana) ----------
+   min-width:0 on the grid children is the fix for the mobile overflow: a
+   grid track sizes to its content by default, so the scroller pushed the
+   whole page wide instead of scrolling inside itself. */
+.hero-grid > * { min-width: 0; }
+.next-up { min-width: 0; max-width: 100%; }
+.upnext { position: relative; min-width: 0; max-width: 100%; }
+.upnext-track {
+    max-width: 100%;
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding-bottom: 0.5rem;
+}
+.upnext-track::-webkit-scrollbar { display: none; }
+.upcard {
+    scroll-snap-align: start;
+    flex: 0 0 min(340px, 84%);
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--src, var(--green-mid));
+    border-radius: var(--r);
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.upcard:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(22,33,26,0.09); }
+.upcard .when-big { display: flex; align-items: baseline; gap: 0.45rem; }
+.upcard .when-big b { font-size: 2.1rem; font-weight: 900; line-height: 1; letter-spacing: -0.03em; }
+.upcard .when-big span { font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-60); }
+.upcard h3 { font-size: 1.12rem; line-height: 1.25; }
+.upcard .where { font-size: 0.88rem; color: var(--ink-60); }
+.upnext-nav { display: flex; gap: 0.5rem; margin-top: 1rem; }
+.upnext-nav button {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: var(--white);
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--ink);
+}
+.upnext-nav button:hover { background: var(--green-soft); }
+
+/* ---------- Tiers (Diana's three sections) ---------- */
+.tier { margin-bottom: var(--tier-gap); }
+.tier-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--line);
+}
+.tier-head h3 {
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+.tier-head p { font-size: 0.93rem; color: var(--ink-60); flex: 1 1 260px; }
+
+/* ---------- Tags ---------- */
+.tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+.tag-pill {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    background: var(--green-soft);
+    color: var(--ink);
+}
+
+/* ---------- Add button, labelled (Sz: the circle-plus was invisible) ---------- */
+.way-add {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 0.95rem;
+    border-radius: 999px;
+    border: 1.5px solid var(--dest, var(--green-mid));
+    background: var(--white);
+    color: var(--dest, var(--green-mid));
+    font-family: inherit;
+    font-size: 0.86rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+}
+.way-add:hover { background: var(--dest, var(--green-mid)); color: var(--white); }
+.way-add[aria-pressed="true"] { background: var(--dest, var(--green-mid)); color: var(--white); }
+/* The info-only arch (LSC) stacks its footer, because the note is a
+   sentence and it was crushing the Open page link next to it. */
+.way-foot { flex-wrap: wrap; }
+.way--info .way-foot { flex-direction: column; align-items: flex-start; gap: 0.55rem; }
+.way-note {
+    font-size: 0.8rem;
+    font-weight: 600;
+    /* sits on a coloured arch, so it is light, not ink */
+    color: rgba(255,255,255,0.78);
+    line-height: 1.4;
+}
+
+/* ---------- Event filter chips (borrowed from A) ---------- */
+.filters { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 1.75rem; }
+.filter {
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--white);
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.filter .dot { width: 8px; height: 8px; border-radius: 50%; }
+.filter[aria-pressed="true"] { background: var(--ink); color: var(--white); border-color: var(--ink); }
+
+/* ---------- Event rows, now clickable (consensus ask 1) ---------- */
+.ev {
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-left: 5px solid var(--src, var(--green-mid));
+    border-radius: var(--r);
+    padding: 1.25rem 1.4rem;
+    margin-bottom: 0.85rem;
+    display: grid;
+    grid-template-columns: 62px 1fr auto;
+    gap: 1.25rem;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.18s, box-shadow 0.18s;
+}
+.ev:hover { transform: translateX(3px); box-shadow: 0 10px 26px rgba(22,33,26,0.08); }
+.ev-when { text-align: center; }
+.ev-when b { display: block; font-size: 1.7rem; font-weight: 900; line-height: 1; letter-spacing: -0.03em; }
+.ev-when span { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-60); }
+.ev-what h3 { font-size: 1.08rem; line-height: 1.3; margin-bottom: 0.4rem; }
+.ev-meta { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; font-size: 0.85rem; color: var(--ink-60); }
+.ev-meta .who { display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 600; color: var(--ink); }
+.ev-meta .who .dot { width: 8px; height: 8px; border-radius: 50%; }
+.ev-open { font-size: 0.8rem; font-weight: 700; color: var(--athletics); }
+.ev-go { font-size: 1.3rem; color: var(--ink-40); }
+@media (max-width: 720px) {
+    .ev { grid-template-columns: 52px 1fr; }
+    .ev-go { display: none; }
+}
+
+/* ---------- Event detail panel ---------- */
+.sheet {
+    position: fixed; inset: 0;
+    background: rgba(22,33,26,0.55);
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 200;
+}
+.sheet.open { display: flex; }
+.sheet-card {
+    background: var(--bone);
+    width: min(680px, 100%);
+    max-height: 88vh;
+    overflow-y: auto;
+    border-radius: var(--r-lg) var(--r-lg) 0 0;
+    padding: 2rem;
+}
+@media (min-width: 721px) {
+    .sheet { align-items: center; }
+    .sheet-card { border-radius: var(--r-lg); }
+}
+.sheet-close {
+    float: right;
+    border: none;
+    background: none;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--ink-60);
+}
+.sheet-card h3 { font-size: clamp(1.4rem, 3.5vw, 1.9rem); line-height: 1.15; margin: 0.5rem 0 0.9rem; letter-spacing: -0.025em; }
+.sheet-row { display: flex; gap: 0.65rem; padding: 0.7rem 0; border-bottom: 1px solid var(--line); font-size: 0.93rem; }
+.sheet-row b { flex: 0 0 96px; color: var(--ink-60); font-weight: 600; }
+.sheet-body { margin: 1.25rem 0; font-size: 0.97rem; line-height: 1.65; color: var(--ink-60); }
+.slot {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    background: var(--white); border: 1px solid var(--line); border-radius: 12px;
+    padding: 0.8rem 1rem; margin-bottom: 0.5rem; font-size: 0.9rem;
+}
+.slot .left { font-weight: 600; }
+.slot .count { font-size: 0.8rem; color: var(--ink-60); }
+.slot .count b { color: var(--athletics); }
+
+/* ---------- Donor wall (Sz) ---------- */
+.donors { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+.donor {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    padding: 1.3rem;
+    border-top: 4px solid var(--src, var(--gold));
+}
+.donor b { display: block; font-size: 1.05rem; font-weight: 800; margin-bottom: 0.3rem; }
+.donor p { font-size: 0.88rem; color: var(--ink-60); }
+
+/* ---------- Translate row ---------- */
+.translate {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.85rem; font-weight: 600; color: var(--ink-60);
+}
+.translate select {
+    font-family: inherit; font-size: 0.85rem; font-weight: 600;
+    padding: 0.35rem 0.6rem; border-radius: 8px;
+    border: 1px solid var(--line); background: var(--white); color: var(--ink);
+}
+
+/* ---------- Footer: Runs on EMPACT ---------- */
+.foot-bot { flex-wrap: wrap; gap: 0.9rem; }
+.runs-on {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.4rem 0.8rem 0.4rem 0.4rem;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 999px;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+}
+.runs-on:hover { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.05); }
+.runs-on img { height: 15px; width: auto; display: block; }
+.runs-on .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+    <div class="nav-inner">
+        <a href="#top" class="nav-mark">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+                <path fill="#2E7D32" d="M60,6 L110,24 L110,66 C110,94 88,114 60,122 C32,114 10,94 10,66 L10,24 Z"/>
+                <path fill="#FFFFFF" d="M60,18 L100,33 L100,64 C100,86 82,102 60,109 C38,102 20,86 20,64 L20,33 Z"/>
+                <text x="60" y="84" text-anchor="middle" font-family="Figtree, Arial, sans-serif" font-weight="900" font-size="58" fill="#2E7D32">S</text>
+            </svg>
+            <span>Senn Parents</span>
+        </a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"
+                onclick="const l=document.querySelector('.nav-links');l.classList.toggle('open');this.setAttribute('aria-expanded',l.classList.contains('open'))">&#9776;</button>
+        <ul class="nav-links">
+            <li><a href="#groups">Groups</a></li>
+            <li><a href="#volunteer">Volunteer</a></li>
+            <li><a href="#calendar">Events</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#join" class="pill">Join</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ============ GROUP RAIL — B's thin list, mobile ============ -->
+<div class="rail">
+    <div class="rail-scroll" id="rail"></div>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+    <div class="wrap hero-grid">
+        <div class="hero-inner">
+            <svg class="hero-shield" viewBox="0 0 120 120" aria-hidden="true">
+                <path fill="#D4A017" d="M60,6 L110,24 L110,66 C110,94 88,114 60,122 C32,114 10,94 10,66 L10,24 Z"/>
+                <path fill="#1B5E20" d="M60,18 L100,33 L100,64 C100,86 82,102 60,109 C38,102 20,86 20,64 L20,33 Z"/>
+                <text x="60" y="84" text-anchor="middle" font-family="Figtree, Arial, sans-serif" font-weight="900" font-size="58" fill="#D4A017">S</text>
+            </svg>
+            <h1>Senn Parents</h1>
+            <p class="tagline">One high school. Every way to get involved.</p>
+            <p class="hero-sub">Every parent group at Senn in one place, with one form that puts you on any list you want. You do not have to be a member to show up.</p>
+            <div class="hero-actions">
+                <a href="#join" class="btn btn-gold">Join a group <span class="arrow">&rarr;</span></a>
+                <a href="#groups" class="btn btn-line">See the groups</a>
+            </div>
+            <p style="margin-top:1.5rem">
+                <span class="translate">
+                    <span aria-hidden="true">&#127760;</span>
+                    <label for="lang" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Language</label>
+                    <select id="lang">
+                        <option>English</option>
+                        <option>Espa&ntilde;ol</option>
+                        <option>&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</option>
+                        <option>&#1059;&#1082;&#1088;&#1072;&#1111;&#1085;&#1089;&#1100;&#1082;&#1072;</option>
+                    </select>
+                </span>
+            </p>
+        </div>
+
+        <aside class="next-up" id="next-up" style="background:transparent;padding:0">
+            <p class="eyebrow" style="margin-bottom:0.75rem">Next up</p>
+            <div class="upnext">
+                <div class="upnext-track" id="upnext-track"></div>
+                <div class="upnext-nav">
+                    <button type="button" aria-label="Previous event" onclick="slide(-1)">&larr;</button>
+                    <button type="button" aria-label="Next event" onclick="slide(1)">&rarr;</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+</header>
+
+<!-- ============ GROUPS, IN THREE TIERS ============ -->
+<section id="groups">
+    <div class="wrap">
+        <div class="sec-head">
+            <div>
+                <p class="eyebrow">Start here</p>
+                <h2>Choose your volunteer path</h2>
+                <p class="lede">Each group runs itself and sets its own agenda. Join as many as you like. Tap <b>Add me</b> and the signup further down fills itself in.</p>
+            </div>
+        </div>
+        <div id="tiers"></div>
+    </div>
+</section>
+
+<!-- ============ IMMEDIATE ASKS ============ -->
+<section id="volunteer" style="background: var(--white);">
+    <div class="wrap">
+        <div class="needs">
+            <div class="sec-head">
+                <div>
+                    <p class="eyebrow" style="color: var(--green-mid)">Open asks</p>
+                    <h2>Where you're needed right now</h2>
+                    <p class="lede">Real jobs with real deadlines. Pick one.</p>
+                </div>
+            </div>
+            <div class="need-grid" id="needs"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ JOIN ============ -->
+<section id="join">
+    <div class="wrap">
+        <div class="join">
+            <div class="join-grid">
+                <div class="join-copy">
+                    <p class="eyebrow">One form, every list</p>
+                    <h2>Join in about a minute</h2>
+                    <p>Fill this out once. You choose which groups email you, and you can change it any time.</p>
+                    <p>We never share your information. Every list can be read in Spanish, and interpretation is standing at PAC and BAC meetings.</p>
+                </div>
+
+                <div class="join-card">
+                    <div class="picked" id="picked">No groups picked yet. Choose at least one.</div>
+
+                    <span class="lbl">I want to hear from</span>
+                    <div class="chips" id="chips"></div>
+
+                    <div class="f-row">
+                        <div class="f"><span class="lbl">Your name</span><input type="text" placeholder="First and last"></div>
+                        <div class="f"><span class="lbl">Email</span><input type="email" placeholder="you@email.com"></div>
+                    </div>
+                    <div class="f-row">
+                        <div class="f">
+                            <span class="lbl">Student grade</span>
+                            <select><option>Select</option><option>9th</option><option>10th</option><option>11th</option><option>12th</option><option>Multiple</option><option>Incoming</option></select>
+                        </div>
+                        <div class="f">
+                            <span class="lbl">Language</span>
+                            <select><option>English</option><option>Espa&ntilde;ol</option><option>Other</option></select>
+                        </div>
+                    </div>
+                    <button class="btn btn-green" style="width:100%; justify-content:center">Sign me up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ EVENTS, BIG, AT THE BOTTOM ============ -->
+<section id="calendar" style="background: var(--white);">
+    <div class="wrap">
+        <div class="sec-head">
+            <div>
+                <p class="eyebrow">Every group, one calendar</p>
+                <h2>Everything coming up</h2>
+                <p class="lede">Tap any event for the full details, the address, and the signup. Anyone can submit an event. It posts once a group admin approves it.</p>
+            </div>
+            <div style="display:flex;gap:0.6rem;flex-wrap:wrap">
+                <a href="#" class="btn btn-quiet">Submit an event</a>
+                <a href="#" class="btn btn-quiet">Subscribe &rarr;</a>
+            </div>
+        </div>
+        <div class="filters" id="filters"></div>
+        <div id="cal"></div>
+    </div>
+</section>
+
+<!-- ============ NEWS ============ -->
+<section id="news">
+    <div class="wrap">
+        <div class="sec-head">
+            <div>
+                <p class="eyebrow">Posted this month</p>
+                <h2>What's new</h2>
+                <p class="lede">Posted by parents, for parents.</p>
+            </div>
+            <a href="#" class="btn btn-quiet">All announcements &rarr;</a>
+        </div>
+        <div class="notices" id="notices"></div>
+    </div>
+</section>
+
+<!-- ============ DONOR WALL ============ -->
+<section id="thanks" style="background: var(--white);">
+    <div class="wrap">
+        <div class="sec-head">
+            <div>
+                <p class="eyebrow">Thank you</p>
+                <h2>Who showed up for Senn</h2>
+                <p class="lede">Neighbors and local businesses who gave money, food, space, or gear this year.</p>
+            </div>
+        </div>
+        <div class="donors" id="donors"></div>
+    </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+    <div class="wrap">
+        <div class="about-grid">
+            <div>
+                <p class="eyebrow">About</p>
+                <h2>Parent led. For our kids.</h2>
+                <p class="lede" style="margin-top:1rem">Senn Parents is the shared front door for every parent and community group at Nicholas Senn High School. Each group runs itself, sets its own agenda, and elects its own leaders. This site is how families find them, hear from them, and show up.</p>
+                <p class="lede" style="margin-top:1rem">You do not need to be a member to attend a meeting, ask a question, or bring an idea.</p>
+                <div style="display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:1.75rem">
+                    <a href="mailto:sennparents@gmail.com" class="btn btn-quiet">Email us</a>
+                    <a href="#join" class="btn btn-quiet">Join a list &rarr;</a>
+                </div>
+            </div>
+            <div>
+                <p class="eyebrow">Directory</p>
+                <ul class="dir-list" id="dir"></ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="wrap">
+        <div class="foot-top">
+            <div>
+                <strong>Nicholas Senn High School</strong>
+                5900 N. Glenwood Ave, Chicago IL 60660<br>
+                <a href="mailto:sennparents@gmail.com">sennparents@gmail.com</a>
+            </div>
+            <div class="foot-links" id="foot-links"></div>
+        </div>
+        <div class="foot-bot">
+            <span>&copy; 2026 Senn Parents</span>
+            <a class="runs-on" href="https://empactos.com" target="_blank" rel="noopener" aria-label="Runs on EMPACT">
+                <img src="assets/runs-on-empact-white.svg" alt="Runs on EMPACT">
+            </a>
+        </div>
+    </div>
+</footer>
+
+<!-- ============ EVENT DETAIL ============ -->
+<div class="sheet" id="sheet" onclick="if(event.target===this)closeSheet()">
+    <div class="sheet-card" id="sheet-card" role="dialog" aria-modal="true" aria-labelledby="sheet-title"></div>
+</div>
+
+<script src="assets/groups-v2.js"></script>
+<script>
+/* ---------- Thin group rail (B) ---------- */
+document.getElementById('rail').innerHTML = GROUPS.map(g =>
+  `<a href="#g-${g.slug}"><span class="dot" style="background:${g.color}"></span>${g.name}</a>`).join('');
+
+/* ---------- Next Up carousel ---------- */
+const upcoming = EVENTS.slice(0, 5);
+document.getElementById('upnext-track').innerHTML = upcoming.map(ev => {
+  const [, m, d] = ev.date.split('-').map(Number);
+  return `
+  <button class="upcard" style="--src:${groupColor(ev.groups[0])}" onclick="openSheet('${ev.id}')">
+    <div class="when-big"><b>${d}</b><span>${MONTHS[m - 1]}</span></div>
+    <h3>${ev.title}</h3>
+    <p class="where">${ev.time} &middot; ${placeLine(ev)}</p>
+    <div class="tags">${ev.tags.map(t => `<span class="tag-pill">${TAGS[t].label}</span>`).join('')}</div>
+  </button>`;
+}).join('');
+
+function slide(dir) {
+  const t = document.getElementById('upnext-track');
+  t.scrollBy({ left: dir * (t.querySelector('.upcard').offsetWidth + 16), behavior: 'smooth' });
+}
+
+/* ---------- Groups, grouped by tier ---------- */
+document.getElementById('tiers').innerHTML = TIERS.map(tier => {
+  const gs = groupsInTier(tier.slug);
+  if (!gs.length) return '';
+  return `
+  <div class="tier">
+    <div class="tier-head">
+      <h3>${tier.name}</h3>
+      <p>${tier.blurb}</p>
+    </div>
+    <div class="ways">
+      ${gs.map(g => `
+      <div class="way${g.infoOnly ? ' way--info' : ''}" id="g-${g.slug}" style="--dest:${g.color}">
+        <span class="way-tag">${g.parent ? 'Part of ' + groupFull(g.parent) : tier.name}</span>
+        <h3>${g.full}</h3>
+        <p>${g.blurb}</p>
+        <div class="way-who">${g.who}</div>
+        <div class="way-foot">
+          <a href="group.html?g=${g.slug}" class="way-go">Open page <span class="arrow">&rarr;</span></a>
+          ${g.joinable
+            ? `<button class="way-add" data-group="${g.slug}" aria-pressed="false">&plus; Add me</button>`
+            : `<span class="way-note">${g.infoNote}</span>`}
+        </div>
+      </div>`).join('')}
+    </div>
+  </div>`;
+}).join('');
+
+/* ---------- Open asks ---------- */
+document.getElementById('needs').innerHTML = EFFORTS.map(x => `
+  <div class="need" style="--src:${groupColor(x.group)}">
+    <div class="need-main">
+      <span class="who">${groupName(x.group)}</span>
+      <h3>${x.title}</h3>
+      <p>${x.ask}</p>
+    </div>
+    <div class="need-by"><span>By</span><b>${x.deadline}</b></div>
+    <a href="#" class="btn btn-quiet">${x.cta}</a>
+  </div>`).join('');
+
+/* ---------- Events, with filters ---------- */
+let activeFilter = 'all';
+
+const filterDefs = [{ key: 'all', label: 'Everything', color: null }]
+  .concat(Object.entries(TAGS).map(([k, v]) => ({ key: 'tag:' + k, label: v.label, color: v.color })))
+  .concat(GROUPS.map(g => ({ key: 'group:' + g.slug, label: g.name, color: g.color })));
+
+document.getElementById('filters').innerHTML = filterDefs.map(f => `
+  <button class="filter" data-key="${f.key}" aria-pressed="${f.key === 'all'}">
+    ${f.color ? `<span class="dot" style="background:${f.color}"></span>` : ''}${f.label}
+  </button>`).join('');
+
+function matches(ev) {
+  if (activeFilter === 'all') return true;
+  const [kind, val] = activeFilter.split(':');
+  return kind === 'tag' ? ev.tags.includes(val) : ev.groups.includes(val);
+}
+
+function renderCal() {
+  const rows = EVENTS.filter(matches);
+  document.getElementById('cal').innerHTML = rows.length ? rows.map(ev => {
+    const [, m, d] = ev.date.split('-').map(Number);
+    const open = openSlots(ev);
+    return `
+    <button class="ev" style="--src:${groupColor(ev.groups[0])}" onclick="openSheet('${ev.id}')">
+      <div class="ev-when"><b>${d}</b><span>${MONTHS[m - 1]}</span></div>
+      <div class="ev-what">
+        <h3>${ev.title}</h3>
+        <div class="ev-meta">
+          ${ev.groups.map(g => `<span class="who"><span class="dot" style="background:${groupColor(g)}"></span>${groupName(g)}</span>`).join('')}
+          <span>${ev.time}</span>
+          <span>${placeLine(ev)}</span>
+          ${open ? `<span class="ev-open">${open} slot${open === 1 ? '' : 's'} open</span>` : ''}
+        </div>
+        <div class="tags" style="margin-top:0.5rem">${ev.tags.map(t => `<span class="tag-pill">${TAGS[t].label}</span>`).join('')}</div>
+      </div>
+      <span class="ev-go">&rarr;</span>
+    </button>`;
+  }).join('') : `<p class="lede">Nothing on the calendar for that yet. Try another filter.</p>`;
+}
+renderCal();
+
+document.getElementById('filters').addEventListener('click', e => {
+  const btn = e.target.closest('.filter');
+  if (!btn) return;
+  activeFilter = btn.dataset.key;
+  document.querySelectorAll('.filter').forEach(b =>
+    b.setAttribute('aria-pressed', String(b.dataset.key === activeFilter)));
+  renderCal();
+});
+
+/* ---------- Event detail ---------- */
+function openSheet(id) {
+  const ev = EVENTS.find(x => x.id === id);
+  if (!ev) return;
+  const map = mapLink(ev);
+  const card = document.getElementById('sheet-card');
+  card.innerHTML = `
+    <button class="sheet-close" aria-label="Close" onclick="closeSheet()">&times;</button>
+    <div class="tags">${ev.tags.map(t => `<span class="tag-pill">${TAGS[t].label}</span>`).join('')}</div>
+    <h3 id="sheet-title">${ev.title}</h3>
+    <div class="sheet-row"><b>When</b><span>${fmtDate(ev.date)} &middot; ${ev.time}${ev.ends ? ' to ' + ev.ends : ''}</span></div>
+    <div class="sheet-row"><b>Where</b><span>${placeLine(ev)}${map ? ` &middot; <a href="${map}" target="_blank" rel="noopener">Map</a>` : ''}</span></div>
+    ${ev.place.virtual ? `<div class="sheet-row"><b>Online</b><span><a href="${ev.place.virtual}" target="_blank" rel="noopener">Join the video call</a></span></div>` : ''}
+    <div class="sheet-row"><b>Who</b><span>${ev.groups.map(g => groupFull(g)).join(' and ')}</span></div>
+    <p class="sheet-body">${ev.body}</p>
+    ${ev.slots ? `
+      <p class="lbl" style="margin-bottom:0.6rem">Open slots</p>
+      ${ev.slots.map(s => `
+        <div class="slot">
+          <span class="left">${s.label}</span>
+          <span class="count"><b>${s.open}</b> open &middot; ${s.filled} filled</span>
+        </div>`).join('')}` : ''}
+    <div style="display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:1.5rem">
+      ${ev.rsvp ? '<a href="#" class="btn btn-green">Sign me up</a>' : ''}
+      <a href="#" class="btn btn-quiet">Add to calendar</a>
+    </div>`;
+  document.getElementById('sheet').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSheet() {
+  document.getElementById('sheet').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
+
+/* ---------- News ---------- */
+document.getElementById('notices').innerHTML = ANNOUNCEMENTS.map(x => `
+  <article class="notice" style="--src:${groupColor(x.group)}">
+    <span class="who"><span class="dot"></span>${groupName(x.group)}</span>
+    <span class="when">${fmtDate(x.date)}</span>
+    <h3>${x.title}</h3>
+    <p>${x.body}</p>
+  </article>`).join('');
+
+/* ---------- Donor wall ---------- */
+document.getElementById('donors').innerHTML = DONORS.map(d => `
+  <div class="donor" style="--src:${groupColor(d.group)}">
+    <b>${d.name}</b>
+    <p>${d.gave}</p>
+  </div>`).join('');
+
+/* ---------- Join chips, synced with the Add me buttons ---------- */
+document.getElementById('chips').innerHTML = joinableGroups().map(g =>
+  `<label class="chip"><input type="checkbox" value="${g.slug}">${g.name}</label>`).join('');
+
+const picked = document.getElementById('picked');
+
+function syncPicked() {
+  const list = [...document.querySelectorAll('#chips input:checked')].map(i => groupName(i.value));
+  picked.textContent = list.length
+    ? `You'll hear from ${list.join(', ')}.`
+    : 'No groups picked yet. Choose at least one.';
+}
+
+function setAdd(slug, on) {
+  const btn = document.querySelector(`.way-add[data-group="${slug}"]`);
+  if (!btn) return;
+  btn.setAttribute('aria-pressed', String(on));
+  btn.innerHTML = on ? '&check; Added' : '&plus; Add me';
+}
+
+document.getElementById('tiers').addEventListener('click', e => {
+  const btn = e.target.closest('.way-add');
+  if (!btn) return;
+  e.preventDefault();
+  const box = document.querySelector(`#chips input[value="${btn.dataset.group}"]`);
+  box.checked = !box.checked;
+  setAdd(btn.dataset.group, box.checked);
+  syncPicked();
+});
+
+document.getElementById('chips').addEventListener('change', e => {
+  setAdd(e.target.value, e.target.checked);
+  syncPicked();
+});
+
+/* ---------- Directory + footer links, both data driven ---------- */
+document.getElementById('dir').innerHTML = GROUPS.map(g =>
+  `<li><a href="group.html?g=${g.slug}"><span class="dot" style="background:${g.color}"></span>${g.full}<span class="go">&rarr;</span></a></li>`).join('');
+
+document.getElementById('foot-links').innerHTML =
+  GROUPS.map(g => `<a href="#g-${g.slug}">${g.name}</a>`).join('') +
+  '<a href="#calendar">Events</a><a href="#join">Join</a>';
+</script>
+</body>
+</html>

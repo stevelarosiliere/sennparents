@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Senn Parents — Directions for the umbrella site</title>
+<link rel="icon" type="image/jpeg" href="assets/sp-shield.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/senn.css">
+<style>
+    .top { background: var(--green); color: var(--white); padding: 3.5rem 1.5rem; }
+    .top h1 { color: var(--white); }
+    .top p { opacity: 0.9; max-width: 660px; margin-top: 0.85rem; font-size: 1.05rem; }
+    .top .eyebrow { color: var(--gold); }
+
+    .picks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .pick {
+        background: var(--white);
+        border: 1px solid var(--gray-200);
+        border-top: 6px solid var(--green-mid);
+        border-radius: var(--radius);
+        padding: 1.75rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .pick.b { border-top-color: var(--gold); }
+    .pick.c { border-top-color: var(--bac); }
+    .pick.d { border-top-color: var(--green-mid); border-top-width: 6px; box-shadow: 0 14px 40px rgba(0,0,0,0.10); }
+    .pick.d .tag { color: var(--green-mid); }
+    .picks.picks-lead { grid-template-columns: 1fr; }
+    .picks-lead .wire { max-width: 560px; }
+    .pick .tag { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-500); }
+    .pick h2 { font-size: 1.5rem; margin: 0.3rem 0 0.15rem; color: var(--gray-900); }
+    .pick .sub { color: var(--green-mid); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.85rem; }
+    .pick p.body { color: var(--gray-600); font-size: 0.95rem; }
+
+    .wire {
+        background: var(--off-white);
+        border: 1px solid var(--gray-200);
+        border-radius: 8px;
+        padding: 0.85rem;
+        margin: 1rem 0;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.72rem;
+        line-height: 1.5;
+        color: var(--gray-700);
+        white-space: pre;
+        overflow-x: auto;
+    }
+
+    .pros { list-style: none; margin: 0.5rem 0 0; }
+    .pros li { font-size: 0.9rem; color: var(--gray-700); padding: 0.35rem 0 0.35rem 1.5rem; position: relative; }
+    .pros li::before { position: absolute; left: 0; font-weight: 700; }
+    .pros li.up::before { content: '+'; color: var(--green-mid); }
+    .pros li.down::before { content: '−'; color: var(--athletics); }
+
+    .pick .go { margin-top: auto; padding-top: 1.25rem; display: flex; gap: 0.6rem; flex-wrap: wrap; }
+
+    /* Flows */
+    .flow { background: var(--white); border: 1px solid var(--gray-200); border-radius: 10px; padding: 1.25rem 1.4rem; margin-bottom: 0.85rem; }
+    .flow h3 { font-size: 1rem; color: var(--gray-900); margin-bottom: 0.6rem; }
+    .steps { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .step {
+        background: var(--off-white);
+        border: 1px solid var(--gray-200);
+        border-radius: 999px;
+        padding: 0.35rem 0.85rem;
+        font-size: 0.83rem;
+        color: var(--gray-700);
+        font-weight: 500;
+    }
+    .step.end { background: var(--green-light); border-color: var(--green-light); color: var(--green); font-weight: 700; }
+    .arrow { color: var(--gray-500); font-size: 0.9rem; }
+
+    .ia { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-top: 1.25rem; }
+    .ia-item { background: var(--white); border: 1px solid var(--gray-200); border-radius: 10px; padding: 0.9rem 1rem; }
+    .ia-item code { font-size: 0.82rem; font-weight: 700; color: var(--green-mid); }
+    .ia-item span { display: block; font-size: 0.82rem; color: var(--gray-600); margin-top: 0.15rem; }
+
+    @media (max-width: 1080px) { .picks { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 860px) {
+        .picks { grid-template-columns: 1fr; }
+        .ia { grid-template-columns: repeat(2, 1fr); }
+    }
+</style>
+</head>
+<body>
+
+<header class="top">
+    <div class="container">
+        <p class="section-label eyebrow">Senn Parents · Umbrella site</p>
+        <h1>The merged direction, plus the three you already saw</h1>
+        <p><b>Start with Direction D.</b> It is C's look with B's function, and it has every change you asked for in August and September built in. A, B and C are below it so you can check the merge against what you were comparing before. Switching between any of these is a homepage swap, not a rebuild.</p>
+    </div>
+</header>
+
+<section>
+    <div class="container">
+        <div class="picks picks-lead">
+
+            <article class="pick d">
+                <span class="tag">Direction D &middot; recommended</span>
+                <h2>The Merge</h2>
+                <p class="sub">C's shell, B's bones</p>
+                <p class="body">C won on look, B won on function, so this is both. The arches stay and get sorted into Diana's three sections. B's group list becomes the thin bar that follows you down the page on a phone. Next Up is a carousel. Events moved to the bottom, got bigger, got A's filter chips, and every one of them opens. Friends of Senn is off the mustard, LSC is in as an info page pending your vote, and nothing counts the groups out loud, so adding a seventh is a spreadsheet row.</p>
+
+                <div class="wire">┌──────────────────────────────┐
+│ ● PAC ● LSC ● BAC ● FOS →    │ ← thin group bar (B)
+├──────────────────────────────┤
+│ SENN PARENTS                 │
+│ One high school. Every way   │
+│ to get involved.             │
+│ NEXT UP ‹ ▣ ▣ ▣ ›  carousel  │
+├──────────────────────────────┤
+│ GOVERNANCE                   │
+│  ╭───╮ ╭───╮ ╭───╮           │
+│  │PAC│ │LSC│ │BAC│           │
+│ SUPPORT                      │
+│  ╭───╮ ╭───╮ ╭───╮           │
+│  │FOS│ │ART│ │ATH│           │
+│ SAFETY                       │
+│  ╭───╮                       │
+│  │ICE│                       │
+├──────────────────────────────┤
+│ WHERE YOU'RE NEEDED          │
+├──────────────────────────────┤
+│ ▓▓ JOIN IN ABOUT A MINUTE    │
+├──────────────────────────────┤
+│ EVERYTHING COMING UP         │
+│ [All][Meeting][Volunteer][…] │
+│ ▸ 25 AUG  PAC Kickoff      → │
+│ ▸ 28 AUG  Home Opener      → │
+├──────────────────────────────┤
+│ WHAT'S NEW │ THANK YOU WALL  │
+└──────────────────────────────┘</div>
+
+                <ul class="pros">
+                    <li class="up">Every event opens: address, map, Zoom link, which groups, open slots</li>
+                    <li class="up">Governance / Support / Safety, so a parent knows what kind of thing they're joining</li>
+                    <li class="up">Filter the calendar by group or by type of event, one tap</li>
+                    <li class="up">Nothing says "six." Groups, tiers, tags, and donors are all spreadsheet rows</li>
+                    <li class="down">Still needs a real palette sign-off on the new Friends of Senn color</li>
+                    <li class="down">LSC is a placeholder until the group votes on carrying it</li>
+                </ul>
+
+                <div class="go">
+                    <a href="d.html" class="btn btn-green">Open Direction D</a>
+                    <a href="group.html?g=pac" class="btn btn-ghost">See a group page</a>
+                </div>
+            </article>
+
+        </div>
+
+        <p class="mock-note" style="margin-top:1.75rem;margin-bottom:2.5rem">The three originals, for comparison.</p>
+
+        <div class="picks">
+
+            <article class="pick a">
+                <span class="tag">Direction A</span>
+                <h2>The Digest</h2>
+                <p class="sub">Leads with what's happening</p>
+                <p class="body">The homepage is a live feed. Every group posts into one stream, and filter chips let a parent narrow to just their group in one tap. Groups sit lower on the page because a returning parent already knows which one is theirs.</p>
+
+                <div class="wire">┌──────────────────────────────┐
+│ slim hero + Join             │
+├──────────────────────────────┤
+│ HAPPENING AT SENN            │
+│ [All][PAC][FOS][BAC][…]      │
+│ ▣ card  ▣ card  ▣ card       │
+├──────────────────────────────┤
+│ CURRENT EFFORTS  (the asks)  │
+├──────────────────────────────┤
+│ UPCOMING EVENTS              │
+├──────────────────────────────┤
+│ the groups (compact tiles)   │
+├──────────────────────────────┤
+│ JOIN + newsletter            │
+└──────────────────────────────┘</div>
+
+                <ul class="pros">
+                    <li class="up">One URL worth posting in the Facebook groups every single week</li>
+                    <li class="up">Rewards repeat visits, feels alive, makes the newsletter the spine</li>
+                    <li class="up">Filter chips collapse six groups into something scannable</li>
+                    <li class="down">A first-time parent has to scroll to learn what the groups are</li>
+                    <li class="down">Looks empty if groups stop posting, so it needs real editorial habit</li>
+                </ul>
+
+                <div class="go">
+                    <a href="a.html" class="btn btn-green">Open Direction A</a>
+                    <a href="group.html?g=pac" class="btn btn-ghost">See a group page</a>
+                </div>
+            </article>
+
+            <article class="pick b">
+                <span class="tag">Direction B</span>
+                <h2>Roll Call</h2>
+                <p class="sub">Leads with the names</p>
+                <p class="body">The boldest of the three. Deep green field, and the six group names set enormous in a high contrast serif, stacked as a type wall. Tap a name and it opens in place with what the group does, who it is for, and an add button. Type is the whole interface. The signup at the bottom flips to light so the form stays easy.</p>
+
+                <div class="wire">┌──────────────────────────────┐
+│ ▓▓ SIX GROUPS. ONE DOOR.     │
+├──────────────────────────────┤
+│ 01  PARENT ADVISORY COUNCIL ⊕│
+│ 02  FRIENDS OF SENN         ⊗│
+│       ↳ opens in place        │
+│ 03  BILINGUAL ADVISORY CTTE ⊕│
+│ 04  SENN ARTS BOOSTERS      ⊕│
+│ 05  SENN ATHLETIC BOOSTERS  ⊕│
+│ 06  SENN ICE WATCH          ⊕│
+├──────────────────────────────┤
+│ WHAT'S NEW │ COMING UP       │
+├──────────────────────────────┤
+│ ░░ ANSWER THE ROLL (light)   │
+└──────────────────────────────┘</div>
+
+                <ul class="pros">
+                    <li class="up">Impossible to confuse with anyone else's site</li>
+                    <li class="up">Six groups fit on one screen, no scrolling to find yours</li>
+                    <li class="up">Reads serious and warm at once, which is the parent voice</li>
+                    <li class="down">Dark sites are harder for some readers, so the form flips to light</li>
+                    <li class="down">Leans on one big typeface. If the board dislikes it there's no fallback.</li>
+                </ul>
+
+                <div class="go">
+                    <a href="b.html" class="btn btn-green">Open Direction B</a>
+                    <a href="group.html?g=fos" class="btn btn-ghost">See a group page</a>
+                </div>
+            </article>
+
+            <article class="pick c">
+                <span class="tag">Direction C</span>
+                <h2>The Wayfinder</h2>
+                <p class="sub">Leads with where to go</p>
+                <p class="body">Built with the Banger method: three theses, one composite. The thesis here is <b>Chicago civic signage meets the Senn building</b>. Groups become color coded destinations in arch topped panels drawn from the school's window heads. The page points rather than explains, which is also the most forgiving format for families reading in a second language.</p>
+
+                <div class="wire">┌──────────────────────────────┐
+│ ▓▓ green field + arch        │
+│ FIND YOUR PEOPLE AT SENN     │
+│ 6 groups · 1 form · $0       │
+├──────────────────────────────┤
+│ WHERE ARE YOU HEADED?        │
+│  ╭───╮  ╭───╮  ╭───╮         │
+│  │PAC│  │FOS│  │BAC│  arches │
+│  ╰───╯  ╰───╯  ╰───╯         │
+├──────────────────────────────┤
+│ WHAT'S NEW                   │
+├──────────────────────────────┤
+│ COMING UP  (one calendar)    │
+├──────────────────────────────┤
+│ ▨ WHERE YOU'RE NEEDED        │
+├──────────────────────────────┤
+│ ▓▓ JOIN IN ABOUT A MINUTE    │
+└──────────────────────────────┘</div>
+
+                <ul class="pros">
+                    <li class="up">Reads as Senn, not as any other org. Arch motif comes from the building.</li>
+                    <li class="up">Color does the wayfinding, so it works before anyone reads a word</li>
+                    <li class="up">Most polished of the three. This is the one you'd show off.</li>
+                    <li class="down">Six saturated panels is a lot of color to hold as groups get added</li>
+                    <li class="down">Needs the group palette locked early, since the whole system leans on it</li>
+                </ul>
+
+                <div class="go">
+                    <a href="c.html" class="btn btn-green">Open Direction C</a>
+                    <a href="group.html?g=icewatch" class="btn btn-ghost">See a group page</a>
+                </div>
+            </article>
+
+        </div>
+
+        <p class="mock-note" style="margin-top:1.5rem">Content in all four is placeholder, written to look like real Senn activity so the layouts can be judged full rather than empty. Group leaders, minutes, and bylaws are stand-ins.</p>
+    </div>
+</section>
+
+<!-- IA -->
+<section style="background: var(--off-white);">
+    <div class="container">
+        <p class="section-label">Agreed structure</p>
+        <h2>The information architecture, flat</h2>
+        <p class="lede">One page per group. Everything about that group lives on that page as sections, reached by a sticky anchor bar. No third level anywhere on the site.</p>
+
+        <div class="ia">
+            <div class="ia-item"><code>/</code><span>Landing</span></div>
+            <div class="ia-item"><code>/pac</code><span>Parent Advisory Council</span></div>
+            <div class="ia-item"><code>/fos</code><span>Friends of Senn</span></div>
+            <div class="ia-item"><code>/bac</code><span>Bilingual Advisory Committee</span></div>
+            <div class="ia-item"><code>/arts</code><span>Arts Boosters</span></div>
+            <div class="ia-item"><code>/athletics</code><span>Athletic Boosters</span></div>
+            <div class="ia-item"><code>/icewatch</code><span>Ice Watch</span></div>
+            <div class="ia-item"><code>/join</code><span>One form, all lists</span></div>
+            <div class="ia-item"><code>/events</code><span>All-groups calendar</span></div>
+            <div class="ia-item"><code>/submit-event</code><span>Public submission</span></div>
+            <div class="ia-item"><code>/es</code><span>Spanish landing</span></div>
+            <div class="ia-item"><code>/unase</code><span>Spanish join</span></div>
+        </div>
+
+        <p style="margin-top:1.5rem;color:var(--gray-600);font-size:0.95rem;max-width:760px">Each group page carries: <b>Announcements · Events · About and who · Current efforts · Minutes · Bylaws · Grants · Subcommittees · Contact · Join</b>. Sections only appear when that group actually has them, so nobody stares at an empty Bylaws heading. Ice Watch swaps Minutes and Bylaws for Know Your Rights and Resources.</p>
+    </div>
+</section>
+
+<!-- FLOWS -->
+<section>
+    <div class="container">
+        <p class="section-label">How it actually works</p>
+        <h2>Five flows</h2>
+        <p class="lede" style="margin-bottom:1.5rem">These hold in either direction. They are what the site has to make easy.</p>
+
+        <div class="flow">
+            <h3>1. A new parent joins</h3>
+            <div class="steps">
+                <span class="step">Lands on homepage</span><span class="arrow">→</span>
+                <span class="step">Picks one or more groups</span><span class="arrow">→</span>
+                <span class="step">One form, lists prechecked</span><span class="arrow">→</span>
+                <span class="step">Name, student, grade, language</span><span class="arrow">→</span>
+                <span class="step end">Confirmation naming their lists + next meeting</span>
+            </div>
+        </div>
+
+        <div class="flow">
+            <h3>2. A returning parent checks what's happening</h3>
+            <div class="steps">
+                <span class="step">Homepage or group page</span><span class="arrow">→</span>
+                <span class="step">Filters to their group</span><span class="arrow">→</span>
+                <span class="step">Opens an event</span><span class="arrow">→</span>
+                <span class="step end">Add to calendar or RSVP</span>
+            </div>
+        </div>
+
+        <div class="flow">
+            <h3>3. A group officer posts news, an event, or minutes</h3>
+            <div class="steps">
+                <span class="step">Opens the shared Google Sheet</span><span class="arrow">→</span>
+                <span class="step">Adds a row on their tab</span><span class="arrow">→</span>
+                <span class="step end">Live on the site in about a minute</span>
+            </div>
+            <p style="font-size:0.87rem;color:var(--gray-600);margin-top:0.6rem">No code, no deploy, no waiting on one person. Minutes are a row with a Google Doc link, which matches the one-doc-per-year habit already in place.</p>
+        </div>
+
+        <div class="flow">
+            <h3>4. Anyone submits an event</h3>
+            <div class="steps">
+                <span class="step">Submit form</span><span class="arrow">→</span>
+                <span class="step">Title, date, image, RSVP link</span><span class="arrow">→</span>
+                <span class="step">Lands as pending</span><span class="arrow">→</span>
+                <span class="step">Admin approves in the Sheet</span><span class="arrow">→</span>
+                <span class="step end">Shows on the calendar and the group page</span>
+            </div>
+            <p style="font-size:0.87rem;color:var(--gray-600);margin-top:0.6rem">Moderation is one cell. RSVP is an outbound link to whatever the organizer already uses, so there is no attendee database to maintain.</p>
+        </div>
+
+        <div class="flow">
+            <h3>5. A parent contacts a group</h3>
+            <div class="steps">
+                <span class="step">Contact form on the group page</span><span class="arrow">→</span>
+                <span class="step">Routes to that group's secretary</span><span class="arrow">→</span>
+                <span class="step end">Copy to the shared inbox</span>
+            </div>
+            <p style="font-size:0.87rem;color:var(--gray-600);margin-top:0.6rem">The copy matters. When a volunteer rotates off, nothing disappears with them.</p>
+        </div>
+    </div>
+</section>
+
+<!-- WHO UPDATES IT -->
+<section style="background: var(--gold-light);">
+    <div class="container-narrow">
+        <p class="section-label">The part that decides whether this survives</p>
+        <h2>Who updates it</h2>
+        <p style="color:var(--gray-700)">Today every word on sennparents.com is hand-coded. That works for one group. With six, it makes one person the bottleneck for everyone, and the site goes stale by November.</p>
+        <p style="color:var(--gray-700);margin-top:0.85rem">So the content moves to <b>one shared Google Sheet</b> with a tab per content type: Events, Announcements, Minutes, Efforts, Groups. Each group's secretary edits their own rows. The site reads the Sheet and renders. No new logins, no new tool to learn, no cost, and it extends the Apps Script already running the current signup form.</p>
+        <p style="color:var(--gray-700);margin-top:0.85rem">A seventh group later is a row in the Groups tab, not a code change.</p>
+    </div>
+</section>
+
+<!-- OPEN QUESTIONS -->
+<section>
+    <div class="container-narrow">
+        <p class="section-label">Before build</p>
+        <h2>Open questions for the group</h2>
+        <ul class="pros" style="margin-top:1rem">
+            <li class="up">Is BAC the Bilingual Advisory Committee? It is spelled out that way throughout, worth confirming before it goes on a nav.</li>
+            <li class="up">Each group gets one accent color. React to the palette here, or send preferences.</li>
+            <li class="up">Which groups beyond FOS actually want the Grants and Support section.</li>
+            <li class="up">Secretary email per group, for contact routing.</li>
+            <li class="up">Who owns the shared Sheet and who has edit rights, so it does not become one person's password.</li>
+        </ul>
+    </div>
+</section>
+
+<footer>
+    <strong>Nicholas Senn High School</strong>
+    5900 N. Glenwood Ave, Chicago IL 60660<br>
+    <a href="mailto:sennparents@gmail.com">sennparents@gmail.com</a>
+    <div style="margin-top:0.75rem;opacity:0.5">&copy; 2026 Senn Parents</div>
+    <div style="margin-top:0.35rem;opacity:0.4;font-size:0.75rem">Powered by <a href="https://buildergrowth.io" target="_blank" rel="noopener">BuilderGrowth</a></div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Senn Parents — Direction A: The Digest</title>
+<link rel="icon" type="image/jpeg" href="assets/sp-shield.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/senn.css">
+<style>
+    .hero-a {
+        position: relative;
+        color: var(--white);
+        padding: 3rem 1.5rem;
+        text-align: center;
+        overflow: hidden;
+    }
+    .hero-a video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+    .hero-a .overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(27,94,32,0.88) 0%, rgba(0,0,0,0.7) 100%); z-index: 1; }
+    .hero-a .inner { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
+    .hero-a img.logo { max-width: 180px; width: 45%; margin: 0 auto 1rem; border-radius: 6px; }
+    .hero-a p { font-size: 1.05rem; opacity: 0.92; margin-bottom: 1.5rem; }
+    .hero-a .hero-buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+
+    .feed-section { background: var(--off-white); }
+    .feed { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .feed .card[hidden] { display: none; }
+    .kind-tag {
+        font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;
+        color: var(--gray-500);
+    }
+    .feed-empty { padding: 2rem; text-align: center; color: var(--gray-600); }
+
+    .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .tile {
+        display: block;
+        text-decoration: none;
+        border: 1px solid var(--gray-200);
+        border-radius: 10px;
+        padding: 1.1rem 1.25rem;
+        border-left: 4px solid var(--gray-500);
+        transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .tile:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .tile strong { display: block; color: var(--gray-900); font-size: 1rem; }
+    .tile span { font-size: 0.85rem; color: var(--gray-600); }
+
+    .join-band { background: var(--green); color: var(--white); }
+    .join-band h2 { color: var(--gold); }
+    .join-band p { opacity: 0.9; }
+    .join-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
+    .join-band .check { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.25); color: var(--white); }
+    .join-band .check:has(input:checked) { background: var(--gold); border-color: var(--gold); color: var(--green); }
+
+    @media (max-width: 900px) { .feed, .tiles { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) {
+        .feed, .tiles { grid-template-columns: 1fr; }
+        .join-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+</style>
+</head>
+<body>
+
+<div id="nav-slot"></div>
+
+<!-- Hero: deliberately slim. The news is the point, not the poster. -->
+<header class="hero-a">
+    <video autoplay muted loop playsinline>
+        <source src="https://d3id26kdqbehod.cloudfront.net/NICSHS/2025/11/18/FZj47wpVlGiXWQNp4yVTVFyh8ueE90fgdgpzn2tHVk4D5eRFByiktvlLYHCJ/Senn+Broll_Drone_Exterior-480p.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+    <div class="inner">
+        <img src="assets/senn-parents-final.jpg" alt="Senn Parents" class="logo">
+        <p>Every parent group at Senn, in one place. Meetings, events, volunteer calls, and what your school is deciding.</p>
+        <div class="hero-buttons">
+            <a href="#join" class="btn btn-gold">Join a group</a>
+            <a href="#events" class="btn btn-outline">See the calendar</a>
+        </div>
+    </div>
+</header>
+
+<!-- THIS WEEK: the spine of Direction A -->
+<section class="feed-section" id="feed">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <p class="section-label">Right now</p>
+                <h2>Happening at Senn</h2>
+                <p class="lede">Every group posts here. Tap a group to narrow it down.</p>
+            </div>
+            <a href="#" class="link-more">See everything &rarr;</a>
+        </div>
+
+        <div class="filters" id="filters" role="group" aria-label="Filter by group"></div>
+        <div class="feed" id="feed-grid"></div>
+        <p class="feed-empty" id="feed-empty" hidden>Nothing posted for this group yet.</p>
+    </div>
+</section>
+
+<!-- CURRENT EFFORTS: the asks -->
+<section id="efforts">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <p class="section-label">Where you're needed</p>
+                <h2>Current efforts</h2>
+                <p class="lede">Open volunteer calls and fundraisers across all groups.</p>
+            </div>
+        </div>
+        <div id="efforts-list"></div>
+    </div>
+</section>
+
+<!-- UPCOMING EVENTS -->
+<section id="events" style="background: var(--gold-light);">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <p class="section-label">Calendar</p>
+                <h2>Upcoming events</h2>
+                <p class="lede">Anyone can submit an event. It goes live once a group admin approves it.</p>
+            </div>
+            <div style="display:flex;gap:0.6rem;flex-wrap:wrap">
+                <a href="#" class="btn btn-ghost">Submit an event</a>
+                <a href="#" class="btn btn-ghost">Full calendar</a>
+            </div>
+        </div>
+        <div class="grid-3" id="events-grid"></div>
+    </div>
+</section>
+
+<!-- THE GROUPS: secondary position in this direction -->
+<section id="groups">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <p class="section-label">Who we are</p>
+                <h2>The groups</h2>
+                <p class="lede">Six parent and community groups, one calendar, one signup.</p>
+            </div>
+        </div>
+        <div class="tiles" id="tiles"></div>
+    </div>
+</section>
+
+<!-- JOIN + NEWSLETTER -->
+<section class="join-band" id="join">
+    <div class="container join-inner">
+        <div>
+            <p class="section-label">One form</p>
+            <h2>Pick your lists, fill it out once</h2>
+            <p>You choose which groups email you. Change it anytime. We never share your information, and you can read every list in Spanish.</p>
+            <p style="margin-top:0.75rem;font-size:0.9rem;opacity:0.75">Already on a list? The weekly digest covers all six groups in one email.</p>
+        </div>
+        <div>
+            <div class="field">
+                <label>Email me from</label>
+                <div class="checks" id="join-checks"></div>
+            </div>
+            <div class="field">
+                <label for="a-name">Your name</label>
+                <input type="text" id="a-name" placeholder="First and last">
+            </div>
+            <div class="field">
+                <label for="a-email">Email</label>
+                <input type="email" id="a-email" placeholder="you@email.com">
+            </div>
+            <a href="#" class="btn btn-gold" style="width:100%;text-align:center">Join</a>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="background: var(--off-white);">
+    <div class="container-narrow" style="text-align:center">
+        <p class="section-label">About</p>
+        <h2>About Senn Parents</h2>
+        <p class="lede" style="margin:0 auto">Senn Parents is the shared front door for every parent and community group at Nicholas Senn High School. Each group runs itself. This site is how families find them, hear from them, and show up.</p>
+        <p style="margin-top:1.25rem"><a href="#" class="link-more">Read more about how the groups work &rarr;</a></p>
+    </div>
+</section>
+
+<div id="footer-slot"></div>
+
+<script src="assets/groups.js"></script>
+<script>
+mountShell('a');
+
+/* ---- Filters ---- */
+const filterWrap = document.getElementById('filters');
+filterWrap.innerHTML =
+  `<button class="filter" data-group="all" aria-pressed="true">All</button>` +
+  GROUPS.map(g => `<button class="filter" data-group="${g.slug}" aria-pressed="false"><span class="dot" style="background:${g.color}"></span>${g.name}</button>`).join('');
+
+/* ---- Feed ---- */
+const feed = buildFeed();
+document.getElementById('feed-grid').innerHTML = feed.map(item => `
+  <article class="card" data-group="${item.group}">
+    <div class="card-accent" style="background:${groupColor(item.group)}"></div>
+    <div class="card-body">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:0.5rem">
+        ${chipHTML(item.group)}
+        <span class="kind-tag">${item.kind === 'event' ? 'Event' : 'News'}</span>
+      </div>
+      <div class="card-date">${fmtDate(item.date)}</div>
+      <h3>${item.title}</h3>
+      <p>${item.body}</p>
+      <div class="card-foot">
+        <a href="group.html?g=${item.group}" class="link-more">${item.kind === 'event' ? 'Details &rarr;' : 'Read more &rarr;'}</a>
+        ${item.kind === 'event' ? '<a href="#" class="link-more">Add to calendar</a>' : ''}
+      </div>
+    </div>
+  </article>`).join('');
+
+filterWrap.addEventListener('click', e => {
+  const btn = e.target.closest('.filter');
+  if (!btn) return;
+  filterWrap.querySelectorAll('.filter').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+  const g = btn.dataset.group;
+  let shown = 0;
+  document.querySelectorAll('#feed-grid .card').forEach(card => {
+    const match = g === 'all' || card.dataset.group === g;
+    card.hidden = !match;
+    if (match) shown++;
+  });
+  document.getElementById('feed-empty').hidden = shown > 0;
+});
+
+/* ---- Efforts ---- */
+document.getElementById('efforts-list').innerHTML = EFFORTS.map(x => `
+  <div class="effort" style="border-left-color:${groupColor(x.group)}">
+    <div class="effort-main">
+      ${chipHTML(x.group)}
+      <h3>${x.title}</h3>
+      <p>${x.ask}</p>
+    </div>
+    <span class="effort-deadline">${x.deadline}</span>
+    <a href="#" class="btn btn-ghost btn-sm">${x.cta}</a>
+  </div>`).join('');
+
+/* ---- Events (next 6) ---- */
+document.getElementById('events-grid').innerHTML = EVENTS.slice(0, 6).map(x => `
+  <article class="card">
+    <div class="card-accent" style="background:${groupColor(x.group)}"></div>
+    <div class="card-body">
+      ${chipHTML(x.group)}
+      <div class="card-date">${fmtDate(x.date)} &middot; ${x.time}</div>
+      <h3>${x.title}</h3>
+      <p>${x.where}</p>
+      <div class="card-foot">
+        <a href="#" class="link-more">Add to calendar</a>
+        ${x.rsvp ? '<a href="#" class="link-more">RSVP</a>' : ''}
+      </div>
+    </div>
+  </article>`).join('');
+
+/* ---- Group tiles ---- */
+document.getElementById('tiles').innerHTML = GROUPS.map(g => `
+  <a class="tile" href="group.html?g=${g.slug}" style="border-left-color:${g.color}">
+    <strong>${g.full}</strong>
+    <span>${g.blurb}</span>
+  </a>`).join('');
+
+/* ---- Join checkboxes ---- */
+document.getElementById('join-checks').innerHTML = GROUPS.map(g =>
+  `<label class="check"><input type="checkbox" value="${g.slug}">${g.name}</label>`).join('');
+</script>
+</body>
+</html>
