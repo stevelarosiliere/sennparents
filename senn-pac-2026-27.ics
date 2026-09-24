@@ -1,0 +1,115 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Senn Parents//PAC Meetings 2026-27//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Senn PAC Meetings 2026-27
+X-WR-TIMEZONE:America/Chicago
+BEGIN:VTIMEZONE
+TZID:America/Chicago
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0600
+TZOFFSETTO:-0500
+TZNAME:CDT
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0600
+TZNAME:CST
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:senn-pac-20261013@sennparents.com
+DTSTAMP:20260924T000000Z
+DTSTART;TZID=America/Chicago:20261013T190000
+DTEND;TZID=America/Chicago:20261013T200000
+SUMMARY:Senn PAC Meeting
+DESCRIPTION:Parent Advisory Council Meeting\, Nicholas Senn High School. Location and join link are shared the week before at sennhs.org/apps/events and sennparents.com.
+LOCATION:Location TBD
+URL:https://sennparents.com/#meeting
+END:VEVENT
+BEGIN:VEVENT
+UID:senn-pac-20261110@sennparents.com
+DTSTAMP:20260924T000000Z
+DTSTART;TZID=America/Chicago:20261110T190000
+DTEND;TZID=America/Chicago:20261110T200000
+SUMMARY:Senn PAC Meeting
+DESCRIPTION:Parent Advisory Council Meeting\, Nicholas Senn High School. Location and join link are shared the week before at sennhs.org/apps/events and sennparents.com.
+LOCATION:Location TBD
+URL:https://sennparents.com/#meeting
+END:VEVENT
+BEGIN:VEVENT
+UID:senn-pac-20261208@sennparents.com
+DTSTAMP:20260924T000000Z
+DTSTART;TZID=America/Chicago:20261208T190000
+DTEND;TZID=America/Chicago:20261208T200000
+SUMMARY:Senn PAC Meeting
+DESCRIPTION:Parent Advisory Council Meeting\, Nicholas Senn High School. Location and join link are shared the week before at sennhs.org/apps/events and sennparents.com.
+LOCATION:Location TBD
+URL:https://sennparents.com/#meeting
+END:VEVENT
+BEGIN:VEVENT
+UID:senn-pac-20270112@sennparents.com
+DTSTAMP:20260924T000000Z
+DTSTART;TZID=America/Chicago:20270112T190000
+DTEND;TZID=America/Chicago:20270112T200000
+SUMMARY:Senn PAC Meeting
+DESCRIPTION:Parent Advisory Council Meeting\, Nicholas Senn High School. Location and join link are shared the week before at sennhs.org/apps/events and sennparents.com.
+LOCATION:Location TBD
+URL:https://sennparents.com/#meeting
+END:VEVENT
+BEGIN:VEVENT
+UID:senn-pac-20270209@sennparents.com
+DTSTAMP:20260924T000000Z
+DTSTART;TZID=America/Chicago:20270209T190000
+DTEND;TZID=America/Chicago:20270209T200000
+SUMMARY:Senn PAC Meeting
+DESCRIPTION:Parent Advisory Council Meeting\, Nicholas Senn High School. Location and join link are shared the week before at sennhs.org/apps/events and sennparents.com.
+LOCATION:Location TBD
+URL:https://sennparents.com/#meeting
+END:VEVENT
+BEGIN:VEVENT
+UID:senn-pac-20270309@sennparents.com
+DTSTAMP:20260924T000000Z
+DTSTART;TZID=America/Chicago:20270309T190000
+DTEND;TZID=America/Chicago:20270309T200000
+SUMMARY:Senn PAC Meeting
+DESCRIPTION:Parent Advisory Council Meeting\, Nicholas Senn High School. Location and join link are shared the week before at sennhs.org/apps/events and sennparents.com.
+LOCATION:Location TBD
+URL:https://sennparents.com/#meeting
+END:VEVENT
+BEGIN:VEVENT
+UID:senn-pac-20270420@sennparents.com
+DTSTAMP:20260924T000000Z
+DTSTART;TZID=America/Chicago:20270420T190000
+DTEND;TZID=America/Chicago:20270420T200000
+SUMMARY:Senn PAC Meeting
+DESCRIPTION:Parent Advisory Council Meeting\, Nicholas Senn High School. Location and join link are shared the week before at sennhs.org/apps/events and sennparents.com.
+LOCATION:Location TBD
+URL:https://sennparents.com/#meeting
+END:VEVENT
+BEGIN:VEVENT
+UID:senn-pac-20270511@sennparents.com
+DTSTAMP:20260924T000000Z
+DTSTART;TZID=America/Chicago:20270511T190000
+DTEND;TZID=America/Chicago:20270511T200000
+SUMMARY:Senn PAC Meeting
+DESCRIPTION:Parent Advisory Council Meeting\, Nicholas Senn High School. Location and join link are shared the week before at sennhs.org/apps/events and sennparents.com.
+LOCATION:Location TBD
+URL:https://sennparents.com/#meeting
+END:VEVENT
+BEGIN:VEVENT
+UID:senn-pac-20270608@sennparents.com
+DTSTAMP:20260924T000000Z
+DTSTART;TZID=America/Chicago:20270608T190000
+DTEND;TZID=America/Chicago:20270608T200000
+SUMMARY:Senn PAC Meeting
+DESCRIPTION:Parent Advisory Council Meeting\, Nicholas Senn High School. Location and join link are shared the week before at sennhs.org/apps/events and sennparents.com.
+LOCATION:Location TBD
+URL:https://sennparents.com/#meeting
+END:VEVENT
+END:VCALENDAR

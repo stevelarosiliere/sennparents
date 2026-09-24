@@ -528,50 +528,9 @@
     </div>
 </section>
 
-<!-- Next Meeting -->
+<!-- Next Meeting (rendered from assets/meetings.js) -->
 <section id="meeting" class="meeting-section">
-    <div class="container">
-        <p class="section-label">Up Next</p>
-        <h2>Next PAC Meeting</h2>
-        <div class="meeting-card">
-            <div class="meeting-detail">
-                <span class="icon">&#128197;</span>
-                <div><strong>Tuesday, May 19, 2026</strong></div>
-            </div>
-            <div class="meeting-detail">
-                <span class="icon">&#128336;</span>
-                <div><strong>7:00&ndash;8:30 PM CT</strong></div>
-            </div>
-            <div class="meeting-detail">
-                <span class="icon">&#128205;</span>
-                <div><strong>Little Red Nest</strong><br>5456 N. Ashland Ave, Chicago, IL 60640</div>
-            </div>
-            <div class="meeting-detail">
-                <span class="icon">&#128187;</span>
-                <div><strong>Virtual option:</strong> <a href="https://us06web.zoom.us/j/8611443771" id="meet-link" style="color: var(--green-mid);" target="_blank" rel="noopener">Join via Zoom</a><br><span style="font-size: 0.85rem; color: var(--gray-600);">This meeting will be recorded.</span></div>
-            </div>
-
-            <div class="agenda-list">
-                <h3>Agenda Highlights</h3>
-                <ul>
-                    <li>Call to order, attendance, and quorum</li>
-                    <li>Accept April 2026 meeting minutes</li>
-                    <li>Laptop and cabinet quotes &mdash; review and approval</li>
-                    <li>Workshop updates</li>
-                    <li>Library volunteer day update</li>
-                    <li>New business, questions, and comments</li>
-                </ul>
-            </div>
-
-            <div class="meeting-buttons">
-                <a href="join.html" class="btn btn-gold">Become a Member</a>
-                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Senn+PAC+Meeting&dates=20260520T000000Z/20260520T013000Z&details=Parent+Advisory+Council+Meeting%0ANicholas+Senn+High+School%0A%0AZoom%3A+https%3A%2F%2Fus06web.zoom.us%2Fj%2F8611443771%0A%0AAgenda%3A+April+minutes%2C+laptop+%26+cabinet+approval%2C+workshop+updates%2C+library+volunteer+day&location=Little+Red+Nest%2C+5456+N.+Ashland+Ave%2C+Chicago+IL+60640" class="btn btn-outline" target="_blank" rel="noopener" style="border-color: var(--green-mid); color: var(--green-mid);">Add to Calendar</a>
-                <a href="minutes.html" class="btn btn-outline" style="border-color: var(--green-mid); color: var(--green-mid);">Past Minutes</a>
-            </div>
-
-            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--gray-600);">All parents and guardians are welcome. You do not need to be a member to attend.</p>
-        </div>
-    </div>
+    <div class="container" data-pac-meetings data-lang="en"></div>
 </section>
 
 <!-- Officers -->
@@ -639,5 +598,6 @@
 </footer>
 
 
+<script src="assets/meetings.js"></script>
 </body>
 </html>
