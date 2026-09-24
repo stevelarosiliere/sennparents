@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Survey 2026-27 | Senn Parents</title>
+    <meta name="description" content="Senn PAC Family Interest Survey 2026-2027. Two minutes. Tell the Parent Advisory Council what your family needs this school year.">
+    <meta property="og:title" content="Senn Parent Survey 2026-27">
+    <meta property="og:description" content="Two minutes. Tell the Senn Parent Advisory Council what your family needs this school year.">
+    <meta property="og:image" content="https://sennparents.com/Brand-Assets/Logo/senn-parents-final.jpg">
+    <meta property="og:url" content="https://sennparents.com/survey">
+    <link rel="icon" type="image/jpeg" href="Brand-Assets/Logo/Social/sp-shield.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #1B5E20;
+            --green-mid: #2E7D32;
+            --gold: #D4A017;
+            --gold-light: #FDF3D7;
+            --white: #FFFFFF;
+            --off-white: #F5F7F5;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-900: #1A1A1A;
+            --red: #C62828;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; color: var(--gray-900); background: var(--off-white); line-height: 1.6; }
+
+        .header { background: var(--green); padding: 1.5rem 1rem; text-align: center; }
+        .header img { height: 44px; border-radius: 4px; margin-bottom: 0.5rem; }
+        .header h1 { color: var(--white); font-size: 1.3rem; font-weight: 800; }
+        .header p { color: rgba(255,255,255,0.85); font-size: 0.9rem; margin-top: 0.25rem; }
+        .header-links { margin-top: 0.75rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .header-links a { color: var(--gold); font-size: 0.85rem; text-decoration: none; font-weight: 600; }
+        .lang-toggle { background: none; border: 1px solid var(--gold); color: var(--gold); border-radius: 999px; padding: 0.2rem 0.9rem; font: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
+
+        .container { max-width: 620px; margin: 1.5rem auto 2rem; padding: 0 1rem; }
+
+        .intro { background: var(--white); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.25rem; border-top: 4px solid var(--gold); }
+        .intro h2 { color: var(--green); font-size: 1.1rem; margin-bottom: 0.4rem; }
+        .intro p { color: var(--gray-600); font-size: 0.92rem; }
+
+        .question { background: var(--white); border-radius: 12px; padding: 1.25rem 1.25rem 1rem; margin-bottom: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 2px solid transparent; }
+        .question.invalid { border-color: var(--red); }
+        .q-label { font-weight: 600; font-size: 0.97rem; display: block; margin-bottom: 0.25rem; }
+        .q-hint { font-size: 0.8rem; color: var(--gray-600); margin-bottom: 0.6rem; }
+        .required { color: var(--red); }
+        .q-error { display: none; color: var(--red); font-size: 0.8rem; margin-top: 0.4rem; }
+        .question.invalid .q-error { display: block; }
+
+        .options { display: flex; flex-direction: column; gap: 0.35rem; margin-top: 0.5rem; }
+        .options label { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.92rem; color: var(--gray-700); padding: 0.55rem 0.7rem; border-radius: 8px; cursor: pointer; transition: background 0.15s; }
+        .options label:hover { background: var(--off-white); }
+        .options input { accent-color: var(--green); width: 20px; height: 20px; flex-shrink: 0; margin-top: 1px; }
+
+        .contact-block { background: var(--gold-light); border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
+        .contact-block .q-label { color: var(--green); }
+        .field { margin-top: 0.75rem; }
+        .field label { font-size: 0.85rem; font-weight: 600; color: var(--gray-700); display: block; margin-bottom: 0.25rem; }
+        .field input { width: 100%; padding: 0.7rem 0.8rem; border: 1px solid #D1D5DB; border-radius: 8px; font: inherit; font-size: 1rem; background: var(--white); }
+        .field input:focus { outline: 2px solid var(--green); border-color: var(--green); }
+
+        .submit-btn { background: var(--gold); color: var(--green); border: none; padding: 1rem 2rem; border-radius: 10px; font: inherit; font-size: 1.05rem; font-weight: 800; cursor: pointer; width: 100%; margin-top: 0.5rem; transition: transform 0.2s, box-shadow 0.2s; }
+        .submit-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .submit-btn:disabled { opacity: 0.6; cursor: wait; transform: none; }
+        .form-error { display: none; color: var(--red); font-size: 0.9rem; text-align: center; margin-top: 0.75rem; }
+
+        .success { display: none; text-align: center; padding: 2.5rem 1.5rem; background: var(--white); border-radius: 12px; border-top: 4px solid var(--gold); }
+        .success .icon { font-size: 3rem; margin-bottom: 0.75rem; }
+        .success h2 { color: var(--green); margin-bottom: 0.5rem; }
+        .success p { color: var(--gray-600); }
+        .success .btn { display: inline-block; margin-top: 1.25rem; background: var(--green); color: var(--white); padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 700; }
+
+        .footer { text-align: center; padding: 1.5rem 1rem 2.5rem; font-size: 0.8rem; color: var(--gray-600); }
+        .footer a { color: var(--green); }
+
+        [data-lang="es"] .en, [data-lang="en"] .es { display: none; }
+    </style>
+</head>
+<body data-lang="en">
+
+<div class="header">
+    <img src="Brand-Assets/Logo/Social/sp-shield.jpg" alt="SP">
+    <h1><span class="en">Senn Parent Survey 2026-27</span><span class="es">Encuesta para Padres de Senn 2026-27</span></h1>
+    <p><span class="en">2 minutes. Your voice matters.</span><span class="es">2 minutos. Su voz importa.</span></p>
+    <div class="header-links">
+        <button type="button" class="lang-toggle" id="lang-toggle"><span class="en">Español</span><span class="es">English</span></button>
+        <a href="/" id="home-link"><span class="en">&larr; Back to site</span><span class="es">&larr; Volver al sitio</span></a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="intro" id="intro">
+        <h2><span class="en">Parent Advisory Council (PAC)</span><span class="es">Consejo Asesor de Padres (CAP)</span></h2>
+        <p class="en">This survey helps the PAC understand what Senn families actually need this school year. Your answers guide how we recommend spending Title I family engagement funds. Last year over 100 families answered, and it shaped every workshop we planned.</p>
+        <p class="es">Esta encuesta ayuda al CAP a entender lo que las familias de Senn realmente necesitan este año escolar. Sus respuestas guían cómo recomendamos gastar los fondos de Título I para la participación familiar. El año pasado más de 100 familias respondieron, y eso definió cada taller que planeamos.</p>
+    </div>
+
+    <form id="survey-form" novalidate>
+        <div id="questions"></div>
+
+        <div class="contact-block">
+            <span class="q-label"><span class="en">Stay in the loop</span><span class="es">Manténgase informado</span></span>
+            <p class="q-hint"><span class="en">Optional. Your survey answers above stay anonymous.</span><span class="es">Opcional. Sus respuestas de la encuesta son anónimas.</span></p>
+            <div class="field">
+                <label for="f-name"><span class="en">Your name</span><span class="es">Su nombre</span></label>
+                <input type="text" id="f-name" autocomplete="name">
+            </div>
+            <div class="field">
+                <label for="f-email"><span class="en">Email address</span><span class="es">Correo electrónico</span></label>
+                <input type="email" id="f-email" autocomplete="email" inputmode="email">
+            </div>
+            <div class="field">
+                <label for="f-phone"><span class="en">Phone (for text or WhatsApp updates)</span><span class="es">Teléfono (para mensajes de texto o WhatsApp)</span></label>
+                <input type="tel" id="f-phone" autocomplete="tel" inputmode="tel">
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn"><span class="en">Submit Survey</span><span class="es">Enviar Encuesta</span></button>
+        <p class="form-error" id="form-error"></p>
+    </form>
+
+    <div class="success" id="success">
+        <div class="icon">&#9989;</div>
+        <h2><span class="en">Thank you!</span><span class="es">¡Gracias!</span></h2>
+        <p class="en">Your response is in. The PAC will use it to plan this year's workshops and meetings.</p>
+        <p class="es">Su respuesta fue registrada. El CAP la usará para planear los talleres y reuniones de este año.</p>
+        <a href="/" class="btn" id="success-home"><span class="en">Back to Senn Parents</span><span class="es">Volver a Senn Parents</span></a>
+    </div>
+</div>
+
+<div class="footer">
+    Senn Parent Advisory Council<br>
+    <a href="mailto:sennparents@gmail.com">sennparents@gmail.com</a>
+</div>
+
+<script>
+// Answers post straight into the Google Form "Senn PAC Family Interest Survey 2026-2027".
+// Option values must match the form's English options exactly, even on the Spanish view.
+var FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeE2VqmnxrifYdv_syu2cNJSPDcMlKM-uKW62uJ7VV8U2ckcA/formResponse';
+var CONTACT_ENTRIES = { name: 'entry.2092082828', email: 'entry.216564400', phone: 'entry.1352227040' };
+
+var QUESTIONS = [
+    { entry: 'entry.1374248103', type: 'checkbox', required: true,
+      en: 'What grade(s) is your student in?', es: '¿En qué grado(s) está su estudiante?',
+      hint: { en: 'Check all that apply', es: 'Marque todas las que apliquen' },
+      options: [
+        ['9th Grade', '9no grado'], ['10th Grade', '10mo grado'], ['11th Grade', '11vo grado'], ['12th Grade', '12vo grado']
+      ] },
+    { entry: 'entry.1418374658', type: 'radio', required: true,
+      en: 'What language do you prefer for school communications?', es: '¿En qué idioma prefiere recibir las comunicaciones de la escuela?',
+      options: [ ['English', 'Inglés'], ['Spanish', 'Español'] ] },
+    { entry: 'entry.1504247458', type: 'checkbox', required: true, max: 3,
+      en: 'Pick your TOP 3 topics the PAC should focus on this year.', es: 'Elija los 3 temas PRINCIPALES en los que el CAP debe enfocarse este año.',
+      hint: { en: 'Choose up to 3. These answers directly inform how Title I parent engagement funds are spent.', es: 'Elija hasta 3. Estas respuestas guían directamente cómo se gastan los fondos de Título I.' },
+      options: [
+        ['Learning how to read report cards, test scores, and track academic progress', 'Aprender a leer boletas de calificaciones, resultados de exámenes y seguir el progreso académico'],
+        ["Supporting your student's mental health and well-being", 'Apoyar la salud mental y el bienestar de su estudiante'],
+        ['English/literacy classes for parents', 'Clases de inglés/alfabetización para padres'],
+        ['Workshops on college applications and career planning', 'Talleres sobre solicitudes universitarias y planificación profesional'],
+        ['Help understanding FAFSA and financial aid', 'Ayuda para entender FAFSA y la ayuda financiera'],
+        ['Know Your Rights workshops (immigration, housing, special education)', 'Talleres Conozca Sus Derechos (inmigración, vivienda, educación especial)'],
+        ['Family arts, culture, or community events', 'Eventos familiares de arte, cultura o comunidad'],
+        ['Technology help (school apps, email, internet safety)', 'Ayuda con tecnología (aplicaciones escolares, correo, seguridad en internet)'],
+        ['Other', 'Otro']
+      ] },
+    { entry: 'entry.1114584111', type: 'checkbox',
+      en: 'When could you attend a PAC event or workshop?', es: '¿Cuándo podría asistir a un evento o taller del CAP?',
+      hint: { en: 'Check all that apply', es: 'Marque todas las que apliquen' },
+      options: [
+        ['Weekday mornings (8 AM - 11 AM)', 'Mañanas entre semana (8 AM a 11 AM)'],
+        ['Weekday afternoons (12 PM - 3 PM)', 'Tardes entre semana (12 PM a 3 PM)'],
+        ['Weekday evenings (4 PM - 8 PM)', 'Noches entre semana (4 PM a 8 PM)'],
+        ['Saturday mornings (8 AM - 11 AM)', 'Sábados por la mañana (8 AM a 11 AM)'],
+        ['Saturday afternoons (12 PM - 3 PM)', 'Sábados por la tarde (12 PM a 3 PM)'],
+        ['Virtual options work best with my schedule', 'Las opciones virtuales funcionan mejor con mi horario']
+      ] },
+    { entry: 'entry.1792102114', type: 'checkbox',
+      en: 'What makes it hard to participate in school events?', es: '¿Qué le dificulta participar en eventos escolares?',
+      hint: { en: 'Check all that apply', es: 'Marque todas las que apliquen' },
+      options: [
+        ['Work schedule', 'Horario de trabajo'], ['Childcare', 'Cuidado de niños'], ['Transportation', 'Transporte'],
+        ['Language barrier', 'Barrera del idioma'], ['Unaware of events', 'No me entero de los eventos'],
+        ["Events don't apply to my family", 'Los eventos no aplican a mi familia'], ['Other', 'Otro']
+      ] },
+    { entry: 'entry.247959433', type: 'checkbox',
+      en: 'How would you like to hear from the PAC?', es: '¿Cómo le gustaría recibir noticias del CAP?',
+      hint: { en: 'Check all that apply', es: 'Marque todas las que apliquen' },
+      options: [
+        ['Email', 'Correo electrónico'], ['Text message', 'Mensaje de texto'], ['WhatsApp', 'WhatsApp'],
+        ['Social media (Facebook, Instagram)', 'Redes sociales (Facebook, Instagram)'], ['School flyer', 'Volante de la escuela']
+      ] },
+    { entry: 'entry.101407146', type: 'radio', required: true,
+      en: 'Have you heard of the Senn PAC before today?', es: '¿Había escuchado sobre el CAP de Senn antes de hoy?',
+      options: [ ['Yes', 'Sí'], ['No', 'No'] ] },
+    { entry: 'entry.1335046319', type: 'radio', required: true,
+      en: 'Would you be interested in staying connected with the Senn PAC?', es: '¿Le interesaría mantenerse en contacto con el CAP de Senn?',
+      options: [
+        ['Yes, I want to get involved!', '¡Sí, quiero participar!'],
+        ["I can't attend meetings, but keep me informed", 'No puedo asistir a reuniones, pero manténganme informado/a'],
+        ['Not at this time', 'Por ahora no']
+      ] }
+];
+
+var ERR = {
+    required: { en: 'Please answer this question.', es: 'Por favor responda esta pregunta.' },
+    max3: { en: 'Please choose no more than 3.', es: 'Por favor elija un máximo de 3.' },
+    fix: { en: 'A few answers need attention above.', es: 'Algunas respuestas necesitan atención arriba.' },
+    network: { en: 'Something went wrong. Please try again or email sennparents@gmail.com.', es: 'Algo salió mal. Intente de nuevo o escriba a sennparents@gmail.com.' }
+};
+
+function esc(s) { return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;'); }
+
+var html = '';
+QUESTIONS.forEach(function (q, i) {
+    var n = i + 1;
+    html += '<div class="question" id="q' + n + '">';
+    html += '<span class="q-label">' + n + '. <span class="en">' + esc(q.en) + '</span><span class="es">' + esc(q.es) + '</span>' + (q.required ? ' <span class="required">*</span>' : '') + '</span>';
+    if (q.hint) html += '<p class="q-hint"><span class="en">' + esc(q.hint.en) + '</span><span class="es">' + esc(q.hint.es) + '</span></p>';
+    html += '<div class="options">';
+    q.options.forEach(function (o) {
+        html += '<label><input type="' + q.type + '" name="q' + n + '" value="' + esc(o[0]) + '"><span><span class="en">' + esc(o[0]) + '</span><span class="es">' + esc(o[1]) + '</span></span></label>';
+    });
+    html += '</div><p class="q-error"></p></div>';
+});
+document.getElementById('questions').innerHTML = html;
+
+var lang = /lang=es/.test(location.search) || document.referrer.indexOf('/es') > -1 ? 'es' : 'en';
+function setLang(l) {
+    lang = l;
+    document.body.setAttribute('data-lang', l);
+    document.documentElement.lang = l;
+    var home = l === 'es' ? '/es' : '/';
+    document.getElementById('home-link').href = home;
+    document.getElementById('success-home').href = home;
+}
+setLang(lang);
+document.getElementById('lang-toggle').addEventListener('click', function () { setLang(lang === 'en' ? 'es' : 'en'); });
+
+// Enforce the top-3 limit as people tap, not just on submit
+document.querySelectorAll('input[name="q3"]').forEach(function (cb) {
+    cb.addEventListener('change', function () {
+        if (document.querySelectorAll('input[name="q3"]:checked').length > 3) { cb.checked = false; }
+    });
+});
+document.getElementById('survey-form').addEventListener('change', function (e) {
+    var block = e.target.closest('.question');
+    if (block) block.classList.remove('invalid');
+});
+
+document.getElementById('survey-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var formError = document.getElementById('form-error');
+    formError.style.display = 'none';
+
+    var data = new URLSearchParams();
+    var firstBad = null;
+    QUESTIONS.forEach(function (q, i) {
+        var n = i + 1, block = document.getElementById('q' + n);
+        var picked = Array.prototype.map.call(document.querySelectorAll('input[name="q' + n + '"]:checked'), function (el) { return el.value; });
+        var msg = null;
+        if (q.required && picked.length === 0) msg = ERR.required[lang];
+        else if (q.max && picked.length > q.max) msg = ERR.max3[lang];
+        block.classList.toggle('invalid', !!msg);
+        block.querySelector('.q-error').textContent = msg || '';
+        if (msg && !firstBad) firstBad = block;
+        picked.forEach(function (v) { data.append(q.entry, v); });
+    });
+    if (firstBad) {
+        formError.textContent = ERR.fix[lang];
+        formError.style.display = 'block';
+        firstBad.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+    }
+
+    ['name', 'email', 'phone'].forEach(function (k) {
+        var v = document.getElementById('f-' + k).value.trim();
+        if (v) data.append(CONTACT_ENTRIES[k], v);
+    });
+
+    var btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+
+    fetch(FORM_URL, { method: 'POST', mode: 'no-cors', body: data })
+        .then(function () {
+            document.getElementById('survey-form').style.display = 'none';
+            document.getElementById('intro').style.display = 'none';
+            document.getElementById('success').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        })
+        .catch(function () {
+            btn.disabled = false;
+            formError.textContent = ERR.network[lang];
+            formError.style.display = 'block';
+        });
+});
+</script>
+
+</body>
+</html>

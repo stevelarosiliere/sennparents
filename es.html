@@ -282,6 +282,13 @@
         /* Survey + Join */
         .cta-section { background: var(--off-white); }
 
+        .cta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
         .cta-card {
             background: var(--white);
             border-radius: 12px;
@@ -343,6 +350,7 @@
             section { padding: 2.5rem 1.25rem; }
             h2 { font-size: 1.5rem; }
             .meeting-card { padding: 1.5rem; }
+            .cta-grid { grid-template-columns: 1fr; }
             .cta-card { padding: 1.5rem; }
 
             .nav-links {
@@ -388,7 +396,7 @@
         <ul class="nav-links">
             <li><a href="#meeting">Próxima Reunión</a></li>
             <li><a href="minutes.html">Actas</a></li>
-            <li><a href="vota.html" style="color: var(--gold);">Vote</a></li>
+            <li><a href="survey?lang=es" style="color: var(--gold);">Encuesta</a></li>
             <li><a href="unase.html">Únase</a></li>
             <li><a href="#about">Acerca de</a></li>
             <li><a href="#contact">Contacto</a></li>
@@ -407,8 +415,8 @@
         <img src="Brand-Assets/Logo/senn-parents-final.jpg" alt="Senn Parents - Consejo Asesor de Padres" class="hero-logo">
         <p>Liderado por padres. Construyendo conexiones más fuertes entre familias, personal y las decisiones que dan forma a la educación de nuestros hijos.</p>
         <div class="hero-buttons">
-            <a href="unase.html" class="btn btn-gold">Conviértase en Miembro</a>
-            <a href="vota.html" class="btn btn-outline">Vote por Nuestro Primer Taller</a>
+            <a href="survey?lang=es" class="btn btn-gold">Tome la Encuesta para Padres 2026-27</a>
+            <a href="unase.html" class="btn btn-outline">Conviértase en Miembro</a>
         </div>
     </div>
 </section>
@@ -569,16 +577,21 @@
     </div>
 </section>
 
-<!-- Survey Results -->
+<!-- Survey + Results -->
 <section id="survey" class="cta-section">
     <div class="container">
         <p class="section-label">Su Voz Importa</p>
-        <h2>Lo Que las Familias Nos Dijeron</h2>
-        <div style="max-width: 700px;">
+        <h2>Nuevo Año Escolar, Nueva Encuesta</h2>
+        <div class="cta-grid">
             <div class="cta-card">
-                <h3>Los Resultados de la Encuesta 2026 Están Aquí</h3>
-                <p>Más de 100 familias nos dijeron qué es lo más importante. Las principales prioridades: planificación universitaria, salud mental y Conozca Sus Derechos. Ahora ayúdenos a decidir qué taller sucede primero.</p>
-                <a href="vota.html" class="btn btn-gold">Ver Resultados y Votar</a>
+                <h3>Tome la Encuesta para Padres 2026-27</h3>
+                <p>Dos minutos, en español o inglés. Díganos qué necesita su familia este año. Sus respuestas deciden qué talleres organiza el CAP y cómo se gastan los fondos de Título I para la participación familiar.</p>
+                <a href="survey?lang=es" class="btn btn-gold">Tomar la Encuesta</a>
+            </div>
+            <div class="cta-card">
+                <h3>El Año Pasado Respondieron Más de 100 Familias</h3>
+                <p>Las principales prioridades fueron planificación universitaria, salud mental y Conozca Sus Derechos. Vea lo que las familias nos dijeron en 2025-26.</p>
+                <a href="vota.html" class="btn btn-outline" style="border-color: var(--green-mid); color: var(--green-mid);">Ver Resultados 2025-26</a>
             </div>
         </div>
     </div>
