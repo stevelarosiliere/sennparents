@@ -60,6 +60,8 @@
         .field label { font-size: 0.85rem; font-weight: 600; color: var(--gray-700); display: block; margin-bottom: 0.25rem; }
         .field input { width: 100%; padding: 0.7rem 0.8rem; border: 1px solid #D1D5DB; border-radius: 8px; font: inherit; font-size: 1rem; background: var(--white); }
         .field input:focus { outline: 2px solid var(--green); border-color: var(--green); }
+        .other-text { width: 100%; padding: 0.7rem 0.8rem; border: 1px solid #D1D5DB; border-radius: 8px; font: inherit; font-size: 1rem; background: var(--white); }
+        .other-text:focus { outline: 2px solid var(--green); border-color: var(--green); }
 
         .submit-btn { background: var(--gold); color: var(--green); border: none; padding: 1rem 2rem; border-radius: 10px; font: inherit; font-size: 1.05rem; font-weight: 800; cursor: pointer; width: 100%; margin-top: 0.5rem; transition: transform 0.2s, box-shadow 0.2s; }
         .submit-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
@@ -150,7 +152,13 @@ var QUESTIONS = [
       ] },
     { entry: 'entry.1418374658', type: 'radio', required: true,
       en: 'What language do you prefer for school communications?', es: '¿En qué idioma prefiere recibir las comunicaciones de la escuela?',
-      options: [ ['English', 'Inglés'], ['Spanish', 'Español'] ] },
+      otherText: { en: 'Please type your language', es: 'Escriba su idioma' },
+      options: [
+        ['English', 'Inglés'], ['Spanish', 'Español'], ['Arabic', 'Árabe'], ['Swahili', 'Suajili'],
+        ['Kinyarwanda', 'Kinyarwanda'], ['French', 'Francés'], ['Dari', 'Darí'], ['Pashto', 'Pastún'],
+        ['Urdu', 'Urdu'], ['Nepali', 'Nepalí'], ['Burmese', 'Birmano'], ['Amharic', 'Amárico'],
+        ['__other_option__', 'Otro']
+      ] },
     { entry: 'entry.1504247458', type: 'checkbox', required: true, max: 3,
       en: 'Pick your TOP 3 topics the PAC should focus on this year.', es: 'Elija los 3 temas PRINCIPALES en los que el CAP debe enfocarse este año.',
       hint: { en: 'Choose up to 3. These answers directly inform how Title I parent engagement funds are spent.', es: 'Elija hasta 3. Estas respuestas guían directamente cómo se gastan los fondos de Título I.' },
@@ -220,8 +228,10 @@ QUESTIONS.forEach(function (q, i) {
     if (q.hint) html += '<p class="q-hint"><span class="en">' + esc(q.hint.en) + '</span><span class="es">' + esc(q.hint.es) + '</span></p>';
     html += '<div class="options">';
     q.options.forEach(function (o) {
-        html += '<label><input type="' + q.type + '" name="q' + n + '" value="' + esc(o[0]) + '"><span><span class="en">' + esc(o[0]) + '</span><span class="es">' + esc(o[1]) + '</span></span></label>';
+        var enLabel = o[0] === '__other_option__' ? 'Other' : o[0];
+        html += '<label><input type="' + q.type + '" name="q' + n + '" value="' + esc(o[0]) + '"><span><span class="en">' + esc(enLabel) + '</span><span class="es">' + esc(o[1]) + '</span></span></label>';
     });
+    if (q.otherText) html += '<input type="text" class="other-text" id="q' + n + '-other" style="display:none; margin-top:0.5rem;" placeholder="' + esc(q.otherText.en) + '" data-ph-en="' + esc(q.otherText.en) + '" data-ph-es="' + esc(q.otherText.es) + '">';
     html += '</div><p class="q-error"></p></div>';
 });
 document.getElementById('questions').innerHTML = html;
@@ -234,6 +244,7 @@ function setLang(l) {
     var home = l === 'es' ? '/es' : '/';
     document.getElementById('home-link').href = home;
     document.getElementById('success-home').href = home;
+    document.querySelectorAll('.other-text').forEach(function (el) { el.placeholder = el.getAttribute('data-ph-' + l); });
 }
 setLang(lang);
 document.getElementById('lang-toggle').addEventListener('click', function () { setLang(lang === 'en' ? 'es' : 'en'); });
@@ -247,6 +258,10 @@ document.querySelectorAll('input[name="q3"]').forEach(function (cb) {
 document.getElementById('survey-form').addEventListener('change', function (e) {
     var block = e.target.closest('.question');
     if (block) block.classList.remove('invalid');
+    if (block && e.target.type === 'radio') {
+        var other = block.querySelector('.other-text');
+        if (other) other.style.display = e.target.value === '__other_option__' ? 'block' : 'none';
+    }
 });
 
 document.getElementById('survey-form').addEventListener('submit', function (e) {
@@ -266,6 +281,11 @@ document.getElementById('survey-form').addEventListener('submit', function (e) {
         block.querySelector('.q-error').textContent = msg || '';
         if (msg && !firstBad) firstBad = block;
         picked.forEach(function (v) { data.append(q.entry, v); });
+        if (q.otherText && picked[0] === '__other_option__') {
+            var otherVal = document.getElementById('q' + n + '-other').value.trim();
+            if (!otherVal && !msg) { msg = ERR.required[lang]; block.classList.add('invalid'); block.querySelector('.q-error').textContent = msg; if (!firstBad) firstBad = block; }
+            data.append(q.entry + '.other_option_response', otherVal);
+        }
     });
     if (firstBad) {
         formError.textContent = ERR.fix[lang];
