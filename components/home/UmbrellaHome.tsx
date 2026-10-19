@@ -1,16 +1,16 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useMutation, useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
 import Nav from "@/components/Nav";
 import Shield from "@/components/Shield";
 import UmbrellaFooter from "@/components/home/UmbrellaFooter";
 import {
-  ANNOUNCEMENTS,
   DONORS,
   EFFORTS,
-  EVENTS,
   GROUPS,
   MONTHS,
   TAGS,
@@ -24,8 +24,11 @@ import {
   mapLink,
   openSlots,
   placeLine,
+  type GroupSlug,
   type SennEvent,
 } from "@/lib/umbrella-data";
+import { chicagoToday, loadMyGroups, saveMyGroups } from "@/lib/time";
+import { errorText } from "@/lib/errors";
 
 const navLinks = [
   { href: "#groups", label: "Groups" },
@@ -54,12 +57,29 @@ function eventDay(ev: SennEvent) {
   return { day: d, mon: MONTHS[m - 1] };
 }
 
+type Language = "en" | "es" | "other";
+
 export default function UmbrellaHome() {
   const router = useRouter();
   const [picked, setPicked] = useState<string[]>([]);
   const [filter, setFilter] = useState("all");
+  const [myGroups, setMyGroups] = useState<string[]>([]);
   const [sheetId, setSheetId] = useState<string | null>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+
+  const today = useMemo(() => chicagoToday(), []);
+  const upcoming = useQuery(api.events.listUpcoming, { from: today });
+  const news = useQuery(api.announcements.listRecent, { limit: 6 });
+  const EVENTS: SennEvent[] = upcoming ?? [];
+
+  const subscribe = useMutation(api.subscribers.subscribe);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [grade, setGrade] = useState("");
+  const [language, setLanguage] = useState<Language>("en");
+  const [joinState, setJoinState] = useState<
+    { kind: "idle" } | { kind: "sending" } | { kind: "done" } | { kind: "error"; msg: string }
+  >({ kind: "idle" });
 
   const sheetEvent = sheetId ? EVENTS.find((e) => e.id === sheetId) : undefined;
 
@@ -76,6 +96,15 @@ export default function UmbrellaHome() {
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
+  }, []);
+
+  /* Parents who joined from this browser see their groups' events first */
+  useEffect(() => {
+    const mine = loadMyGroups();
+    if (mine.length) {
+      setMyGroups(mine);
+      setFilter("mine");
+    }
   }, []);
 
   /* Group pages link here as /?join=<slug>#join, prechecked for that group */
@@ -99,10 +128,38 @@ export default function UmbrellaHome() {
     t.scrollBy({ left: dir * (card.offsetWidth + 16), behavior: "smooth" });
   };
 
+  const submitJoin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!picked.length) {
+      setJoinState({ kind: "error", msg: "Choose at least one group." });
+      return;
+    }
+    setJoinState({ kind: "sending" });
+    try {
+      await subscribe({
+        name,
+        email,
+        grade: grade || undefined,
+        language,
+        groups: picked as GroupSlug[],
+      });
+      const mine = [...new Set([...myGroups, ...picked])];
+      saveMyGroups(mine);
+      setMyGroups(mine);
+      setFilter("mine");
+      setJoinState({ kind: "done" });
+    } catch (err) {
+      setJoinState({ kind: "error", msg: errorText(err) });
+    }
+  };
+
   const matches = (ev: SennEvent) => {
     if (filter === "all") return true;
+    if (filter === "mine") return ev.groups.some((g) => myGroups.includes(g));
     const [kind, val] = filter.split(":");
-    return kind === "tag" ? ev.tags.includes(val) : ev.groups.includes(val);
+    return kind === "tag"
+      ? ev.tags.includes(val)
+      : ev.groups.includes(val as GroupSlug);
   };
   const calRows = EVENTS.filter(matches);
 
@@ -191,6 +248,14 @@ export default function UmbrellaHome() {
             </p>
             <div className="upnext">
               <div className="upnext-track" ref={trackRef}>
+                {upcoming !== undefined && EVENTS.length === 0 ? (
+                  <div className="upcard">
+                    <h3>Nothing posted yet</h3>
+                    <p className="where">
+                      Group events show up here as soon as they&apos;re posted.
+                    </p>
+                  </div>
+                ) : null}
                 {EVENTS.slice(0, 5).map((ev) => {
                   const { day, mon } = eventDay(ev);
                   return (
@@ -364,7 +429,27 @@ export default function UmbrellaHome() {
                 </p>
               </div>
 
-              <div className="join-card">
+              {joinState.kind === "done" ? (
+                <div className="join-card">
+                  <div className="picked">You&apos;re on the list.</div>
+                  <h3 style={{ marginBottom: "0.5rem" }}>Thanks, {name.split(" ")[0]}.</h3>
+                  <p style={{ color: "var(--ink-60)" }}>
+                    You&apos;ll hear from{" "}
+                    {picked.map((s) => groupName(s)).join(", ")}. We sent a
+                    welcome email with a link to change your lists any time.
+                    The calendar below now shows your groups first.
+                  </p>
+                  <button
+                    type="button"
+                    className="btn btn-quiet"
+                    style={{ marginTop: "1.25rem" }}
+                    onClick={() => setJoinState({ kind: "idle" })}
+                  >
+                    Add more groups
+                  </button>
+                </div>
+              ) : (
+              <form className="join-card" onSubmit={submitJoin}>
                 <div className="picked">
                   {picked.length
                     ? `You'll hear from ${picked
@@ -389,20 +474,34 @@ export default function UmbrellaHome() {
                 </div>
 
                 <div className="f-row">
-                  <div className="f">
+                  <label className="f">
                     <span className="lbl">Your name</span>
-                    <input type="text" placeholder="First and last" />
-                  </div>
-                  <div className="f">
+                    <input
+                      type="text"
+                      placeholder="First and last"
+                      required
+                      autoComplete="name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </label>
+                  <label className="f">
                     <span className="lbl">Email</span>
-                    <input type="email" placeholder="you@email.com" />
-                  </div>
+                    <input
+                      type="email"
+                      placeholder="you@email.com"
+                      required
+                      autoComplete="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </label>
                 </div>
                 <div className="f-row">
-                  <div className="f">
+                  <label className="f">
                     <span className="lbl">Student grade</span>
-                    <select defaultValue="Select">
-                      <option>Select</option>
+                    <select value={grade} onChange={(e) => setGrade(e.target.value)}>
+                      <option value="">Select</option>
                       <option>9th</option>
                       <option>10th</option>
                       <option>11th</option>
@@ -410,23 +509,34 @@ export default function UmbrellaHome() {
                       <option>Multiple</option>
                       <option>Incoming</option>
                     </select>
-                  </div>
-                  <div className="f">
+                  </label>
+                  <label className="f">
                     <span className="lbl">Language</span>
-                    <select defaultValue="English">
-                      <option>English</option>
-                      <option>Español</option>
-                      <option>Other</option>
+                    <select
+                      value={language}
+                      onChange={(e) => setLanguage(e.target.value as Language)}
+                    >
+                      <option value="en">English</option>
+                      <option value="es">Español</option>
+                      <option value="other">Other</option>
                     </select>
-                  </div>
+                  </label>
                 </div>
+                {joinState.kind === "error" ? (
+                  <p className="form-error" role="alert">
+                    {joinState.msg}
+                  </p>
+                ) : null}
                 <button
+                  type="submit"
                   className="btn btn-green"
                   style={{ width: "100%", justifyContent: "center" }}
+                  disabled={joinState.kind === "sending"}
                 >
-                  Sign me up
+                  {joinState.kind === "sending" ? "Signing you up…" : "Sign me up"}
                 </button>
-              </div>
+              </form>
+              )}
             </div>
           </div>
         </div>
@@ -441,21 +551,23 @@ export default function UmbrellaHome() {
               <h2>Everything coming up</h2>
               <p className="lede">
                 Tap any event for the full details, the address, and the
-                signup. Anyone can submit an event. It posts once a group admin
-                approves it.
+                signup. Each group posts its own events here.
               </p>
             </div>
             <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
-              <a href="#" className="btn btn-quiet">
-                Submit an event
-              </a>
+              <Link href="/dashboard" className="btn btn-quiet">
+                Post an event
+              </Link>
               <a href="#" className="btn btn-quiet">
                 Subscribe &rarr;
               </a>
             </div>
           </div>
           <div className="filters">
-            {filterDefs.map((f) => (
+            {(myGroups.length
+              ? [{ key: "mine", label: "My groups", color: null }, ...filterDefs]
+              : filterDefs
+            ).map((f) => (
               <button
                 key={f.key}
                 className="filter"
@@ -519,6 +631,8 @@ export default function UmbrellaHome() {
                   </button>
                 );
               })
+            ) : upcoming === undefined ? (
+              <p className="lede">Loading the calendar…</p>
             ) : (
               <p className="lede">
                 Nothing on the calendar for that yet. Try another filter.
@@ -542,9 +656,12 @@ export default function UmbrellaHome() {
             </a>
           </div>
           <div className="notices">
-            {ANNOUNCEMENTS.map((x) => (
+            {news !== undefined && news.length === 0 ? (
+              <p className="lede">No announcements yet.</p>
+            ) : null}
+            {(news ?? []).map((x) => (
               <article
-                key={x.title}
+                key={x.id}
                 className="notice"
                 style={{ "--src": groupColor(x.group) } as React.CSSProperties}
               >

@@ -1,14 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import Link from "next/link";
+import { useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
 import Nav from "@/components/Nav";
 import UmbrellaFooter from "@/components/home/UmbrellaFooter";
 import {
-  ANNOUNCEMENTS,
   EFFORTS,
-  EVENTS,
-  GROUP_BY_SLUG,
   LEADERS,
   MINUTES,
   SUBCOMMITTEES,
@@ -17,6 +16,7 @@ import {
   placeLine,
   type Group,
 } from "@/lib/umbrella-data";
+import { chicagoToday } from "@/lib/time";
 
 const navLinks = [
   { href: "/#groups", label: "Groups" },
@@ -45,8 +45,13 @@ export default function GroupPage({ group }: { group: Group }) {
   const mainRef = useRef<HTMLDivElement>(null);
   const subnavRef = useRef<HTMLDivElement>(null);
 
-  const gEvents = EVENTS.filter((x) => x.groups.includes(G.slug));
-  const gNews = ANNOUNCEMENTS.filter((x) => x.group === G.slug);
+  const today = useMemo(() => chicagoToday(), []);
+  const upcoming = useQuery(api.events.listUpcoming, { from: today });
+  const news = useQuery(api.announcements.listPublishedForGroup, {
+    group: G.slug,
+  });
+  const gEvents = (upcoming ?? []).filter((x) => x.groups.includes(G.slug));
+  const gNews = news ?? [];
   const gEfforts = EFFORTS.filter((x) => x.group === G.slug);
   const sections = G.sections.filter((k) => SECTION_LABELS[k]);
 
@@ -82,7 +87,7 @@ export default function GroupPage({ group }: { group: Group }) {
       case "announcements":
         return gNews.length ? (
           gNews.map((x) => (
-            <div className="news-item" key={x.title}>
+            <div className="news-item" key={x.id}>
               <div className="card-date">{fmtDate(x.date)}</div>
               <h3>{x.title}</h3>
               <p>{x.body}</p>

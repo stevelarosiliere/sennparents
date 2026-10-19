@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { SignOutButton } from "@clerk/nextjs";
 import { useStaffUser } from "@/components/staff/useStaffUser";
 import Shield from "@/components/Shield";
+import RequestGroup from "@/components/staff/RequestGroup";
 
 export default function PendingPage() {
   const router = useRouter();
@@ -47,10 +48,12 @@ export default function PendingPage() {
         ) : (
           <>
             <h1>Account pending approval</h1>
-            <p>
-              Thanks for signing up. An administrator needs to approve your
-              account before you can use the staff dashboard. Check back soon.
+            <p style={{ marginBottom: "1.5rem" }}>
+              Thanks for signing up. Tell us which group you help with. One of
+              its leads, or a site admin, approves you, and then you can post
+              that group&apos;s events and announcements.
             </p>
+            <RequestGroup requested={user.requestedGroup} />
           </>
         )}
       </div>

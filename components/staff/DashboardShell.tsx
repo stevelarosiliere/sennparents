@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { SignOutButton } from "@clerk/nextjs";
 import { useStaffUser } from "@/components/staff/useStaffUser";
 import Shield from "@/components/Shield";
+import type { Doc } from "@/convex/_generated/dataModel";
 
 type Role = "admin" | "staff";
 
@@ -21,7 +22,7 @@ export default function DashboardShell({
 }: {
   requireRole?: Role;
   backHref?: string;
-  children: (role: Role) => React.ReactNode;
+  children: (role: Role, user: Doc<"users">) => React.ReactNode;
 }) {
   const router = useRouter();
   const { loading, user } = useStaffUser();
@@ -64,7 +65,7 @@ export default function DashboardShell({
           ← Back to dashboard
         </Link>
       )}
-      {children(user.role as Role)}
+      {children(user.role as Role, user)}
     </main>
   );
 }

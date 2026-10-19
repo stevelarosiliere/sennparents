@@ -1,7 +1,11 @@
 /* Senn Parents — data layer, ported from mockups/assets/groups-v2.js
-   (the merged direction D). In production every array below is a tab in
-   the shared Google Sheet, read through Apps Script. Nothing here is
-   hardcoded into the layout: add a row, the page grows. */
+   (the merged direction D). Events and announcements live in Convex and
+   are posted by group leads from the dashboard; the rest is still static
+   here. Nothing is hardcoded into the layout: add a row, the page grows. */
+
+import type { GroupSlug } from "../convex/lib/groups";
+
+export type { GroupSlug };
 
 export type Tier = {
   slug: string;
@@ -10,7 +14,7 @@ export type Tier = {
 };
 
 export type Group = {
-  slug: string;
+  slug: GroupSlug;
   name: string;
   full: string;
   tier: string;
@@ -22,7 +26,7 @@ export type Group = {
      renders if the group has it. */
   sections: string[];
   secretary?: string;
-  parent?: string;
+  parent?: GroupSlug;
   infoOnly?: boolean;
   infoNote?: string;
 };
@@ -31,7 +35,7 @@ export type EventSlot = { label: string; open: number; filled: number };
 
 export type SennEvent = {
   id: string;
-  groups: string[];
+  groups: GroupSlug[];
   title: string;
   date: string;
   time: string;
@@ -176,161 +180,6 @@ export const TAGS: Record<string, { label: string; color: string }> = {
   social: { label: "Social", color: "var(--arts)" },
   training: { label: "Training", color: "var(--icewatch)" },
 };
-
-export const EVENTS: SennEvent[] = [
-  {
-    id: "pac-kickoff",
-    groups: ["pac"],
-    title: "PAC Meeting: Back to School Kickoff",
-    date: "2026-08-25",
-    time: "7:00 PM",
-    ends: "8:30 PM",
-    tags: ["meeting"],
-    place: {
-      kind: "senn",
-      name: "Senn Library",
-      room: "Second floor, room 210",
-      virtual: "https://meet.google.com/qrh-ggsj-wcr",
-    },
-    body: "First meeting of the year. Budget review, the meeting calendar, and what the Title I family engagement money can actually be spent on. Spanish interpretation is standing.",
-    rsvp: true,
-  },
-  {
-    id: "home-opener",
-    groups: ["athletics"],
-    title: "Home Opener vs. Amundsen",
-    date: "2026-08-28",
-    time: "6:30 PM",
-    tags: ["social"],
-    place: { kind: "senn", name: "Senn Field" },
-    body: "Bulldogs open the season at home. Concessions run by the Athletic Boosters, all proceeds to uniforms.",
-    rsvp: false,
-  },
-  {
-    id: "fall-fundraiser",
-    groups: ["fos", "arts"],
-    title: "Fall Fundraiser Planning Session",
-    date: "2026-09-02",
-    time: "6:00 PM",
-    ends: "7:30 PM",
-    tags: ["fundraiser", "meeting"],
-    place: {
-      kind: "offsite",
-      name: "Little Red Nest",
-      address: "5717 N Clark St, Chicago IL 60660",
-    },
-    body: "Friends of Senn and the Arts Boosters plan the fall campaign together. Bring ideas and a laptop.",
-    rsvp: true,
-  },
-  {
-    id: "kyr-training",
-    groups: ["icewatch", "bac"],
-    title: "Know Your Rights Training (English and Spanish)",
-    date: "2026-09-05",
-    time: "10:00 AM",
-    ends: "12:00 PM",
-    tags: ["training"],
-    place: { kind: "senn", name: "Senn Auditorium" },
-    body: "Two hour training, run in both languages at the same time. Free. Printed rights cards go home with everyone who attends.",
-    rsvp: true,
-  },
-  {
-    id: "bac-breakfast",
-    groups: ["bac"],
-    title: "BAC Welcome Breakfast",
-    date: "2026-09-09",
-    time: "8:15 AM",
-    tags: ["social", "meeting"],
-    place: { kind: "senn", name: "Senn Cafeteria" },
-    body: "Coffee, breakfast, and an introduction to what the Bilingual Advisory Committee does. Interpretation provided.",
-    rsvp: true,
-  },
-  {
-    id: "lsc-info",
-    groups: ["lsc"],
-    title: "LSC Information Night",
-    date: "2026-09-15",
-    time: "6:30 PM",
-    tags: ["meeting"],
-    place: {
-      kind: "virtual",
-      name: "Zoom",
-      virtual: "https://us06web.zoom.us/j/0000000000",
-    },
-    body: "What the Local School Council does, what the seats are, and how the elections work. Virtual so anyone can drop in.",
-    rsvp: false,
-  },
-  {
-    id: "teacher-breakfast",
-    groups: ["fos"],
-    title: "Teacher Appreciation Breakfast",
-    date: "2026-09-18",
-    time: "7:30 AM",
-    tags: ["volunteer"],
-    place: { kind: "senn", name: "Senn Cafeteria" },
-    body: "We feed the whole staff before first period. Setup starts at 6:45 AM.",
-    rsvp: true,
-    slots: [
-      { label: "Setup, 6:45 to 7:30 AM", open: 2, filled: 4 },
-      { label: "Serving, 7:30 to 8:15 AM", open: 3, filled: 5 },
-      { label: "Cleanup, 8:15 to 9:00 AM", open: 4, filled: 1 },
-    ],
-  },
-  {
-    id: "concessions",
-    groups: ["athletics"],
-    title: "Booster Concessions Volunteer Night",
-    date: "2026-09-24",
-    time: "5:30 PM",
-    tags: ["volunteer", "fundraiser"],
-    place: { kind: "senn", name: "Senn Field House" },
-    body: "Two hour shifts at the stand. No experience needed, we train you in ten minutes. Proceeds fund uniforms.",
-    rsvp: true,
-    slots: [
-      { label: "First half, 5:30 to 7:00 PM", open: 3, filled: 3 },
-      { label: "Second half, 7:00 to 8:30 PM", open: 5, filled: 1 },
-    ],
-  },
-];
-
-export const ANNOUNCEMENTS = [
-  {
-    group: "pac",
-    title: "May minutes posted, laptop purchase approved",
-    date: "2026-08-08",
-    body: "The cabinet and laptop quotes were approved 9 to 0. Full minutes are on the PAC page.",
-  },
-  {
-    group: "fos",
-    title: "Classroom grant applications open August 20",
-    date: "2026-08-07",
-    body: "Teachers can request up to $500 per classroom. Two week window, decisions by mid September.",
-  },
-  {
-    group: "icewatch",
-    title: "New Know Your Rights cards, English and Spanish",
-    date: "2026-08-05",
-    body: "Printed cards are in the main office and at every Ice Watch table. Free, take as many as you need.",
-  },
-  {
-    group: "athletics",
-    title: "Fall sports physicals due August 22",
-    date: "2026-08-04",
-    body: "No physical on file means no practice. The nurse has walk in hours Thursday afternoons.",
-  },
-  {
-    group: "bac",
-    title: "Interpretation now standing at every meeting",
-    date: "2026-08-01",
-    body: "Spanish interpretation is confirmed for all BAC and PAC meetings this year. Other languages on request.",
-  },
-  {
-    group: "arts",
-    title: "Season announced: fall play, winter concert, spring showcase",
-    date: "2026-07-29",
-    body: "Three productions this year plus the spring art walk. Volunteer slots open in September.",
-  },
-];
 
 export const EFFORTS = [
   {

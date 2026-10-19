@@ -39,17 +39,16 @@ export default function Footer({ lang = "en" }: { lang?: "en" | "es" }) {
             &copy; 2026 Senn{" "}
             {lang === "es" ? "Consejo Asesor de Padres" : "Parent Advisory Council"}
           </span>
-          <span>
-            Powered by{" "}
-            <a
-              href="https://buildergrowth.io"
-              target="_blank"
-              rel="noopener"
-              style={{ textDecoration: "none" }}
-            >
-              BuilderGrowth
-            </a>
-          </span>
+          <a
+            className="runs-on"
+            href="https://empactos.com"
+            target="_blank"
+            rel="noopener"
+            aria-label="Runs on EMPACT"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/assets/runs-on-empact-white.svg" alt="Runs on EMPACT" />
+          </a>
         </div>
       </div>
     </footer>
