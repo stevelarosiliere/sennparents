@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Senn Parents — Group page template</title>
+<link rel="icon" type="image/jpeg" href="assets/sp-shield.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/senn.css">
+<style>
+    .g-hero { color: var(--white); padding: 3rem 1.5rem 2.5rem; }
+    .g-hero .kicker { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.75; }
+    .g-hero h1 { margin: 0.35rem 0 0.6rem; }
+    .g-hero p { opacity: 0.92; max-width: 620px; font-size: 1.05rem; }
+    .g-hero .actions { margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    /* Sticky anchor sub-nav: this is what keeps the page flat instead of deep */
+    .subnav {
+        position: sticky;
+        top: 56px;
+        z-index: 90;
+        background: var(--white);
+        border-bottom: 1px solid var(--gray-200);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .subnav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 0.25rem; padding: 0 1.5rem; }
+    .subnav a {
+        white-space: nowrap;
+        padding: 0.9rem 0.85rem;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--gray-600);
+        text-decoration: none;
+        border-bottom: 3px solid transparent;
+    }
+    .subnav a:hover { color: var(--gray-900); }
+    .subnav a.active { color: var(--gray-900); border-bottom-color: var(--accent); }
+
+    section { scroll-margin-top: 110px; padding: 3rem 1.5rem; }
+    section:nth-of-type(even) { background: var(--off-white); }
+
+    .rule { width: 48px; height: 4px; border-radius: 2px; background: var(--accent); margin-bottom: 0.85rem; }
+    h2 { color: var(--gray-900); }
+
+    .news-item {
+        background: var(--white);
+        border: 1px solid var(--gray-200);
+        border-left: 4px solid var(--accent);
+        border-radius: 10px;
+        padding: 1.25rem;
+        margin-bottom: 0.85rem;
+    }
+    .news-item .card-date { margin-bottom: 0.2rem; }
+    .news-item h3 { color: var(--gray-900); font-size: 1.05rem; margin-bottom: 0.3rem; }
+    .news-item p { color: var(--gray-600); font-size: 0.93rem; }
+
+    .people { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.25rem; }
+    .person { background: var(--white); border: 1px solid var(--gray-200); border-radius: 10px; padding: 1.25rem; text-align: center; }
+    .person .role { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--gray-500); font-weight: 700; }
+    .person .name { font-weight: 700; color: var(--gray-900); margin-top: 0.15rem; }
+
+    .doc-list { list-style: none; }
+    .doc-list li {
+        display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+        padding: 0.85rem 0; border-bottom: 1px solid var(--gray-200);
+    }
+    .doc-list li:last-child { border-bottom: none; }
+    .doc-list a { color: var(--gray-900); font-weight: 600; text-decoration: none; font-size: 0.98rem; }
+    .doc-list a:hover { color: var(--green-mid); }
+    .doc-list .meta { font-size: 0.82rem; color: var(--gray-500); white-space: nowrap; }
+    .year-head { font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin: 1.25rem 0 0.25rem; }
+    .year-head:first-child { margin-top: 0; }
+
+    .panel { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 1.75rem; }
+    .two-col { display: grid; grid-template-columns: 1.15fr 1fr; gap: 2rem; align-items: start; }
+
+    .sub-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.85rem; margin-top: 1rem; }
+    .sub-item { background: var(--white); border: 1px solid var(--gray-200); border-radius: 10px; padding: 1rem 1.15rem; }
+    .sub-item strong { display: block; color: var(--gray-900); font-size: 0.98rem; }
+    .sub-item span { font-size: 0.85rem; color: var(--gray-600); }
+
+    .join-strip { background: var(--green); color: var(--white); text-align: center; }
+    .join-strip h2 { color: var(--gold); }
+    .join-strip p { opacity: 0.9; max-width: 600px; margin: 0 auto 1.5rem; }
+
+    @media (max-width: 900px) { .people { grid-template-columns: repeat(2, 1fr); } .sub-list { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) {
+        .two-col { grid-template-columns: 1fr; }
+        .sub-list { grid-template-columns: 1fr; }
+        .subnav { top: 52px; }
+        .subnav-inner { padding: 0 1rem; }
+    }
+</style>
+</head>
+<body>
+
+<div id="nav-slot"></div>
+
+<header class="g-hero" id="g-hero">
+    <div class="container">
+        <p class="kicker" id="g-kicker"></p>
+        <h1 id="g-title"></h1>
+        <p id="g-blurb"></p>
+        <div class="actions">
+            <a href="#join" class="btn btn-gold">Join this group</a>
+            <a href="#events" class="btn btn-outline">See their events</a>
+        </div>
+    </div>
+</header>
+
+<div class="subnav"><div class="subnav-inner" id="subnav"></div></div>
+
+<main id="sections"></main>
+
+<section class="join-strip" id="join">
+    <div class="container">
+        <p class="section-label">Same form, every group</p>
+        <h2 id="join-title">Join</h2>
+        <p>One signup covers every parent group at Senn. This one is prechecked for you. Add others if you want them.</p>
+        <a href="#" class="btn btn-gold">Go to the signup</a>
+    </div>
+</section>
+
+<div id="footer-slot"></div>
+
+<script src="assets/groups-v2.js"></script>
+<script>
+/* ---------- Which group ---------- */
+const slug = new URLSearchParams(location.search).get('g') || 'fos';
+const G = GROUP_BY_SLUG[slug] || GROUP_BY_SLUG.fos;
+document.documentElement.style.setProperty('--accent', G.color);
+
+mountShell('d');
+document.getElementById('g-hero').style.background =
+  `linear-gradient(135deg, ${G.color} 0%, rgba(0,0,0,0.55) 130%)`;
+document.getElementById('g-kicker').textContent =
+  G.parent ? 'Subcommittee of ' + GROUP_BY_SLUG[G.parent].full : 'Senn Parents';
+document.getElementById('g-title').textContent = G.full;
+document.getElementById('g-blurb').textContent = G.blurb;
+document.getElementById('join-title').textContent = 'Join ' + G.name;
+document.title = `${G.full} — Senn Parents`;
+
+/* ---------- Seeded page content (Sheet rows in production) ---------- */
+const LEADERS = {
+  pac:       [['Chair','Jason Menard'],['Vice Chair','Katie Denny'],['Secretary','Kathryn Clark'],['Outreach','Steve Larosiliere']],
+  fos:       [['President','TBD'],['Treasurer','TBD'],['Secretary','TBD'],['Volunteer Lead','TBD']],
+  bac:       [['Chair','TBD'],['Vice Chair','TBD'],['Secretary','TBD'],['Interpreter Liaison','TBD']],
+  arts:      [['Chair','TBD'],['Treasurer','TBD'],['Volunteer Lead','TBD']],
+  athletics: [['Chair','TBD'],['Treasurer','TBD'],['Concessions Lead','TBD'],['Spirit Lead','TBD']],
+  icewatch:  [['Coordinator','TBD'],['Training Lead','TBD'],['Response Lead','TBD']],
+  lsc:       [['Chair','Vacant'],['Parent Reps','6 elected seats'],['Community Reps','2 elected seats'],['Principal','Ex officio']]
+};
+
+const MINUTES = {
+  '2026-2027': [['September 2026 meeting minutes','Posted Sep 2026'],['August 2026 meeting minutes','Posted Aug 2026']],
+  '2025-2026': [['All 2025-2026 minutes (one doc)','Updated Jun 2026']]
+};
+
+const SUBCOMMITTEES = {
+  fos: [['Arts Boosters','Theatre, music, dance, visual arts'],['Grants Committee','Reviews classroom requests'],['Events Committee','Fundraisers and community nights']],
+  pac: [['Budget Committee','Title I spending recommendations'],['Workshops Committee','Parent workshop planning']]
+};
+
+/* v2: an event can belong to several groups, so this is groups[], not group. */
+const gEvents = EVENTS.filter(x => x.groups.includes(slug));
+const gNews = ANNOUNCEMENTS.filter(x => x.group === slug);
+const gEfforts = EFFORTS.filter(x => x.group === slug);
+
+/* ---------- Section builders. A section only renders if the group has it. ---------- */
+const BUILDERS = {
+  announcements: () => ({
+    label: 'Announcements',
+    html: gNews.length
+      ? gNews.map(x => `
+          <div class="news-item">
+            <div class="card-date">${fmtDate(x.date)}</div>
+            <h3>${x.title}</h3>
+            <p>${x.body}</p>
+          </div>`).join('')
+      : `<p class="lede">No announcements posted yet.</p>`
+  }),
+
+  events: () => ({
+    label: 'Events',
+    extra: `<a href="#" class="link-more">Add to your calendar &rarr;</a>`,
+    html: gEvents.length
+      ? `<div class="grid-3">` + gEvents.map(x => `
+          <article class="card">
+            <div class="card-accent" style="background:${G.color}"></div>
+            <div class="card-body">
+              <div class="card-date">${fmtDate(x.date)} &middot; ${x.time}</div>
+              <h3>${x.title}</h3>
+              <p>${x.where}</p>
+              <div class="card-foot">
+                <a href="#" class="link-more">Add to calendar</a>
+                ${x.rsvp ? '<a href="#" class="link-more">RSVP</a>' : ''}
+              </div>
+            </div>
+          </article>`).join('') + `</div>`
+      : `<p class="lede">Nothing on the calendar right now.</p>`
+  }),
+
+  about: () => ({
+    label: 'About',
+    html: `
+      <div class="two-col">
+        <div class="panel">
+          <h3 style="margin-bottom:0.5rem">What ${G.name} does</h3>
+          <p style="color:var(--gray-600)">${G.blurb}</p>
+          <p style="color:var(--gray-600);margin-top:0.75rem"><b>Who it's for:</b> ${G.who}</p>
+          <p style="color:var(--gray-600);margin-top:0.75rem">Meetings are open. You do not need to be a member to attend, ask a question, or bring an idea.</p>
+        </div>
+        <div>
+          <h3>Who's leading</h3>
+          <div class="people" style="grid-template-columns:repeat(2,1fr)">
+            ${(LEADERS[slug] || []).map(([role, name]) => `
+              <div class="person"><div class="role">${role}</div><div class="name">${name}</div></div>`).join('')}
+          </div>
+        </div>
+      </div>`
+  }),
+
+  efforts: () => ({
+    label: 'Current efforts',
+    html: gEfforts.length
+      ? gEfforts.map(x => `
+          <div class="effort" style="border-left-color:${G.color}">
+            <div class="effort-main">
+              <h3>${x.title}</h3>
+              <p>${x.ask}</p>
+            </div>
+            <span class="effort-deadline">${x.deadline}</span>
+            <a href="#" class="btn btn-ghost btn-sm">${x.cta}</a>
+          </div>`).join('')
+      : `<p class="lede">No open asks right now. Check back, or join the list to hear first.</p>`
+  }),
+
+  minutes: () => ({
+    label: 'Minutes',
+    extra: `<span class="lede" style="font-size:0.88rem">One doc per year, kept in Google Docs</span>`,
+    html: `<div class="panel">` + Object.entries(MINUTES).map(([year, docs]) => `
+        <div class="year-head">${year}</div>
+        <ul class="doc-list">
+          ${docs.map(([t, m]) => `<li><a href="#">${t}</a><span class="meta">${m}</span></li>`).join('')}
+        </ul>`).join('') + `</div>`
+  }),
+
+  bylaws: () => ({
+    label: 'Bylaws',
+    html: `
+      <div class="panel">
+        <ul class="doc-list">
+          <li><a href="#">${G.name} bylaws (current)</a><span class="meta">Adopted 2026</span></li>
+          <li><a href="#">Proposed amendments</a><span class="meta">Under review</span></li>
+        </ul>
+      </div>`
+  }),
+
+  grants: () => ({
+    label: 'Grants &amp; support',
+    html: `
+      <div class="two-col">
+        <div class="panel">
+          <h3 style="margin-bottom:0.5rem">Request support</h3>
+          <p style="color:var(--gray-600)">Teachers and staff can request funding for classroom needs, field trips, and program costs. Applications open twice a year.</p>
+          <p style="margin-top:1rem"><a href="#" class="btn btn-ghost btn-sm">Start a request</a></p>
+        </div>
+        <div class="panel">
+          <h3 style="margin-bottom:0.5rem">What we've funded</h3>
+          <ul class="doc-list">
+            <li><a href="#">Library collection refresh</a><span class="meta">$3,200</span></li>
+            <li><a href="#">Classroom laptops</a><span class="meta">$2,800</span></li>
+            <li><a href="#">Field trip transportation</a><span class="meta">$1,400</span></li>
+          </ul>
+        </div>
+      </div>`
+  }),
+
+  subcommittees: () => ({
+    label: 'Subcommittees',
+    html: `<div class="sub-list">` + (SUBCOMMITTEES[slug] || []).map(([n, d]) => `
+        <div class="sub-item"><strong>${n}</strong><span>${d}</span></div>`).join('') + `</div>`
+  }),
+
+  kyr: () => ({
+    label: 'Know Your Rights',
+    html: `
+      <div class="two-col">
+        <div class="panel">
+          <h3 style="margin-bottom:0.5rem">Know your rights</h3>
+          <p style="color:var(--gray-600)">Every family has rights regardless of status. Trainings run monthly in English and Spanish, and cards are free in the main office.</p>
+          <p style="margin-top:1rem;display:flex;gap:0.6rem;flex-wrap:wrap">
+            <a href="#" class="btn btn-ghost btn-sm">KYR card (English)</a>
+            <a href="#" class="btn btn-ghost btn-sm">Tarjeta KYR (Espa&ntilde;ol)</a>
+          </p>
+        </div>
+        <div class="panel">
+          <h3 style="margin-bottom:0.5rem">If something happens</h3>
+          <p style="color:var(--gray-600)">Call the rapid response line. Someone answers, in your language, and a trained parent responds.</p>
+          <p style="margin-top:0.75rem;font-weight:700;color:var(--gray-900)">Rapid response: (773) 555-0142</p>
+        </div>
+      </div>`
+  }),
+
+  resources: () => ({
+    label: 'Resources',
+    html: `
+      <div class="panel">
+        <ul class="doc-list">
+          <li><a href="#">Family safety plan template</a><span class="meta">PDF, EN/ES</span></li>
+          <li><a href="#">Legal aid and immigration attorneys</a><span class="meta">Directory</span></li>
+          <li><a href="#">School policy on visitors and records</a><span class="meta">CPS</span></li>
+          <li><a href="#">Chicago rapid response network</a><span class="meta">External</span></li>
+        </ul>
+      </div>`
+  }),
+
+  contact: () => ({
+    label: 'Contact',
+    html: `
+      <div class="two-col">
+        <div>
+          <p class="lede">Questions, ideas, or something the group should know? This goes straight to the ${G.secretary ? G.name + " secretary" : "group"}, with a copy to the shared Senn Parents inbox so nothing gets lost.</p>
+          <div class="mock-note" style="margin-top:1rem">Routes to: <b>${G.secretary || "Senn Parents inbox"}</b> + sennparents@gmail.com</div>
+        </div>
+        <div class="panel">
+          <div class="field"><label>Your name</label><input type="text" placeholder="First and last"></div>
+          <div class="field"><label>Email</label><input type="email" placeholder="you@email.com"></div>
+          <div class="field"><label>Message</label><textarea rows="4" placeholder="What's on your mind?"></textarea></div>
+          <button class="btn btn-green" style="width:100%">Send to ${G.name}</button>
+        </div>
+      </div>`
+  })
+};
+
+/* ---------- Render ---------- */
+const built = G.sections.map(key => ({ key, ...BUILDERS[key]() }));
+
+document.getElementById('sections').innerHTML = built.map(s => `
+  <section id="${s.key}">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="rule"></div>
+          <h2>${s.label}</h2>
+        </div>
+        ${s.extra || ''}
+      </div>
+      ${s.html}
+    </div>
+  </section>`).join('');
+
+document.getElementById('subnav').innerHTML =
+  built.map(s => `<a href="#${s.key}">${s.label}</a>`).join('') +
+  `<a href="#join">Join</a>`;
+
+/* Highlight the section you're actually looking at */
+const links = [...document.querySelectorAll('.subnav a')];
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+  });
+}, { rootMargin: '-120px 0px -70% 0px' });
+document.querySelectorAll('main section, #join').forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

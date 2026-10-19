@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Senn Parents / Roll Call</title>
+<link rel="icon" type="image/jpeg" href="assets/sp-shield.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ROLL CALL
+   Banger recipe: 06 Kinetic Type, translated off STOKED entirely.
+   STOKED's kinetic direction was condensed streetwear sans on black.
+   This is the opposite lineage: a bold high contrast SERIF type wall
+   on deep Senn green. Academic, civic, loud. Type is the interface.
+   Thesis: call the roll. Six groups, named at full volume.
+   LOCKED: Senn green, gold, shield, flat IA, parents not admin voice
+   FREE:   type, ground, motion, layout
+   ============================================================ */
+
+:root {
+    /* The ground is Senn green itself, not a near black stand in. */
+    --field:      #1B5E20;
+    --field-lift: #226C28;
+    --cream:      #F6F3E9;
+    --cream-70:   rgba(246,243,233,0.72);
+    --cream-45:   rgba(246,243,233,0.48);
+    --cream-16:   rgba(246,243,233,0.20);
+    --gold:       #E3B02A;
+    --green-mid:  #2E7D32;
+    --ink:        #16211A;
+
+    /* Group tints, lifted to read on the green field.
+       PAC goes pale rather than mid green, or it disappears into the ground. */
+    --pac:       #9BDBA1;
+    --fos:       #F0C24A;
+    --bac:       #4FC3DE;
+    --arts:      #BFA6FF;
+    --athletics: #FF8A57;
+    --icewatch:  #B3C6D8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--field);
+    color: var(--cream);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+img, svg { display: block; max-width: 100%; }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 2rem; }
+
+.serif {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    font-variation-settings: 'opsz' 144, 'SOFT' 20;
+}
+.eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+.lede { color: var(--cream-70); font-size: 1.05rem; max-width: 48ch; }
+
+/* ---------- Nav ---------- */
+nav { position: sticky; top: 0; z-index: 200; background: rgba(27,94,32,0.93); backdrop-filter: blur(10px); border-bottom: 1px solid var(--cream-16); }
+.nav-inner { max-width: 1240px; margin: 0 auto; padding: 0.9rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; position: relative; }
+.nav-mark { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--cream); }
+.nav-mark svg { width: 26px; height: 26px; flex-shrink: 0; }
+.nav-mark span { font-family: 'Fraunces', Georgia, serif; font-weight: 900; font-size: 1.15rem; letter-spacing: -0.01em; }
+.nav-links { display: flex; gap: 1.6rem; list-style: none; align-items: center; }
+.nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--cream-70); text-decoration: none; transition: color 0.15s; }
+.nav-links a:hover { color: var(--gold); }
+.nav-links a.cta { color: var(--field); background: var(--gold); padding: 0.55rem 1.2rem; border-radius: 2px; font-weight: 700; }
+.nav-links a.cta:hover { background: var(--cream); }
+.nav-toggle { display: none; background: none; border: 1px solid var(--cream-16); color: var(--cream); padding: 0.35rem 0.6rem; font-size: 1rem; cursor: pointer; }
+
+/* ---------- Buttons ---------- */
+.btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.9rem 1.6rem;
+    font-family: inherit; font-size: 0.98rem; font-weight: 600;
+    text-decoration: none; border: none; cursor: pointer;
+    border-radius: 2px;
+    transition: transform 0.14s, background 0.14s, color 0.14s, box-shadow 0.14s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-gold { background: var(--gold); color: var(--field); }
+.btn-gold:hover { background: var(--cream); }
+.btn-line { background: transparent; color: var(--cream); box-shadow: inset 0 0 0 1.5px var(--cream-45); }
+.btn-line:hover { box-shadow: inset 0 0 0 1.5px var(--gold); color: var(--gold); }
+.btn-dark { background: var(--field); color: var(--cream); }
+.btn-dark:hover { background: var(--field-lift); }
+.arrow { transition: transform 0.18s; }
+.btn:hover .arrow { transform: translateX(3px); }
+
+/* ---------- Hero: the statement ---------- */
+.hero { padding: 6rem 0 4.5rem; }
+.hero .shield { width: 46px; margin-bottom: 2rem; }
+.hero h1 { font-size: clamp(3rem, 9.5vw, 8.2rem); margin-bottom: 2rem; }
+.hero h1 .gold { color: var(--gold); }
+.hero h1 .out { color: transparent; -webkit-text-stroke: 1.5px var(--cream-45); }
+.hero-foot {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2.5rem;
+    align-items: end;
+    padding-top: 2.25rem;
+    border-top: 1px solid var(--cream-16);
+}
+.hero-foot p { font-size: 1.15rem; color: var(--cream-70); max-width: 44ch; }
+.hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+/* ---------- Roll call: the type wall ---------- */
+.roll { border-top: 1px solid var(--cream-16); }
+.row { border-bottom: 1px solid var(--cream-16); transition: background 0.25s; }
+.row:hover, .row.open { background: var(--field-lift); }
+
+.row-head {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    color: inherit;
+    text-align: left;
+    display: grid;
+    grid-template-columns: 78px 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.6rem 0;
+}
+.row-idx {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--cream-45);
+    transition: color 0.2s;
+}
+.row:hover .row-idx, .row.open .row-idx { color: var(--tint); }
+
+.row-name {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 900;
+    font-variation-settings: 'opsz' 144, 'SOFT' 20;
+    font-size: clamp(1.75rem, 5.2vw, 4.1rem);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    transition: color 0.2s, transform 0.25s;
+}
+.row:hover .row-name, .row.open .row-name { color: var(--tint); transform: translateX(10px); }
+
+.row-sign {
+    width: 42px; height: 42px;
+    border: 1px solid var(--cream-45);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 1.25rem;
+    line-height: 1;
+    color: var(--cream-70);
+    flex-shrink: 0;
+    transition: transform 0.25s, border-color 0.2s, color 0.2s, background 0.2s;
+}
+.row:hover .row-sign { border-color: var(--tint); color: var(--tint); }
+.row.open .row-sign { transform: rotate(45deg); background: var(--tint); border-color: var(--tint); color: var(--field); }
+
+.row-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.35s ease; }
+.row.open .row-body { grid-template-rows: 1fr; }
+.row-body-inner { overflow: hidden; }
+.row-detail {
+    display: grid;
+    grid-template-columns: 78px 1.25fr 1fr auto;
+    gap: 1.5rem;
+    align-items: start;
+    padding: 0 0 2.2rem;
+}
+.row-detail .blurb { font-size: 1.05rem; color: var(--cream-70); }
+.row-detail .who { font-size: 0.95rem; color: var(--cream-70); border-left: 2px solid var(--tint); padding-left: 1rem; }
+.row-detail .who b { color: var(--cream); display: block; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.25rem; }
+.row-acts { display: flex; flex-direction: column; gap: 0.6rem; align-items: stretch; }
+.row-acts .btn { justify-content: center; white-space: nowrap; }
+.add-btn { background: transparent; color: var(--cream); box-shadow: inset 0 0 0 1.5px var(--cream-45); }
+.add-btn:hover { box-shadow: inset 0 0 0 1.5px var(--tint); color: var(--tint); }
+.add-btn[aria-pressed="true"] { background: var(--tint); color: var(--field); box-shadow: none; }
+
+/* ---------- Sections ---------- */
+section { padding: 4.5rem 0; }
+#roll { padding-bottom: 2rem; }
+.sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; margin-bottom: 3rem; }
+.sec-head h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+
+/* ---------- Bulletin ---------- */
+.bulletin { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--cream-16); }
+.bul {
+    padding: 2rem 1.75rem 2rem 0;
+    border-bottom: 1px solid var(--cream-16);
+    border-right: 1px solid var(--cream-16);
+    display: flex; flex-direction: column; gap: 0.5rem;
+}
+.bul:nth-child(3n) { border-right: none; padding-right: 0; }
+.bul:nth-child(3n+2), .bul:nth-child(3n) { padding-left: 1.75rem; }
+.bul .src { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--tint); }
+.bul .when { font-size: 0.84rem; color: var(--cream-45); }
+.bul h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 1.3rem; line-height: 1.15; letter-spacing: -0.01em; }
+.bul p { font-size: 0.93rem; color: var(--cream-70); }
+
+/* ---------- Calendar ---------- */
+.cal { border-top: 1px solid var(--cream-16); }
+.cal-row {
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--cream-16);
+    transition: padding-left 0.18s, background 0.18s;
+}
+.cal-row:hover { padding-left: 1rem; background: var(--field-lift); }
+.cal-day {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 900;
+    font-variation-settings: 'opsz' 144;
+    font-size: 2.6rem;
+    line-height: 0.9;
+    color: var(--tint);
+}
+.cal-day span { display: block; font-family: 'Inter', sans-serif; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-45); margin-top: 0.3rem; }
+.cal-what h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 1.35rem; letter-spacing: -0.01em; margin-bottom: 0.2rem; }
+.cal-meta { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.9rem; color: var(--cream-45); }
+.cal-meta .src { color: var(--tint); font-weight: 600; }
+.cal-acts { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end; }
+.cal-acts .btn { padding: 0.6rem 1.1rem; font-size: 0.88rem; }
+
+/* ---------- Needs ---------- */
+.needs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.need {
+    border: 1px solid var(--cream-16);
+    border-left: 4px solid var(--tint);
+    padding: 1.6rem 1.75rem;
+    display: flex; align-items: center; gap: 1.5rem;
+    transition: background 0.18s;
+}
+.need:hover { background: var(--field-lift); }
+.need-main { flex: 1; min-width: 0; }
+.need-main .src { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--tint); }
+.need-main h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 1.2rem; margin: 0.15rem 0 0.2rem; }
+.need-main p { font-size: 0.9rem; color: var(--cream-70); }
+.need-by { text-align: right; }
+.need-by span { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-45); }
+.need-by b { font-family: 'Fraunces', Georgia, serif; font-size: 1.15rem; white-space: nowrap; }
+
+/* ---------- Join: flips to light so the form is easy ---------- */
+.join { background: var(--cream); color: var(--ink); }
+.join .eyebrow { color: var(--green-mid); }
+.join-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 4rem; align-items: start; }
+.join h2 { color: var(--field); }
+.join-copy p { color: rgba(22,33,26,0.66); margin-top: 1rem; max-width: 38ch; }
+.picked {
+    background: rgba(46,125,50,0.10);
+    color: var(--green-mid);
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1.4rem;
+    border-left: 3px solid var(--green-mid);
+}
+.lbl { display: block; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(22,33,26,0.55); margin-bottom: 0.6rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+.chip {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    padding: 0.5rem 0.95rem;
+    font-size: 0.9rem; font-weight: 600;
+    cursor: pointer;
+    background: transparent;
+    box-shadow: inset 0 0 0 1.5px rgba(22,33,26,0.18);
+    transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+.chip input { accent-color: var(--green-mid); margin: 0; }
+.chip:has(input:checked) { background: var(--field); color: var(--cream); box-shadow: none; }
+.f { margin-bottom: 1rem; }
+.f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.f input, .f select {
+    width: 100%; font-family: inherit; font-size: 0.97rem;
+    padding: 0.8rem 0.95rem;
+    border: none;
+    background: rgba(22,33,26,0.05);
+    box-shadow: inset 0 0 0 1.5px rgba(22,33,26,0.14);
+    color: var(--ink);
+}
+.f input:focus, .f select:focus { outline: none; box-shadow: inset 0 0 0 2px var(--green-mid); }
+
+/* ---------- About + footer ---------- */
+.about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 4rem; align-items: start; }
+.dir { list-style: none; border-top: 1px solid var(--cream-16); }
+.dir li { border-bottom: 1px solid var(--cream-16); }
+.dir a {
+    display: flex; align-items: center; gap: 0.75rem;
+    padding: 0.9rem 0; text-decoration: none; color: var(--cream);
+    font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 1.05rem;
+    transition: padding-left 0.15s, color 0.15s;
+}
+.dir a:hover { padding-left: 0.5rem; color: var(--gold); }
+.dir .sq { width: 10px; height: 10px; flex-shrink: 0; }
+.dir .go { margin-left: auto; color: var(--cream-45); font-family: 'Inter', sans-serif; }
+
+footer { border-top: 1px solid var(--cream-16); padding: 3rem 0 2.5rem; color: var(--cream-45); }
+.foot-top { display: flex; justify-content: space-between; gap: 2rem; flex-wrap: wrap; padding-bottom: 2rem; }
+.foot-top strong { color: var(--cream); display: block; font-family: 'Fraunces', Georgia, serif; font-size: 1.15rem; margin-bottom: 0.3rem; }
+.foot-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.foot-links a, footer a { color: var(--cream-70); text-decoration: none; font-size: 0.92rem; }
+.foot-links a:hover { color: var(--gold); }
+.foot-bot { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding-top: 1.5rem; border-top: 1px solid var(--cream-16); font-size: 0.85rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+    .bulletin { grid-template-columns: repeat(2, 1fr); }
+    .bul:nth-child(3n) { border-right: 1px solid var(--cream-16); padding-right: 1.75rem; }
+    .bul:nth-child(2n) { border-right: none; padding-right: 0; padding-left: 1.75rem; }
+    .bul:nth-child(2n+1) { padding-left: 0; }
+    .about-grid, .join-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .row-detail { grid-template-columns: 78px 1fr; }
+    .row-acts { grid-column: 2; flex-direction: row; flex-wrap: wrap; }
+}
+@media (max-width: 780px) {
+    section, .hero { padding: 3.5rem 0; }
+    .hero { padding-top: 4rem; }
+    .hero-foot { grid-template-columns: 1fr; gap: 1.5rem; align-items: start; }
+    .needs { grid-template-columns: 1fr; }
+    .cal-row { grid-template-columns: 92px 1fr; row-gap: 0.9rem; gap: 1.25rem; }
+    .cal-acts { grid-column: 2; justify-content: flex-start; }
+    .row-head { grid-template-columns: 44px 1fr auto; gap: 1rem; }
+    .row-detail { grid-template-columns: 1fr; gap: 1rem; }
+    .row-acts { grid-column: 1; }
+
+    .nav-links {
+        display: none;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: var(--field);
+        border-bottom: 1px solid var(--cream-16);
+        flex-direction: column; align-items: flex-start;
+        padding: 1.2rem 2rem; gap: 1rem;
+    }
+    .nav-links.open { display: flex; }
+    .nav-toggle { display: block; }
+}
+@media (max-width: 620px) {
+    .wrap { padding: 0 1.25rem; }
+    .bulletin { grid-template-columns: 1fr; }
+    .bul { border-right: none !important; padding: 1.6rem 0 !important; }
+    .f-row { grid-template-columns: 1fr; }
+    .btn { width: 100%; justify-content: center; }
+    .hero-actions { flex-direction: column; }
+    .row-name { transform: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+    <div class="nav-inner">
+        <a href="#top" class="nav-mark">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+                <path fill="#E3B02A" d="M60,6 L110,24 L110,66 C110,94 88,114 60,122 C32,114 10,94 10,66 L10,24 Z"/>
+                <path fill="#1B5E20" d="M60,18 L100,33 L100,64 C100,86 82,102 60,109 C38,102 20,86 20,64 L20,33 Z"/>
+                <text x="60" y="84" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="900" font-size="58" fill="#E3B02A">S</text>
+            </svg>
+            <span>Senn Parents</span>
+        </a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"
+                onclick="const l=document.querySelector('.nav-links');l.classList.toggle('open');this.setAttribute('aria-expanded',l.classList.contains('open'))">&#9776;</button>
+        <ul class="nav-links">
+            <li><a href="#roll">The groups</a></li>
+            <li><a href="#bulletin">What's new</a></li>
+            <li><a href="#calendar">Calendar</a></li>
+            <li><a href="#needs">Volunteer</a></li>
+            <li><a href="#">Espa&ntilde;ol</a></li>
+            <li><a href="#join" class="cta">Join</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+    <div class="wrap">
+        <svg class="shield" viewBox="0 0 120 120" aria-hidden="true">
+            <path fill="#E3B02A" d="M60,6 L110,24 L110,66 C110,94 88,114 60,122 C32,114 10,94 10,66 L10,24 Z"/>
+            <path fill="#1B5E20" d="M60,18 L100,33 L100,64 C100,86 82,102 60,109 C38,102 20,86 20,64 L20,33 Z"/>
+            <text x="60" y="84" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="900" font-size="58" fill="#E3B02A">S</text>
+        </svg>
+        <h1 class="serif">Six groups.<br><span class="out">One</span> <span class="gold">door.</span></h1>
+
+        <div class="hero-foot">
+            <p>Every parent group at Senn, called by name. Pick the ones that are yours. One form puts you on any list you want.</p>
+            <div class="hero-actions">
+                <a href="#roll" class="btn btn-gold">Call the roll <span class="arrow">&darr;</span></a>
+                <a href="#calendar" class="btn btn-line">What's coming up</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ============ ROLL CALL ============ -->
+<section id="roll" style="padding-top: 1rem;">
+    <div class="wrap">
+        <div class="roll" id="roll-list"></div>
+        <p class="lede" style="margin-top:1.5rem; font-size:0.95rem">Tap a name to open it. Add as many as you want, then sign up once at the bottom.</p>
+    </div>
+</section>
+
+<!-- ============ BULLETIN ============ -->
+<section id="bulletin">
+    <div class="wrap">
+        <div class="sec-head">
+            <div>
+                <p class="eyebrow">Posted this month</p>
+                <h2 class="serif">What's new</h2>
+            </div>
+            <a href="#" class="btn btn-line">All announcements <span class="arrow">&rarr;</span></a>
+        </div>
+        <div class="bulletin" id="bulletin-grid"></div>
+    </div>
+</section>
+
+<!-- ============ CALENDAR ============ -->
+<section id="calendar">
+    <div class="wrap">
+        <div class="sec-head">
+            <div>
+                <p class="eyebrow">Every group, one calendar</p>
+                <h2 class="serif">Coming up</h2>
+                <p class="lede" style="margin-top:0.75rem">Anyone can submit an event. It posts once a group admin approves it.</p>
+            </div>
+            <div style="display:flex;gap:0.6rem;flex-wrap:wrap">
+                <a href="#" class="btn btn-line">Submit an event</a>
+            </div>
+        </div>
+        <div class="cal" id="cal"></div>
+    </div>
+</section>
+
+<!-- ============ NEEDS ============ -->
+<section id="needs">
+    <div class="wrap">
+        <div class="sec-head">
+            <div>
+                <p class="eyebrow">Open asks</p>
+                <h2 class="serif">Where you're needed</h2>
+                <p class="lede" style="margin-top:0.75rem">Real jobs with real deadlines. Pick one.</p>
+            </div>
+        </div>
+        <div class="needs" id="needs-grid"></div>
+    </div>
+</section>
+
+<!-- ============ JOIN ============ -->
+<section id="join" class="join">
+    <div class="wrap">
+        <div class="join-grid">
+            <div class="join-copy">
+                <p class="eyebrow">One form, every list</p>
+                <h2 class="serif">Answer the roll</h2>
+                <p>Fill this out once. You choose which groups email you, and you can change it any time.</p>
+                <p>We never share your information. Every list can be read in Spanish, and interpretation is standing at PAC and BAC meetings.</p>
+            </div>
+
+            <div>
+                <div class="picked" id="picked">No groups picked yet. Open a name above, or check the boxes here.</div>
+
+                <span class="lbl">I want to hear from</span>
+                <div class="chips" id="chips"></div>
+
+                <div class="f-row">
+                    <div class="f"><span class="lbl">Your name</span><input type="text" placeholder="First and last"></div>
+                    <div class="f"><span class="lbl">Email</span><input type="email" placeholder="you@email.com"></div>
+                </div>
+                <div class="f-row">
+                    <div class="f">
+                        <span class="lbl">Student grade</span>
+                        <select><option>Select</option><option>9th</option><option>10th</option><option>11th</option><option>12th</option><option>Multiple</option><option>Incoming</option></select>
+                    </div>
+                    <div class="f">
+                        <span class="lbl">Language</span>
+                        <select><option>English</option><option>Espa&ntilde;ol</option><option>Other</option></select>
+                    </div>
+                </div>
+                <button class="btn btn-dark" style="width:100%; justify-content:center">Sign me up</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+    <div class="wrap">
+        <div class="about-grid">
+            <div>
+                <p class="eyebrow">About</p>
+                <h2 class="serif" style="margin-bottom:1.25rem">Parent led.<br>For our kids.</h2>
+                <p class="lede">Senn Parents is the shared front door for every parent and community group at Nicholas Senn High School. Each group runs itself, sets its own agenda, and elects its own leaders. This site is how families find them, hear from them, and show up.</p>
+                <p class="lede" style="margin-top:1rem">You do not need to be a member to attend a meeting, ask a question, or bring an idea.</p>
+                <div style="display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:2rem">
+                    <a href="mailto:sennparents@gmail.com" class="btn btn-line">Email us</a>
+                </div>
+            </div>
+            <div>
+                <p class="eyebrow" style="margin-bottom:1rem">Directory</p>
+                <ul class="dir" id="dir"></ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="wrap">
+        <div class="foot-top">
+            <div>
+                <strong>Nicholas Senn High School</strong>
+                5900 N. Glenwood Ave, Chicago IL 60660<br>
+                <a href="mailto:sennparents@gmail.com">sennparents@gmail.com</a>
+            </div>
+            <div class="foot-links">
+                <a href="#roll">Groups</a>
+                <a href="#calendar">Calendar</a>
+                <a href="#needs">Volunteer</a>
+                <a href="#join">Join</a>
+                <a href="#">Espa&ntilde;ol</a>
+            </div>
+        </div>
+        <div class="foot-bot">
+            <span>&copy; 2026 Senn Parents</span>
+            <span>Powered by <a href="https://buildergrowth.io" target="_blank" rel="noopener">BuilderGrowth</a></span>
+        </div>
+    </div>
+</footer>
+
+<script src="assets/groups.js"></script>
+<script>
+/* Group colors are lifted for the dark ground, so read them off this page
+   rather than from the shared config. */
+const TINT = s => getComputedStyle(document.documentElement).getPropertyValue('--' + s).trim();
+
+/* ---------- The roll ---------- */
+document.getElementById('roll-list').innerHTML = GROUPS.map((g, i) => `
+  <div class="row" style="--tint:${TINT(g.slug)}" data-group="${g.slug}">
+    <button class="row-head" aria-expanded="false" aria-controls="body-${g.slug}">
+      <span class="row-idx">${String(i + 1).padStart(2, '0')}</span>
+      <span class="row-name">${g.full}</span>
+      <span class="row-sign" aria-hidden="true">+</span>
+    </button>
+    <div class="row-body" id="body-${g.slug}">
+      <div class="row-body-inner">
+        <div class="row-detail">
+          <span></span>
+          <p class="blurb">${g.blurb}</p>
+          <p class="who"><b>Who it's for</b>${g.who}</p>
+          <div class="row-acts">
+            <a href="group.html?g=${g.slug}" class="btn btn-line">Open page <span class="arrow">&rarr;</span></a>
+            <button class="btn add-btn" data-group="${g.slug}" aria-pressed="false">Add to my signup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>`).join('');
+
+/* Accordion. One open at a time keeps the wall readable. */
+document.querySelectorAll('.row-head').forEach(head => {
+  head.addEventListener('click', () => {
+    const row = head.closest('.row');
+    const willOpen = !row.classList.contains('open');
+    document.querySelectorAll('.row').forEach(r => {
+      r.classList.remove('open');
+      r.querySelector('.row-head').setAttribute('aria-expanded', 'false');
+    });
+    if (willOpen) {
+      row.classList.add('open');
+      head.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+/* ---------- Bulletin ---------- */
+document.getElementById('bulletin-grid').innerHTML = ANNOUNCEMENTS.map(x => `
+  <article class="bul" style="--tint:${TINT(x.group)}">
+    <span class="src">${groupName(x.group)}</span>
+    <span class="when">${fmtDate(x.date)}</span>
+    <h3>${x.title}</h3>
+    <p>${x.body}</p>
+  </article>`).join('');
+
+/* ---------- Calendar ---------- */
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+document.getElementById('cal').innerHTML = EVENTS.map(x => {
+  const [, m, d] = x.date.split('-').map(Number);
+  return `
+  <div class="cal-row" style="--tint:${TINT(x.group)}">
+    <div class="cal-day">${d}<span>${MONTHS[m - 1]}</span></div>
+    <div class="cal-what">
+      <h3>${x.title}</h3>
+      <div class="cal-meta">
+        <span class="src">${groupName(x.group)}</span>
+        <span>${x.time}</span>
+        <span>${x.where}</span>
+      </div>
+    </div>
+    <div class="cal-acts">
+      <a href="#" class="btn btn-line">Add to calendar</a>
+      ${x.rsvp ? '<a href="#" class="btn btn-gold">RSVP</a>' : ''}
+    </div>
+  </div>`;
+}).join('');
+
+/* ---------- Needs ---------- */
+document.getElementById('needs-grid').innerHTML = EFFORTS.map(x => `
+  <div class="need" style="--tint:${TINT(x.group)}">
+    <div class="need-main">
+      <span class="src">${groupName(x.group)}</span>
+      <h3>${x.title}</h3>
+      <p>${x.ask}</p>
+    </div>
+    <div class="need-by"><span>By</span><b>${x.deadline}</b></div>
+    <a href="#" class="btn btn-line">${x.cta}</a>
+  </div>`).join('');
+
+/* ---------- Join, synced with the roll ---------- */
+document.getElementById('chips').innerHTML = GROUPS.map(g =>
+  `<label class="chip"><input type="checkbox" value="${g.slug}">${g.name}</label>`).join('');
+
+const picked = document.getElementById('picked');
+
+function syncPicked() {
+  const list = [...document.querySelectorAll('#chips input:checked')].map(i => groupName(i.value));
+  picked.textContent = list.length
+    ? `You'll hear from ${list.join(', ')}.`
+    : 'No groups picked yet. Open a name above, or check the boxes here.';
+}
+
+function setAdd(slug, on) {
+  const btn = document.querySelector(`.add-btn[data-group="${slug}"]`);
+  if (!btn) return;
+  btn.setAttribute('aria-pressed', String(on));
+  btn.textContent = on ? '✓ Added to your signup' : 'Add to my signup';
+}
+
+document.getElementById('roll-list').addEventListener('click', e => {
+  const btn = e.target.closest('.add-btn');
+  if (!btn) return;
+  const box = document.querySelector(`#chips input[value="${btn.dataset.group}"]`);
+  box.checked = !box.checked;
+  setAdd(btn.dataset.group, box.checked);
+  syncPicked();
+});
+
+document.getElementById('chips').addEventListener('change', e => {
+  setAdd(e.target.value, e.target.checked);
+  syncPicked();
+});
+
+/* ---------- Directory ---------- */
+document.getElementById('dir').innerHTML = GROUPS.map(g =>
+  `<li><a href="group.html?g=${g.slug}"><span class="sq" style="background:${TINT(g.slug)}"></span>${g.full}<span class="go">&rarr;</span></a></li>`).join('');
+</script>
+</body>
+</html>
